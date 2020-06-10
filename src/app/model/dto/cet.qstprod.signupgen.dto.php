@@ -1,0 +1,73 @@
+<?php
+/** 
+ * signupgen.form html form DTO.
+ */
+Class QstProdGeneraleDTO
+{
+
+  public $nom;
+  public $prenom;
+  public $email;
+  public $motdepasseMD5;
+  public $telfix;
+  public $telport;
+  public $nomferme;
+  public $siret;
+  public $adrNumvoie;
+  public $adrRue;
+  public $adrLieudit;
+  public $adrCommune;
+  public $adrCodePostal;
+  public $adrComplementAdr;
+  public $pageFB;
+  public $pageIG;
+  public $pageTwitter;
+  public $siteWebUrl;
+  public $boutiqueEnLigneUrl;
+  public $anneeInstallation;
+  public $organismeSyndic;
+  public $organismeCertificateurBIO;
+  public $typeDeProduction;
+  public $surfaceHectTerres;
+  public $surfaceHectSousSerre;
+  public $nbrTetesBetail;
+  public $hectolitresParAn;
+
+  function __construct($pNom = "", $pPrenom = "", $pEmail = "", $pMotDePasseMD5 = "", $pTelFix = "", 
+    $pTelPort = "", $pNomFerme = "", $pSiret = "", $pAdrNumvoie = "", $pAdrRue = "", $pAdrLieudit = "", 
+    $pAdrCommune = "", $pAdrCodePostal = "", $pAdrComplementAdr = "", $pPageFB = "", $pPageIG = "", 
+    $pPageTwitter = "", $pPUrlWeb = "", $pUrlBoutiqueWww = "", $pAnneeInstallation = "", $pOrgSyndic = "", 
+    $pOrgCertifBIO = "", $pTypeProd = "", $pSurfaceHTerres = "", $pSurfaceHSerre = "", 
+    $pNbrTetesBetail = "", $pHectolitresParAn = "")
+  {
+      $this->nom = $pNom;
+      $this->prenom = $pPrenom;
+      $this->email = $pEmail;
+      $this->motdepasseMD5 = $pMotDePasseMD5;
+      $this->telfix = $pTelFix;
+      $this->telport = $pTelPort;
+      $this->nomferme = $pNomFerme;
+      $this->siret = $pSiret;
+      $this->adrNumvoie = $pAdrNumvoie;
+      $this->adrRue = $pAdrRue;
+      $this->adrLieudit = $pAdrLieudit;
+      $this->adrCommune = $pAdrCommune;
+      $this->adrCodePostal = $pAdrCodePostal;
+      $this->adrComplementAdr = $pAdrComplementAdr;
+      $this->pageFB = $pPageFB;
+      $this->pageIG = $pPageIG;
+      $this->pageTwitter = $pPageTwitter;
+      $this->siteWebUrl = $pPUrlWeb;
+      $this->boutiqueEnLigneUrl = $pUrlBoutiqueWww;
+      $this->anneeInstallation = $pAnneeInstallation;
+      $this->organismeSyndic = $pOrgSyndic;
+      $this->organismeCertificateurBIO = $pOrgCertifBIO;
+      $this->typeDeProduction = $pTypeProd;
+      $this->surfaceHectTerres = $pSurfaceHTerres;
+      $this->surfaceHectSousSerre = $pSurfaceHSerre;
+      $this->nbrTetesBetail = $pNbrTetesBetail;
+      $this->hectolitresParAn = $pHectolitresParAn;
+  }  
+
+}
+?>
