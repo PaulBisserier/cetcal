@@ -5,9 +5,9 @@ Class CetQstProdFilArianneHelper
   private static $prefix = "";
   private static $values = array(
     "signupgen.form" => "Fiche d'identité (et sondage)",
-    "signupbesoins.form" => "Votre activité, vos besoins",
-    "signupprods.form" => "Produits",
     "signuplieuxdist.form" => "Distribution",
+    "signupprods.form" => "Produits",
+    "signupbesoins.form" => "Votre activité, vos besoins",
     "signuprecap.form" => "Récapitulatif",
   );
 

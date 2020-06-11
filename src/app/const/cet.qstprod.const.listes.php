@@ -28,6 +28,20 @@
     public $sondage_difficultes = NULL;
     public $sondage_divers = NULL;
 
+    public $produits_v4_legumes = NULL;
+    public $produits_v4_viandes = NULL;
+    public $produits_v4_laitiers = NULL;
+    public $produits_v4_mielruche = NULL;
+    public $produits_v4_fruits = NULL;
+    public $produits_v4_champignons = NULL;
+    public $produits_v4_plantes = NULL;
+    public $produits_v4_semences = NULL;
+    public $produits_v4_transformes = NULL;
+    public $produits_v4_cereales = NULL;
+    public $produits_v4_hygienes = NULL;
+    public $produits_v4_entretiens = NULL;
+    public $produits_v4_animaux = NULL;
+
     function __construct($fileReader)
     {
       $this->activites = $fileReader->read('cet.qstprod.liste.activites');
@@ -49,6 +63,19 @@
 
       $this->sondage_difficultes = $fileReader->read('cet.qstprod.liste.sondage.difficultes');
       $this->sondage_divers = $fileReader->readQAFile('cet.qstprod.liste.sondage.divers');
+      $this->produits_v4_legumes = $fileReader->read('cet.qstprod.liste.produits.v4.legumes');
+      $this->produits_v4_viandes = $fileReader->read('cet.qstprod.liste.produits.v4.viandes');
+      $this->produits_v4_laitiers = $fileReader->read('cet.qstprod.liste.produits.v4.laitiers');
+      $this->produits_v4_mielruche = $fileReader->read('cet.qstprod.liste.produits.v4.mielruche');
+      $this->produits_v4_fruits = $fileReader->read('cet.qstprod.liste.produits.v4.fruits');
+      $this->produits_v4_champignons = $fileReader->read('cet.qstprod.liste.produits.v4.champignons');
+      $this->produits_v4_plantes = $fileReader->read('cet.qstprod.liste.produits.v4.plantes');
+      $this->produits_v4_semences = $fileReader->read('cet.qstprod.liste.produits.v4.semences');
+      $this->produits_v4_transformes = $fileReader->read('cet.qstprod.liste.produits.v4.transformes');
+      $this->produits_v4_cereales = $fileReader->read('cet.qstprod.liste.produits.v4.cereales');
+      $this->produits_v4_hygienes = $fileReader->read('cet.qstprod.liste.produits.v4.hygiene');
+      $this->produits_v4_entretiens = $fileReader->read('cet.qstprod.liste.produits.v4.entretien');
+      $this->produits_v4_animaux = $fileReader->read('cet.qstprod.liste.produits.v4.animaux');
     }
  }
  ?>

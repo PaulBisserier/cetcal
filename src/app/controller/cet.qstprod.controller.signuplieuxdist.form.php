@@ -14,7 +14,7 @@ if ($nav != 'valider' && $nav != 'retour' && $nav != 'ajouter' && $nav != 'suppr
 }
 $append = $nav == 'ajouter';
 $remove = $nav == 'supprimer';
-$statut = ($append == true || $remove == true) ? 'signuplieuxdist.form' : ($nav == 'valider' ? 'signuprecap.form' : 'signupprods.form');
+$statut = ($append == true || $remove == true) ? 'signuplieuxdist.form' : ($nav == 'valider' ? 'signupprods.form' : 'signupgen.form');
 
 // POST form logic :
 /* *****************************************************************************/

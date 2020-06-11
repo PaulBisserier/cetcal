@@ -12,7 +12,7 @@ $recapProduitsDisplay = ($produits === NULL || count($produits) === 0) ? 'none' 
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p>Teste à rédiger</p>
+      <p></p>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -30,6 +30,229 @@ $recapProduitsDisplay = ($produits === NULL || count($produits) === 0) ? 'none' 
           <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
         </small>
       </label>
+
+      <!-- ------------------------- -->
+      <!-- INPUTS formulaire START : ---
+      <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">
+      ---- ------------------------- -->
+      <br>
+      <label class="cet-formgroup-container-label"><small class="form-text">Spécificités de vos produits, Label, type d'agriculture, etc :</small></label>
+      <div class="cet-formgroup-container">
+        <label><small class="form-text">Spécificités de vos produits, Label, type d'agriculture, etc. (plusieurs options possibles) :</small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->type_culture as $typeculture): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $typeculture; ?>" id="qstprod-typeculture-<?= $counter; ?>" name="qstprod-typescultures[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-typeculture-<?= $counter; ?>"><?= $typeculture; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-typeculture-autre" name="qstprod-typeculture-autre" type="text" placeholder="Quel autre spécificité, label ou type d'agriculture ?">
+        </div>
+      </div>
+
+      <label class="cet-formgroup-container-label"><small class="form-text">Quels produits vendez-vous ?</small></label>
+      <div class="cet-formgroup-container">        
+        <label><small class="form-text">Quels <b>legumes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_legumes as $pv4Legumes): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $pv4Legumes; ?>" id="qstprod-produit-legume-<?= $counter; ?>" name="qstprod-produits-legumes[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-legume-<?= $counter; ?>"><?= $pv4Legumes; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-legume-autre" name="qstprod-produit-legume-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>viandes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_viandes as $pv4viande): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $pv4viande; ?>" id="qstprod-produit-viande-<?= $counter; ?>" name="qstprod-produits-viandes[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-viande-<?= $counter; ?>"><?= $pv4viande; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-viande-autre" name="qstprod-produit-viande-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>produits laitiers</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_laitiers as $pv4laitier): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $pv4laitier; ?>" id="qstprod-produit-laitier-<?= $counter; ?>" name="qstprod-produits-laitiers[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-laitier-<?= $counter; ?>"><?= $pv4laitier; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-laitier-autre" name="qstprod-produit-laitier-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>produits de la ruche</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_mielruche as $pv4mielruche): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $pv4mielruche; ?>" id="qstprod-produit-mielruche-<?= $counter; ?>" name="qstprod-produits-mielsruches[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-mielruche-<?= $counter; ?>"><?= $pv4mielruche; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-mielruche-autre" name="qstprod-produit-mielruche-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>fruits</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_fruits as $fruit): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $fruit; ?>" id="qstprod-produit-fruit-<?= $counter; ?>" name="qstprod-produits-fruits[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-fruit-<?= $counter; ?>"><?= $fruit; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-fruit-autre" name="qstprod-produit-fruit-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>champignons</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_champignons as $champignon): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $champignon; ?>" id="qstprod-produit-champignon-<?= $counter; ?>" name="qstprod-produits-champignons[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-champignon-<?= $counter; ?>"><?= $champignon; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-champignon-autre" name="qstprod-produit-champignon-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>plantes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_plantes as $plante): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $plante; ?>" id="qstprod-produit-plante-<?= $counter; ?>" name="qstprod-produits-plantes[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-plante-<?= $counter; ?>"><?= $plante; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-plante-autre" name="qstprod-produit-plante-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>plants et semences</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_semences as $semence): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $semence; ?>" id="qstprod-produit-semence-<?= $counter; ?>" name="qstprod-produits-semences[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-semence-<?= $counter; ?>"><?= $semence; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-semence-autre" name="qstprod-produit-semence-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+      </div>
+
+      <label class="cet-formgroup-container-label"><small class="form-text">Quels autres produits vendez-vous ?</small></label>
+      <div class="cet-formgroup-container">
+
+        <label><small class="form-text">Quels <b>produits transformés</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_transformes as $transforme): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $transforme; ?>" id="qstprod-produit-transforme-<?= $counter; ?>" name="qstprod-produits-transformes[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-transforme-<?= $counter; ?>"><?= $transforme; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-transforme-autre" name="qstprod-produit-transforme-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div> 
+
+        <br>
+        <label><small class="form-text">Quels <b>céréales et dérivés/légumineuses</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_cereales as $cereale): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $cereale; ?>" id="qstprod-produit-cereale-<?= $counter; ?>" name="qstprod-produits-cereales[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-cereale-<?= $counter; ?>"><?= $cereale; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-cereale-autre" name="qstprod-produit-cereale-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div> 
+
+        <br>
+        <label><small class="form-text">Quels <b>produits d'hygiène</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_hygienes as $hygiene): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $hygiene; ?>" id="qstprod-produit-hygiene-<?= $counter; ?>" name="qstprod-produits-hygienes[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-hygiene-<?= $counter; ?>"><?= $hygiene; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-hygiene-autre" name="qstprod-produit-hygiene-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div> 
+
+        <br>
+        <label><small class="form-text">Quels <b>produits d'entretien</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_entretiens as $entretien): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $entretien; ?>" id="qstprod-produit-entretien-<?= $counter; ?>" name="qstprod-produits-entretiens[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-entretien-<?= $counter; ?>"><?= $entretien; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-entretien-autre" name="qstprod-produit-entretien-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div>
+
+        <br>
+        <label><small class="form-text">Quels <b>nourriture pour animaux</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_animaux as $animal): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $animal; ?>" id="qstprod-produit-animal-<?= $counter; ?>" name="qstprod-produits-animaux[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-animal-<?= $counter; ?>"><?= $animal; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-animal-autre" name="qstprod-produit-animal-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div> 
+
+        <br>
+        <label><small class="form-text">Quel <b>autre produit</b> vendez-vous ? (si les réponses font défaut, merci de nous renseigner) : </small></label>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de nous renseigner :</small></label>   
+          <input class="form-control" id="qstprod-produit-autre-autre" name="qstprod-produit-autre-autre" type="text" placeholder="Dites-nous quel autre produit">
+        </div> 
+
+      </div>
 
       <!-- ------------------------- -->
       <!-- INPUTS formulaire START : ---

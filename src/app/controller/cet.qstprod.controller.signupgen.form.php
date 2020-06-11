@@ -14,7 +14,7 @@ if ($nav != 'valider' && $nav != 'retour')
   /*Error de navigation TODO.*/ 
   $nav = 'retour'; 
 }
-$statut = $nav == 'valider' ? 'signupbesoins.form' : '';
+$statut = $nav == 'valider' ? 'signuplieuxdist.form' : '';
 
 /* *****************************************************************************/
 /* HTTP POST : var setup : *****************************************************/
