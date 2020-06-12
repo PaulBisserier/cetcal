@@ -1,8 +1,10 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
+$neant = '';
 $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
+$currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signuplieuxdist.form.post'] : array();
 $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['signuplieuxdist.form']) : NULL; 
 $lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 'block';
 ?>
@@ -39,7 +41,10 @@ $lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->points_vente_producteurs as $pdv): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pdv; ?>" id="qstprod-pdv-<?= $counter; ?>" name="qstprod-pdv[]">
+          <input class="form-check-input" type="checkbox" value="<?= $pdv; ?>" id="qstprod-pdv-<?= $counter; ?>" 
+            name="qstprod-pdv[]"
+            <?= isset($currentForm['qstprod-pdv']) && in_array($pdv, $currentForm['qstprod-pdv']) ? 
+              'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-pdv-<?= $counter; ?>"><?= $pdv; ?></label>
         </div>
         <?php ++$counter; ?>
@@ -47,7 +52,9 @@ $lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 
 
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-pdvautre" name="qstprod-pdvautre" type="text" placeholder="Point de distribution ou vente autre">
+          <input class="form-control" id="qstprod-pdvautre" name="qstprod-pdvautre" type="text" 
+            placeholder="Point de distribution ou vente autre"
+            value="<?= isset($currentForm['qstprod-pdvautre']) ? $currentForm['qstprod-pdvautre'] : $neant; ?>">
         </div>
       </div>
 

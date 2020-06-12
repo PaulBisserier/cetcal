@@ -139,20 +139,28 @@ $lieuxDistDisplayRecap = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'non
 
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <label class="cet-formgroup-container-label">
-      <small class="form-text cet-qstprod-label-text"><?= CetQstprodConstTextes::recap_questionnaire_declaratif_a; ?></b></small>
-    </label>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="qstprod-label-finaliser-envoi">Votre inscription peut être finalisée ?</span>
+    <div class="cet-formgroup-container">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <p><small class="cet-qstprod-label-text"><b><?= CetQstprodConstTextes::recap_questionnaire_declaratif_a; ?></b></small></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <select class="form-control custom-select is-invalid" id="qstprod-finaliser-envoi" 
-        name="qstprod-finaliser-envoi" aria-describedby="qstprod-label-finaliser-envoi" 
-        onblur="checkFormInputMin(30, 2, this.id);">
-        <option></option>
-        <option value="false">Non, je ne suis pas d'accord</option>
-        <option value="true">Je suis d'accord</option>
-      </select>
+      <label>
+        <small class="form-text cet-qstprod-label-text">Souhaitez-vous valider votre inscription et envoyer votre questionnaire ? Si oui, merci de déclarer vos informations :</small>
+      </label>
+      <div class="input-group mb-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="qstprod-question-reseaux-participation-oui" 
+            name="qstprod-question-reseaux-participation" value="oui">
+          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="qstprod-question-reseaux-participation-non" 
+            name="qstprod-question-reseaux-participation" value="non">
+          <label class="form-check-label" for="qstprod-question-reseaux-participation-non">Non, je ne souhaite plus m'inscrire.</label>
+        </div>
+      </div>
     </div>
   </div>
 </div>

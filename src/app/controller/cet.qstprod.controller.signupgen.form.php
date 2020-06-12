@@ -1,10 +1,12 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
 $dataProcessor = new HTTPDataProcessor();
-// SESSION start for data storage.
-$cetcal_session_id = hash('sha1', 
-  $dataProcessor->processHttpFormData($_POST['qstprod-email']
-  ).$dataProcessor->processHttpFormData($_POST['qstprod-mdp']));
+
+// SESSION init, re-init & start for data storage.
+$nomferme = $dataProcessor->processHttpFormData($_POST['qstprod-nomferme']);
+$mdpprod = $dataProcessor->processHttpFormData($_POST['qstprod-mdp']);
+$siretprod = $dataProcessor->processHttpFormData($_POST['qstprod-siret']);
+$cetcal_session_id = hash('sha1', $nomferme.$mdpprod.$siretprod);
 session_id($cetcal_session_id);
 session_start();
 // Prepare navigation :
@@ -66,8 +68,10 @@ if ($nav == 'valider')
     $form_pagetwitter, $form_siteweb, $form_boutiquewww, "", "", $form_orgcertifbio, 
     $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan);
   $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);
-  session_write_close();
 }
+
+$_SESSION['signupgen.form.post'] = $_POST;
+session_write_close();
 /* *****************************************************************************/
 
 // Apply navigation :

@@ -42,6 +42,9 @@ else if ($remove)
   unset($fichesLieux[$form_lid_remove]);
   $_SESSION['signuplieuxdist.form'] = serialize($fichesLieux);
 }
+
+$_SESSION['signuplieuxdist.form.post'] = $_POST;
+session_write_close();
 /* *****************************************************************************/
 
 // Apply navigation :

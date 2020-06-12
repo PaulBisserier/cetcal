@@ -17,6 +17,9 @@ $statut = $nav == 'valider' ? 'signupbesoins.form' : 'signupprods.form';
 //require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
 //$consoDto = "";
 //$_SESSION['signupconso.form'] = serialize($consoDto);
+
+$_SESSION['signupconso.form.post'] = $_POST;
+session_write_close();
 /* *****************************************************************************/
 
 // Apply navigation :

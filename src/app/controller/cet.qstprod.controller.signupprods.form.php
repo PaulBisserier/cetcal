@@ -43,6 +43,9 @@ else if ($remove)
   unset($fichesProduits[$form_pid_remove]);
   $_SESSION['signupprods.form'] = serialize($fichesProduits);
 }
+
+$_SESSION['signupprods.form.post'] = $_POST;
+session_write_close();
 /* *****************************************************************************/
 
 // Apply navigation :

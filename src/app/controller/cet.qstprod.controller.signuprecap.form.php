@@ -8,7 +8,7 @@ session_start();
 // Prepare navigation :
 $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signuprecap-nav']);
 if ($nav != 'valider' && $nav != 'retour') { /*Error de navigation TODO.*/ $nav = 'retour'; }
-$statut = $nav == 'valider' ? '' : 'signuplieuxdist.form';
+$statut = $nav == 'valider' ? '' : 'signupbesoins.form';
 
 // POST form logic :
 

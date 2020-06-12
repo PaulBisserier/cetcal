@@ -1,8 +1,10 @@
 <?php 
 //require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
+$neant = '';
 $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
+$currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupconso.form.post'] : array();
 //$lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['signuplieuxdist.form']) : NULL; 
 //$lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 'block';
 ?>
@@ -43,44 +45,59 @@ session_start();
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_achats as $consoachat): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $consoachat; ?>" id="qstprod-consoachat-<?= $counter; ?>" name="qstprod-consoachats[]">
+          <input class="form-check-input" type="checkbox" value="<?= $consoachat; ?>" id="qstprod-consoachat-<?= $counter; ?>" 
+            name="qstprod-consoachats[]"
+            <?= isset($currentForm['qstprod-consoachats']) && in_array($consoachat, $currentForm['qstprod-consoachats']) ? 
+              'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-consoachat-<?= $counter; ?>"><?= $consoachat; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-consoachatautre" name="qstprod-consoachatautre" type="text" placeholder="Autre ? Merci de préciser">
+          <input class="form-control" id="qstprod-consoachatautre" name="qstprod-consoachatautre" type="text" 
+            placeholder="Autre ? Merci de préciser"
+            value="<?= isset($currentForm['qstprod-consoachatautre']) ? $currentForm['qstprod-consoachatautre'] : $neant; ?>">
         </div>
-
         <br>
         <label><small class="form-text">Comment le consommateur va réceptionner vos produits ? (plusieurs options possibles)</small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_receptions as $reception): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $reception; ?>" id="qstprod-reception-<?= $counter; ?>" name="qstprod-receptions[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-reception-<?= $counter; ?>"><?= $reception; ?></label>
+          <input class="form-check-input" type="checkbox" value="<?= $reception; ?>" id="qstprod-reception-<?= $counter; ?>" 
+            name="qstprod-receptions[]"
+            <?= isset($currentForm['qstprod-receptions']) && in_array($reception, $currentForm['qstprod-receptions']) ? 
+              'checked="checked"' : $neant; ?>>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-reception-<?= $counter; ?>">
+            <?= $reception; ?>
+          </label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-receptionautre" name="qstprod-receptionautre" type="text" placeholder="Autre ? Merci de préciser">
+          <input class="form-control" id="qstprod-receptionautre" name="qstprod-receptionautre" type="text" 
+            placeholder="Autre ? Merci de préciser"
+            value="<?= isset($currentForm['qstprod-receptionautre']) ? $currentForm['qstprod-receptionautre'] : $neant; ?>">
         </div>
-
         <br>
         <label><small class="form-text">Comment les consommateurs peuvent vous payer ? Les Moyens de paiement (plusieurs options possibles)</small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_paiements as $paiment): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $paiment; ?>" id="qstprod-paiment-<?= $counter; ?>" name="qstprod-paiments[]">
+          <input class="form-check-input" type="checkbox" value="<?= $paiment; ?>" id="qstprod-paiment-<?= $counter; ?>"
+            name="qstprod-paiments[]"
+            <?= isset($currentForm['qstprod-paiments']) && in_array($paiment, $currentForm['qstprod-paiments']) ? 
+              'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-paiment-<?= $counter; ?>"><?= $paiment; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-paimentautre" name="qstprod-paimentautre" type="text" placeholder="Autre ? Merci de préciser">
+          <input class="form-control" id="qstprod-paimentautre" name="qstprod-paimentautre" type="text" 
+            placeholder="Autre ? Merci de préciser"
+            value="<?= isset($currentForm['qstprod-paimentautre']) ? $currentForm['qstprod-paimentautre'] : $neant; ?>">
         </div>
       </div>
 

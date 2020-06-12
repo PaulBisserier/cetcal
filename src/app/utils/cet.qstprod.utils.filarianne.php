@@ -9,7 +9,7 @@ Class CetQstProdFilArianneHelper
     "signupprods.form" => "Produits",
     "signupconso.form" => "Vos consomateurs",
     "signupbesoins.form" => "Besoins, Solidarité et Résilience",
-    "signuprecap.form" => "Récapitulatif",
+    "signuprecap.form" => "Récapitulatif du questionnaire",
   );
 
   private static $result = "";

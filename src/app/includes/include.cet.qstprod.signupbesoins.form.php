@@ -1,9 +1,11 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.textes.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
+$neant = '';
 $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
+$currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbesoins.form.post'] : array();
 ?>
 <!-- singup besoins html form -->
 <div class="row justify-content-lg-center">
@@ -40,14 +42,19 @@ session_start();
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->solidaires_producteurs as $solprod): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $solprod; ?>" id="qstprod-besoins-solprod-<?= $counter; ?>" name="qstprod-besoins-solsprods[]">
+          <input class="form-check-input" type="checkbox" value="<?= $solprod; ?>" id="qstprod-besoins-solprod-<?= $counter; ?>" 
+            name="qstprod-besoins-solsprods[]"
+            <?= isset($currentForm['qstprod-besoins-solsprods']) && in_array($solprod, $currentForm['qstprod-besoins-solsprods']) ? 
+              'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-solprod-<?= $counter; ?>"><?= $solprod; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-solprod-autre" name="qstprod-solprod-autre" type="text" placeholder="Autre ? Merci de préciser">
+          <input class="form-control" id="qstprod-solprod-autre" name="qstprod-solprod-autre" type="text" 
+            placeholder="Autre ? Merci de préciser"
+            value="<?= isset($currentForm['qstprod-solprod-autre']) ? $currentForm['qstprod-solprod-autre'] : $neant; ?>">
         </div>
 
         <br>
@@ -72,14 +79,19 @@ session_start();
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->solidaires_actions as $action): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $action; ?>" id="qstprod-besoins-action-<?= $counter; ?>" name="qstprod-besoins-actions[]">
+          <input class="form-check-input" type="checkbox" value="<?= $action; ?>" id="qstprod-besoins-action-<?= $counter; ?>" 
+            name="qstprod-besoins-actions[]"
+            <?= isset($currentForm['qstprod-besoins-actions']) && in_array($action, $currentForm['qstprod-besoins-actions']) ? 
+              'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-action-<?= $counter; ?>"><?= $action; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-action-autre" name="qstprod-action-autre" type="text" placeholder="Autre ? Merci de préciser">
+          <input class="form-control" id="qstprod-action-autre" name="qstprod-action-autre" type="text" 
+            placeholder="Autre ? Merci de préciser"
+            value="<?= isset($currentForm['qstprod-action-autre']) ? $currentForm['qstprod-action-autre'] : $neant; ?>">
         </div>
       </div>
     
@@ -94,14 +106,19 @@ session_start();
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->solidaires_groupe_resilience as $grouperes): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $grouperes; ?>" id="qstprod-besoins-grouperes-<?= $counter; ?>" name="qstprod-besoins-groupesres[]">
+          <input class="form-check-input" type="checkbox" value="<?= $grouperes; ?>" id="qstprod-besoins-grouperes-<?= $counter; ?>" 
+            name="qstprod-besoins-groupesres[]"
+            <?= isset($currentForm['qstprod-besoins-groupesres']) && in_array($grouperes, $currentForm['qstprod-besoins-groupesres']) ? 
+              'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-grouperes-<?= $counter; ?>"><?= $grouperes; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
-          <input class="form-control" id="qstprod-grouperes-autre" name="qstprod-grouperes-autre" type="text" placeholder="Autre ? Merci de préciser">
+          <input class="form-control" id="qstprod-grouperes-autre" name="qstprod-grouperes-autre" type="text" 
+            placeholder="Autre ? Merci de préciser"
+            value="<?= isset($currentForm['qstprod-grouperes-autre']) ? $currentForm['qstprod-grouperes-autre'] : $neant; ?>">
         </div>
       </div>
       <!-- ------------------------ -->
