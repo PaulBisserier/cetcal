@@ -5,25 +5,12 @@ session_start();
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
-$data = new QstProdGeneraleDTO();
+$data = NULL; //new QstProdGeneraleDTO();
 $data = isset($_SESSION['signupgen.form']) ? unserialize($_SESSION['signupgen.form']) : NULL; 
 $produits = isset($_SESSION['signupprods.form']) ? unserialize($_SESSION['signupprods.form']) : NULL;
-$recapProduitsDisplayRecap = ($produits === NULL || count($produits) === 0) ? 'none' : 'block';
 $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['signuplieuxdist.form']) : NULL;
-$lieuxDistDisplayRecap = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 'block';
 ?>
 <!-- singup récapitulatif html form -->
-<div class="row justify-content-lg-center">
-  <div class="col-lg-6">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p></p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </div>
-</div>
-
 <!-- -------------------------------------- -->
 <!-- ZONE de récap informations générales.   -->
 <!-- -------------------------------------- -->

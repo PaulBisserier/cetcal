@@ -10,17 +10,6 @@ $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbe
 <!-- singup besoins html form -->
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p></p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="row justify-content-lg-center">
-  <div class="col-lg-6">
     <form class="form" method="post" action="/src/app/controller/cet.qstprod.controller.signupbesoins.form.php">
       <label for="cdc-signup-email"> - Veuillez répondre aux questions ci-dessous :
         <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>

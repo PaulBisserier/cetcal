@@ -1,25 +1,11 @@
 <?php 
-//require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
 $neant = '';
 $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
 $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupconso.form.post'] : array();
-//$lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['signuplieuxdist.form']) : NULL; 
-//$lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 'block';
 ?>
 <!-- singup lieux de distribution informations html form -->
-<div class="row justify-content-lg-center">
-  <div class="col-lg-6">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p></p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </div>
-</div>
-
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <form id="signupconso.form" class="form" method="post" 

@@ -5,21 +5,8 @@ $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
 $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signuplieuxdist.form.post'] : array();
-$lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['signuplieuxdist.form']) : NULL; 
-$lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 'block';
 ?>
 <!-- singup lieux de distribution informations html form -->
-<div class="row justify-content-lg-center">
-  <div class="col-lg-6">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p></p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </div>
-</div>
-
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <form id="signuplieuxdist.form" class="form" method="post" 
@@ -66,12 +53,7 @@ $lieuxDistDisplay = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'none' : 
       </div>
 
       <input type="text" name="cetcal_session_id" id="cetcal_session_id" value="<?= $cetcal_session_id; ?>" hidden="hidden">
-      <input type="text" name="qstprod-signuplieuxdist-nav-lindex" id="qstprod-signuplieuxdist-nav-lindex" value="unset" hidden="hidden">
       <input type="text" name="qstprod-signuplieuxdist-nav" id="qstprod-signuplieuxdist-nav" value="unset" hidden="hidden">
     </form>
   </div>
 </div>
-
-<!-- ------------------------------ -->
-<!-- Specific js for this page only -->
-<script src="/src/scripts/js/cetcal/cetcal.min.signuplieuxdist.js"></script>

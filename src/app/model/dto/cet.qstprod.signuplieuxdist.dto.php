@@ -5,20 +5,13 @@
 Class QstLieuxDistributionDTO
 {
 
-  public $lieuNom;
-  public $lieuSaisie;
-  public $jourLivraison;
-  public $periodiciteLivraison;
-  public $lid;
+  public $pointsDeVente;
+  public $pointsDeVenteAutre;
 
-  function __construct($pLieuNom = "", $pLieuSaisie = "", $pJourLivraison = "", $pPeriodiciteLivraison = "",
-    $pLid = "")
+  function __construct($pPointDeVente = "", $pPointsDeVenteAutre = "")
   {
-    $this->lieuNom = $pLieuNom;
-    $this->lieuSaisie = $pLieuSaisie;
-    $this->jourLivraison= $pJourLivraison;
-    $this->periodiciteLivraison = $pPeriodiciteLivraison;
-    $this->lid = $pLid;
+    $this->pointsDeVente = $pPointDeVente;
+    $this->pointsDeVenteAutre = $pPointsDeVenteAutre;
   }
 
 }

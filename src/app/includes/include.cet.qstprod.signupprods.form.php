@@ -13,17 +13,6 @@ $recapProduitsDisplay = ($produits === NULL || count($produits) === 0) ? 'none' 
 <!-- singup produits html form -->
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p></p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="row justify-content-lg-center">
-  <div class="col-lg-6">
     <form id="signupprods.form" class="form" method="post" 
       action="/src/app/controller/cet.qstprod.controller.signupprods.form.php"
       onload="setupRechercheProduit();">

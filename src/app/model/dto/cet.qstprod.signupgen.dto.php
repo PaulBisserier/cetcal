@@ -24,21 +24,21 @@ Class QstProdGeneraleDTO
   public $pageTwitter;
   public $siteWebUrl;
   public $boutiqueEnLigneUrl;
-  public $anneeInstallation;
-  public $organismeSyndic;
   public $organismeCertificateurBIO;
   public $typeDeProduction;
   public $surfaceHectTerres;
   public $surfaceHectSousSerre;
   public $nbrTetesBetail;
   public $hectolitresParAn;
+  public $sondageDifficultes;
+  public $sondage;
 
   function __construct($pNom = "", $pPrenom = "", $pEmail = "", $pMotDePasseMD5 = "", $pTelFix = "", 
     $pTelPort = "", $pNomFerme = "", $pSiret = "", $pAdrNumvoie = "", $pAdrRue = "", $pAdrLieudit = "", 
     $pAdrCommune = "", $pAdrCodePostal = "", $pAdrComplementAdr = "", $pPageFB = "", $pPageIG = "", 
-    $pPageTwitter = "", $pPUrlWeb = "", $pUrlBoutiqueWww = "", $pAnneeInstallation = "", $pOrgSyndic = "", 
-    $pOrgCertifBIO = "", $pTypeProd = "", $pSurfaceHTerres = "", $pSurfaceHSerre = "", 
-    $pNbrTetesBetail = "", $pHectolitresParAn = "")
+    $pPageTwitter = "", $pPUrlWeb = "", $pUrlBoutiqueWww = "", $pOrgCertifBIO = "", $pTypeProd = "", 
+    $pSurfaceHTerres = "", $pSurfaceHSerre = "", $pNbrTetesBetail = "", $pHectolitresParAn = "",
+    $pSondageDifficultes = "", $pSondage)
   {
       $this->nom = $pNom;
       $this->prenom = $pPrenom;
@@ -59,14 +59,14 @@ Class QstProdGeneraleDTO
       $this->pageTwitter = $pPageTwitter;
       $this->siteWebUrl = $pPUrlWeb;
       $this->boutiqueEnLigneUrl = $pUrlBoutiqueWww;
-      $this->anneeInstallation = $pAnneeInstallation;
-      $this->organismeSyndic = $pOrgSyndic;
       $this->organismeCertificateurBIO = $pOrgCertifBIO;
       $this->typeDeProduction = $pTypeProd;
       $this->surfaceHectTerres = $pSurfaceHTerres;
       $this->surfaceHectSousSerre = $pSurfaceHSerre;
       $this->nbrTetesBetail = $pNbrTetesBetail;
       $this->hectolitresParAn = $pHectolitresParAn;
+      $this->sondageDifficultes = $pSondageDifficultes;
+      $this->sondage = $pSondage;
   }  
 
 }

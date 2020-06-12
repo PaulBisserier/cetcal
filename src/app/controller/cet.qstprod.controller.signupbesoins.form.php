@@ -14,8 +14,18 @@ $statut = $nav == 'valider' ? 'signuprecap.form' : 'signupconso.form';
 /* *****************************************************************************/
 /* HTTP POST : var setup : *****************************************************/
 // POST form logic - dans l'ordre du formulaire HTML :
+$form_solidarites = $dataProcessor->processHttpFormArrayData($_POST['qstprod-besoins-solsprods']);
+$form_solidarite_autre = $dataProcessor->processHttpFormData($_POST['qstprod-solprod-autre']);
+$form_participer = $dataProcessor->processHttpFormData($_POST['qstprod-question-reseaux-participation']);
+$form_besoins = $dataProcessor->processHttpFormArrayData($_POST['qstprod-besoins-actions']);
+$form_besoin_autre = $dataProcessor->processHttpFormData($_POST['qstprod-action-autre']);
+$form_reflexions = $dataProcessor->processHttpFormArrayData($_POST['qstprod-besoins-groupesres']);
+$form_reflexion_autre = $dataProcessor->processHttpFormData($_POST['qstprod-grouperes-autre']);
+
+
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
-$besoinsDto = "";
+$besoinsDto = new QstBesoinsDTO($form_solidarites, $form_solidarite_autre, $form_participer,
+  $form_besoins, $form_besoin_autre, $form_reflexions, $form_reflexion_autre);
 $_SESSION['signupbesoins.form'] = serialize($besoinsDto);
 $_SESSION['signupbesoins.form.post'] = $_POST;
 session_write_close();

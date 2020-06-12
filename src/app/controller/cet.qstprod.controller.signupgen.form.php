@@ -55,6 +55,8 @@ if ($nav == 'valider')
   $form_nbrtetes = $dataProcessor->processHttpFormData($_POST['qstprod-nbrtetes']);
   $form_hectolitresparan = $dataProcessor->processHttpFormData($_POST['qstprod-hectolitresparan']);
 
+  $form_sondage_difficultes = $dataProcessor->processHttpFormArrayData(
+    isset($_POST['qstprod-sondagedifficultes']) ? $_POST['qstprod-sondagedifficultess'] : NULL);
   $form_sondage = $dataProcessor->processHttpFormArrayData(
     isset($_POST['qstprod-sondage']) ? $_POST['qstprod-sondage'] : NULL);
 
@@ -65,8 +67,9 @@ if ($nav == 'valider')
   $dtoQstGeneralesProd = new QstProdGeneraleDTO($form_obl_nom, $form_obl_prenom, $form_obl_email, $form_obl_mdp_hash, 
     $form_telfix, $form_telport, $form_obl_nomferme, $form_obl_siret, $form_adr_numvoie, $form_adr_rue, 
     $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig, 
-    $form_pagetwitter, $form_siteweb, $form_boutiquewww, "", "", $form_orgcertifbio, 
-    $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan);
+    $form_pagetwitter, $form_siteweb, $form_boutiquewww, $form_orgcertifbio, 
+    $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
+    $form_sondage_difficultes, $form_sondage);
   $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);
 }
 
