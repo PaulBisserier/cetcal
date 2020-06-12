@@ -16,9 +16,7 @@ $lieuxDistDisplayRecap = ($lieuxdist === NULL || count($lieuxdist) === 0) ? 'non
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p>BOUCHON >>> Veuillez vérifier le récapitulatif de vos informations.</p>
-      <p>Vous avez la possibilité de revenir modifier vos informations à l'aide des boutons Retour présents sur toutes les pages. Si après relecture, le récapitulatif ci-dessous est correct, veuillez finaliser votre inscription.</p>
-      <p>Toutes les informations saisies sur annuaire-bio.org vous appartiennent. <<< BOUCHON</p>
+      <p></p>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
