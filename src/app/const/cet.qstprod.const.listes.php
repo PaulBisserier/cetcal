@@ -24,6 +24,8 @@
     public $points_vente_producteurs = NULL;
     public $solidaires_producteurs = NULL;
     public $solidaires_consomateurs = NULL;
+    public $solidaires_actions = NULL;
+    public $solidaires_groupe_resilience = NULL;
 
     public $sondage_difficultes = NULL;
     public $sondage_divers = NULL;
@@ -42,6 +44,10 @@
     public $produits_v4_entretiens = NULL;
     public $produits_v4_animaux = NULL;
 
+    public $consomateurs_achats = NULL;
+    public $consomateurs_receptions = NULL;
+    public $consomateurs_paiements = NULL;
+
     function __construct($fileReader)
     {
       $this->activites = $fileReader->read('cet.qstprod.liste.activites');
@@ -54,6 +60,10 @@
       $this->recherche_fruits_legumes = $fileReader->read('cet.qstprod.liste.fruitslegumes');
       $this->solidaires_producteurs = $fileReader->read('cet.qstprod.liste.solidarite.producteurs');
       $this->solidaires_consomateurs = $fileReader->read('cet.qstprod.liste.solidarite.consomateurs');
+      $this->solidaires_actions = $fileReader->read('cet.qstprod.liste.solidarite.actions');
+      $this->solidaires_groupe_resilience = $fileReader->read('cet.qstprod.liste.groupe.resilience');
+
+
       $this->points_vente_producteurs = $fileReader->read('cet.qstprod.liste.pointdevente');
       
       $this->fruits = $fileReader->read('fruits');
@@ -76,6 +86,9 @@
       $this->produits_v4_hygienes = $fileReader->read('cet.qstprod.liste.produits.v4.hygiene');
       $this->produits_v4_entretiens = $fileReader->read('cet.qstprod.liste.produits.v4.entretien');
       $this->produits_v4_animaux = $fileReader->read('cet.qstprod.liste.produits.v4.animaux');
+      $this->consomateurs_achats = $fileReader->read('cet.qstprod.liste.v4.consoachats');
+      $this->consomateurs_receptions = $fileReader->read('cet.qstprod.liste.v4.consoreception');
+      $this->consomateurs_paiements = $fileReader->read('cet.qstprod.liste.v4.consopaiements');
     }
  }
  ?>

@@ -1,5 +1,5 @@
 <?php
-$tag_mep = "CETCAL v1 (dernière maj le 2/5/20 15h58)";
+$tag_mep = "CETCAL v4";
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
 $PHP_INCLUDES_PATH = $DOC_ROOT.'/src/app/includes/';
 $PHP_CONST_PATH = $DOC_ROOT.'/src/app/const/';

@@ -7,7 +7,8 @@ Class CetQstProdFilArianneHelper
     "signupgen.form" => "Fiche d'identité (et sondage)",
     "signuplieuxdist.form" => "Distribution",
     "signupprods.form" => "Produits",
-    "signupbesoins.form" => "Votre activité, vos besoins",
+    "signupconso.form" => "Vos consomateurs",
+    "signupbesoins.form" => "Besoins, Solidarité et Résilience",
     "signuprecap.form" => "Récapitulatif",
   );
 

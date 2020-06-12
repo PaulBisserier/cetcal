@@ -9,7 +9,7 @@ session_start();
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <div class="alert alert-info alert-dismissible fade show" role="alert">
-      <p><?= CetQstprodConstTextes::bouchon ?></p>
+      <p></p>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -30,56 +30,12 @@ session_start();
       <!-- INPUTS formulaire START : ---
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">
       ---- ------------------------- -->
-      <label class="cet-formgroup-container-label"><small class="form-text">Quels sont vos spécificités (Label, type d'agriculture)</small></label>
-      <div class="cet-formgroup-container">
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->type_culture as $culture) : ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $culture; ?>" id="qstprod-produit-typeculture-<?= $counter; ?>" name="qstprod-produit-typeculture[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-typeculture-<?= $counter; ?>"><?= $culture; ?></label>
-        </div>
-        <?php ++$counter; ?>
-        <?php endforeach; ?>
-      </div>
-
-      <label class="cet-formgroup-container-label"><small class="form-text">Quels sont vos points de distribution ou de vente :</small></label>
-      <div class="cet-formgroup-container">
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->points_vente_producteurs as $pointvente) : ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pointvente; ?>" id="qstprod-pointdevente-<?= $counter; ?>" name="qstprod-pointsdevente[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-pointsdevente-<?= $counter; ?>"><?= $pointvente; ?></label>
-        </div>
-        <?php ++$counter; ?>
-        <?php endforeach; ?>
-      </div>
-
-      <label class="cet-formgroup-container-label"><small class="form-text">Quelles seraient vos besoins par rapport à un annuaire hébergé par une plateforme informatique ?</small></label>
-      <div class="cet-formgroup-container">
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->besoins as $besoin): ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="qstprod-besoins-<?= $counter; ?>" name="qstprod-besoins-<?= $counter; ?>">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-<?= $counter; ?>"><?= $besoin; ?></label>
-        </div>
-        <?php ++$counter; ?>
-        <?php endforeach; ?>
-        <br>
-        <label class="cet-formgroup-container-label" for="qstprod-qstbesoinlibre"> 
-          <small class="form-text">Un besoin n'est pas présent dans la liste ci-dessus ?</small>
-        </label>
-        <div class="form-group mb-3"> 
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Exprimez-vous sur vos attentes ! :</small></label>
-          <textarea class="form-control" id="qstprod-qstbesoinlibre" name="qstprod-qstbesoinlibre" rows="3" placeholder="Exprimez-vous !"></textarea>
-        </div>
-      </div>
-
       <label class="cet-formgroup-container-label"> 
-        <small class="form-text">Participez vous à un ou des réseau(x) de solidarité ?</small>
+        <small class="form-text">La Solidarité, quels sont vos engagements et vos attentes :</small>
       </label>
       <div class="cet-formgroup-container">
         <label>
-          <small class="form-text cet-qstprod-label-text">Participez vous à un réseau associatif et/ou de solidarité <b>producteur</b> ?<br>Si oui, lesquels ?</small>
+          <small class="form-text cet-qstprod-label-text">Participez vous à un réseau de solidarité entre producteurs ?</small>
         </label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->solidaires_producteurs as $solprod): ?>
@@ -89,21 +45,14 @@ session_start();
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
-        <br>
-        <label>
-          <small class="form-text cet-qstprod-label-text">Participez vous à un réseau associatif et/ou de solidarité <b>avec les consomateurs</b> ?<br>Si oui, lesquels ?</small>
-        </label>
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->solidaires_consomateurs as $solcons): ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $solcons; ?>" id="qstprod-besoins-solcons-<?= $counter; ?>" name="qstprod-besoins-solscons[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-solcons-<?= $counter; ?>"><?= $solcons; ?></label>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-solprod-autre" name="qstprod-solprod-autre" type="text" placeholder="Autre ? Merci de préciser">
         </div>
-        <?php ++$counter; ?>
-        <?php endforeach; ?>
+
         <br>
         <label>
-          <small class="form-text cet-qstprod-label-text">Si aucun choix ne correspond, souhaiteriez-vous participer à ce type d'actions ?</small>
+          <small class="form-text cet-qstprod-label-text">Souhaiteriez vous participer à ce type d'actions ?</small>
         </label>
         <div class="input-group mb-3">
           <div class="form-check form-check-inline">
@@ -117,6 +66,21 @@ session_start();
             <label class="form-check-label" for="qstprod-question-reseaux-participation-non">Non merci</label>
           </div>
         </div>
+        <label>
+          <small class="form-text cet-qstprod-label-text">Si oui, lesquelles vous semblent répondre à un de vos besoins ? (plusieurs choix possibles)</small>
+        </label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->solidaires_actions as $action): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= $action; ?>" id="qstprod-besoins-action-<?= $counter; ?>" name="qstprod-besoins-actions[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-action-<?= $counter; ?>"><?= $action; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-action-autre" name="qstprod-action-autre" type="text" placeholder="Autre ? Merci de préciser">
+        </div>
       </div>
     
 
@@ -127,23 +91,17 @@ session_start();
         <label>
           <small class="form-text cet-qstprod-label-text">Si oui, sur quels sujet ?</small>
         </label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->solidaires_groupe_resilience as $grouperes): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="1" id="qstprod-groupe-reflexion-1" name="qstprod-groupes-reflexion[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-groupe-reflexion-1">
-            Une journée de réflexion partage avec des producteurs (exemples de thèmes: la gestion du foncier, les transmissions d'exploitation, diversification de production, reconversion, ...).
-          </label>
+          <input class="form-check-input" type="checkbox" value="<?= $grouperes; ?>" id="qstprod-besoins-grouperes-<?= $counter; ?>" name="qstprod-besoins-groupesres[]">
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-grouperes-<?= $counter; ?>"><?= $grouperes; ?></label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="2" id="qstprod-groupe-reflexion-2" name="qstprod-groupes-reflexion[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-groupe-reflexion-2">
-            Une journée de réflexion partage avec d'autres acteurs : restauration collective, transformateurs, association consommateurs , .... 
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="3" id="qstprod-groupe-reflexion-3" name="qstprod-groupes-reflexion[]">
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-groupe-reflexion-3">
-            Une journée de réflexion partage avec les élus et organisations professionnelle locales : ...
-          </label>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-grouperes-autre" name="qstprod-grouperes-autre" type="text" placeholder="Autre ? Merci de préciser">
         </div>
       </div>
       <!-- ------------------------ -->

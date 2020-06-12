@@ -6,17 +6,17 @@ $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_
 session_id($cetcal_session_id);
 session_start();
 // Prepare navigation :
-$nav = htmlspecialchars($_POST['qstprod-signupbesoins-nav']);
+$nav = htmlspecialchars($_POST['qstprod-signupconso-nav']);
 if ($nav != 'valider' && $nav != 'retour') { /*Error de navigation TODO.*/ $nav = 'retour'; }
-$statut = $nav == 'valider' ? 'signuprecap.form' : 'signupconso.form';
+$statut = $nav == 'valider' ? 'signupbesoins.form' : 'signupprods.form';
 
 // POST form logic :
 /* *****************************************************************************/
 /* HTTP POST : var setup : *****************************************************/
 // POST form logic - dans l'ordre du formulaire HTML :
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
-$besoinsDto = "";
-$_SESSION['signupbesoins.form'] = serialize($besoinsDto);
+//require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
+//$consoDto = "";
+//$_SESSION['signupconso.form'] = serialize($consoDto);
 /* *****************************************************************************/
 
 // Apply navigation :
