@@ -9,11 +9,14 @@
   <div class="collapse navbar-collapse" id="navbar-cet-qstprod">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" onclick="$('#cet-qstprod_seconnecter').hide(function(){ $('#' + 'cet-qstprod_intro').fadeIn('slow'); });">Je suis Producteur</a>
+        <a class="nav-link" href="/src/app/controller/cet.qstprod.controller.login.form.php">Inscription annuaire</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onmousedown="$('#cet-qstprod_seconnecter').hide(function(){ $('#' + 'cet-qstprod_intro').fadeIn('slow'); });">Je suis Producteur</a>
       </li>
     </ul>
     <span class="navbar-text">
-      <a class="nav-link" href="#" onclick="$('#cet-qstprod_intro').hide(function(){ $('#cet-qstprod_seconnecter').fadeIn('slow'); });">Votre page producteur</a>
+      <a class="nav-link" href="#" onmousedown="$('#cet-qstprod_intro').hide(function(){ $('#cet-qstprod_seconnecter').fadeIn('slow'); });">Votre page producteur</a>
     </span>
   </div>
 </nav>

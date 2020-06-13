@@ -20,11 +20,11 @@ Class CetQstProdFilArianneHelper
     {
       if (strcmp($statut, $k) == 0) 
       {
-        CetQstProdFilArianneHelper::$result .= " <span class=\"badge badge-success\">".CetQstProdFilArianneHelper::$prefix.$v."</span>";
+        CetQstProdFilArianneHelper::$result .= " <span class=\"badge badge-success\" style=\"margin-bottom: 4px; font-size: 14px; font-weight: normal; padding: 6px;\">".CetQstProdFilArianneHelper::$prefix.$v."</span>";
       }
       else
       {
-        CetQstProdFilArianneHelper::$result .= " <span class=\"badge badge-info\">".CetQstProdFilArianneHelper::$prefix.$v."</span>";
+        CetQstProdFilArianneHelper::$result .= " <span class=\"badge badge-light\" style=\"margin-bottom: 4px; font-size: 14px; font-weight: normal; padding: 6px;\">".CetQstProdFilArianneHelper::$prefix.$v."</span>";
       }
     }
 

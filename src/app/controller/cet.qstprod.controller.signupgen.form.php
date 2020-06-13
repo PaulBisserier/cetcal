@@ -60,6 +60,8 @@ if ($nav == 'valider')
   $form_sondage = $dataProcessor->processHttpFormArrayData(
     isset($_POST['qstprod-sondage']) ? $_POST['qstprod-sondage'] : NULL);
 
+  $form_cagette = $dataProcessor->processHttpFormData($_POST['qstprod-cagette']);
+
   // Check for data isset/unset erros.
   $dataProcessor->scanForErrors();
   // Construct new DTO object :
@@ -69,7 +71,7 @@ if ($nav == 'valider')
     $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig, 
     $form_pagetwitter, $form_siteweb, $form_boutiquewww, $form_orgcertifbio, 
     $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
-    $form_sondage_difficultes, $form_sondage);
+    $form_sondage_difficultes, $form_sondage, $form_cagette);
   $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);
 }
 

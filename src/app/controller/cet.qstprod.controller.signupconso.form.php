@@ -20,11 +20,13 @@ $form_receptionsMoyens = $dataProcessor->processHttpFormArrayData($_POST['qstpro
 $form_receptionsMoyenAutre = $dataProcessor->processHttpFormData($_POST['qstprod-receptionautre']);
 $form_paimentsMoyens = $dataProcessor->processHttpFormArrayData($_POST['qstprod-paiments']);
 $form_paimentsMoyenAutre = $dataProcessor->processHttpFormData($_POST['qstprod-paimentautre']);
+$form_driveadr = $dataProcessor->processHttpFormData($_POST['qstprod-adr-drive']);
+$form_drivejour = $dataProcessor->processHttpFormData($_POST['qstprod-jour-liv']);
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
-$consoDto = new QstConsomateursDTO($pConsoachats = "", $pConsoachatsAutre = "",
-    $pReceptions = "", $pReceptionAutre = "", $pPaiments = "", 
-    $pPaimentAutre = "");
+$consoDto = new QstConsomateursDTO($form_achats, $form_achatAutre,
+    $form_receptionsMoyens, $form_receptionsMoyenAutre, $form_paimentsMoyens, 
+    $form_paimentsMoyenAutre, form_driveadr, $form_drivejour);
 $_SESSION['signupconso.form'] = serialize($consoDto);
 
 $_SESSION['signupconso.form.post'] = $_POST;

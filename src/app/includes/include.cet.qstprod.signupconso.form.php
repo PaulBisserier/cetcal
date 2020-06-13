@@ -45,6 +45,25 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
             placeholder="Autre ? Merci de préciser"
             value="<?= isset($currentForm['qstprod-consoachatautre']) ? $currentForm['qstprod-consoachatautre'] : $neant; ?>">
         </div>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si drive avec point de collect, preciser l'adresse :</small></label>   
+          <input class="form-control" id="qstprod-adr-drive" name="qstprod-adr-drive" type="text" 
+            placeholder="Si drive avec point de collect, preciser"
+            value="<?= isset($currentForm['qstprod-adr-drive']) ? $currentForm['qstprod-adr-drive'] : $neant; ?>">
+        </div>
+        <div class="form-group mb-3"> 
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si drive avec point de collect, preciser le jour de livraison :</small></label>
+          <select class="form-control custom-select mr-sm-2" id="qstprod-jour-liv"
+            name="qstprod-jour-liv">
+            <option>Lundi</option>
+            <option>Mardi</option>
+            <option>Mercredi</option>
+            <option>Jeudi</option>
+            <option>Vendredi</option>
+            <option>Samedi</option>
+            <option>Dimanche</option>
+          </select>
+        </div>
         <br>
         <label><small class="form-text">Comment le consommateur va réceptionner vos produits ? (plusieurs options possibles)</small></label>
         <?php $counter = 0; ?>

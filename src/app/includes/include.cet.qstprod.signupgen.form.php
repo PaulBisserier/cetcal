@@ -125,6 +125,16 @@ if (isset($_GET['sitkn']))
         </div>
       </div>
 
+      <label class="cet-formgroup-container-label"><small class="form-text">Cagette.net :</small></label> 
+      <div class="cet-formgroup-container">
+        <div class="form-group mb-3"> 
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Quel est votre groupe cagette ?</small></label>
+          <input class="form-control" id="qstprod-cagette" name="qstprod-cagette" type="text" 
+            placeholder="Indiquer votre groupe cagette"
+            value="<?= isset($currentForm['qstprod-cagette']) ? $currentForm['qstprod-cagette'] : $neant; ?>">
+        </div>
+      </div>
+
       <label class="cet-formgroup-container-label" for="qstprod-www"><small class="form-text">Informations web et réseaux sociaux :</small></label> 
       <div class="cet-formgroup-container">
         <div class="form-group mb-3"> 

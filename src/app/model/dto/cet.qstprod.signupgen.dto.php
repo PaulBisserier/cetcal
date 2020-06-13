@@ -32,13 +32,14 @@ Class QstProdGeneraleDTO
   public $hectolitresParAn;
   public $sondageDifficultes;
   public $sondage;
+  public $groupeCagette;
 
   function __construct($pNom = "", $pPrenom = "", $pEmail = "", $pMotDePasseMD5 = "", $pTelFix = "", 
     $pTelPort = "", $pNomFerme = "", $pSiret = "", $pAdrNumvoie = "", $pAdrRue = "", $pAdrLieudit = "", 
     $pAdrCommune = "", $pAdrCodePostal = "", $pAdrComplementAdr = "", $pPageFB = "", $pPageIG = "", 
     $pPageTwitter = "", $pPUrlWeb = "", $pUrlBoutiqueWww = "", $pOrgCertifBIO = "", $pTypeProd = "", 
     $pSurfaceHTerres = "", $pSurfaceHSerre = "", $pNbrTetesBetail = "", $pHectolitresParAn = "",
-    $pSondageDifficultes = "", $pSondage)
+    $pSondageDifficultes = "", $pSondage = "", $pGroupeCagette)
   {
       $this->nom = $pNom;
       $this->prenom = $pPrenom;
@@ -67,6 +68,7 @@ Class QstProdGeneraleDTO
       $this->hectolitresParAn = $pHectolitresParAn;
       $this->sondageDifficultes = $pSondageDifficultes;
       $this->sondage = $pSondage;
+      $this->groupeCagette = $pGroupeCagette;
   }  
 
 }

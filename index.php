@@ -55,14 +55,4 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     .form { margin-bottom: 60px; }
     label { margin-left: 4px !important; }
     .table { border-style: 1px solid black !important; }
-    body, .sticky-footer-wrapper { min-height:100vh; }
-    .blog-footer {
-      padding: 2.5rem 0;
-      text-align: center;
-      background-color: #f9f9f9;
-      margin-top: 60px;  
-    }
-    .blog-footer p:last-child {
-      margin-bottom: 0;
-    }
   </style>
