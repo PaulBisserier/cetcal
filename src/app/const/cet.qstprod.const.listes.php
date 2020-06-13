@@ -47,6 +47,7 @@
     public $consomateurs_achats = NULL;
     public $consomateurs_receptions = NULL;
     public $consomateurs_paiements = NULL;
+    public $consomateurs_drive_jours = NULL;
 
     function __construct($fileReader)
     {
@@ -62,7 +63,6 @@
       $this->solidaires_consomateurs = $fileReader->read('cet.qstprod.liste.solidarite.consomateurs');
       $this->solidaires_actions = $fileReader->read('cet.qstprod.liste.solidarite.actions');
       $this->solidaires_groupe_resilience = $fileReader->read('cet.qstprod.liste.groupe.resilience');
-
 
       $this->points_vente_producteurs = $fileReader->read('cet.qstprod.liste.pointdevente');
       
@@ -89,6 +89,7 @@
       $this->consomateurs_achats = $fileReader->read('cet.qstprod.liste.v4.consoachats');
       $this->consomateurs_receptions = $fileReader->read('cet.qstprod.liste.v4.consoreception');
       $this->consomateurs_paiements = $fileReader->read('cet.qstprod.liste.v4.consopaiements');
+      $this->consomateurs_drive_jours = $fileReader->read('cet.qstprod.liste.jourssemaine');
     }
  }
  ?>
