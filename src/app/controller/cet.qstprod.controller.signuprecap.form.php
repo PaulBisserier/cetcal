@@ -9,20 +9,15 @@ session_start();
 /** ***************************************************************************
  * Time to insert it all from SESSION to DB.
  */
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
-
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.qstprod.producteurs.model.php');
 $model = new QSTPRODProducteurModel();
-$model->createProducteur(isset($_SESSION['signupgen.form']) ? unserialize($_SESSION['signupgen.form']) : NULL,
-  isset($_SESSION['signupprods.form']) ? unserialize($_SESSION['signupprods.form']) : NULL,
-  isset($_SESSION['signupconso.form']) ? unserialize($_SESSION['signupconso.form']) : NULL);
+$producteurPK = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
+  isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
+  isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
 
-
-
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.qstprod.lieuxdist.model.php');
+$model = new QSTPRODLieuxModel();
+$model->createLieu($producteurPK, isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL);
 /** ***************************************************************************/
 
 // Prepare navigation :
@@ -31,6 +26,6 @@ if ($nav != 'valider' && $nav != 'retour') { /*Error de navigation TODO.*/ $nav 
 $statut = $nav == 'valider' ? '' : 'signupbesoins.form';
 
 // Apply navigation :
-//header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id);
-//exit();
+header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id);
+exit();
 ?>

@@ -14,16 +14,16 @@ class QSTPRODProducteurModel extends CETCALModel
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
     $dtoGenerale = new QstProdGeneraleDTO();
-    $dtoGenerale = $pProducteurDto;
+    $dtoGenerale = unserialize($pProducteurDto);
     $typeProd = "";
     foreach ($dtoGenerale->typeDeProduction as $type) $typeProd = $typeProd."[".$type."]";
     $dtoProduits = new QstProduitDTO();
-    $dtoProduits = $pProduitsDto;
+    $dtoProduits = unserialize($pProduitsDto);
     $specProduits = "";
     foreach ($dtoProduits->specificite as $spec) $specProduits = $specProduits."[".$spec."]";
     $specProduits = $specProduits.(strlen($dtoProduits->specificiteAutre) <= 0 ? "" : "[".$dtoProduits->specificiteAutre."]");
     $dtoConsomation = new QstConsomateursDTO();
-    $dtoConsomation = $pConsoDto;
+    $dtoConsomation = unserialize($pConsoDto);
     $commandes = "";
     foreach ($dtoConsomation->consoachats as $achat) $commandes = $commandes."[".$achat."]";
     $commandes = $commandes.(
@@ -70,6 +70,8 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->bindParam(":pModesConsoReceptions", $receps, PDO::PARAM_STR);
 
     $stmt->execute();
+
+    return $this->getCnxdb()->lastInsertId();
   }
 
 }
