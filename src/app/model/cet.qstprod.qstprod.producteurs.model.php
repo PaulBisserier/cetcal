@@ -71,7 +71,8 @@ class QSTPRODProducteurModel extends CETCALModel
 
     $stmt->execute();
 
-    return $this->getCnxdb()->lastInsertId();
+    return array(pk => $this->getCnxdb()->lastInsertId(),
+      ev => $dtoGenerale->email);
   }
 
 }

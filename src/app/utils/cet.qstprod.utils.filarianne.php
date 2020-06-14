@@ -3,7 +3,7 @@ Class CetQstProdFilArianneHelper
 {
   public static $prefix_fa = "<span class=\"cet-qstprod-label-text\">Fil d'Arianne :</span>";
   private static $prefix = "";
-  private static $values = array(
+  public static $values = array(
     "signupgen.form" => "Fiche d'identité (et sondage)",
     "signuplieuxdist.form" => "Distribution",
     "signupprods.form" => "Produits",

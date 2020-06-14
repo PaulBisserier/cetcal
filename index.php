@@ -32,7 +32,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     $listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT));
 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php'; 
-    if (strcmp($statut, 'login.form') !== 0) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
+    if (in_array($statut, CetQstProdFilArianneHelper::$values)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
     $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
     include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
