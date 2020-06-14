@@ -14,7 +14,8 @@ $statut = $nav == 'valider' ? 'signupprods.form' : 'signupgen.form';
 /* *****************************************************************************/
 /* HTTP POST : var setup : *****************************************************/
 // POST form logic - dans l'ordre du formulaire HTML :
-$form_points_vente = $dataProcessor->processHttpFormArrayData($_POST['qstprod-pdv']);
+$form_points_vente = $dataProcessor->processHttpFormArrayData(
+  isset($_POST['qstprod-pdv']) ? $_POST['qstprod-pdv'] : NULL);
 $form_point_vente_autre = $dataProcessor->processHttpFormData($_POST['qstprod-pdvautre']);
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');

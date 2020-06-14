@@ -7,8 +7,6 @@ $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
 $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprods.form.post'] : array();
-$produits = isset($_SESSION['signupprods.form']) ? unserialize($_SESSION['signupprods.form']) : NULL; 
-$recapProduitsDisplay = ($produits === NULL || count($produits) === 0) ? 'none' : 'block';
 ?>
 <!-- singup produits html form -->
 <div class="row justify-content-lg-center">

@@ -37,22 +37,18 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
   ?>
-  <!--<footer class="blog-footer">
-    <p><?= $tag_mep; ?></p>
-  </footer>-->
 </body>
 </html>
-
-  <style type="text/css">
-    .cet-formgroup-container { background-color: rgb(250, 250, 250); border: 1px solid lightgrey; border-radius: 4px; padding: 16px; margin-bottom: 20px; }
-    .cet-formgroup-inner-container { background-color: rgb(255, 255, 255) !important; }
-    /** libellés de block : **/
-    label.cet-formgroup-container-label { color: rgb(30, 40, 30); font-size: 18px; }
-    button.cet-recherche-produit-element-btn { margin-left: 2px; }
-    .cet-qstprod-label-text { color: rgb(70, 80, 40); }
-    .cet-input-label { margin-left: 8px; }
-    .cet-qstprod-btnnav { margin-top: 20px; }
-    .form { margin-bottom: 60px; }
-    label { margin-left: 4px !important; }
-    .table { border-style: 1px solid black !important; }
-  </style>
+<style type="text/css">
+  .cet-formgroup-container { background-color: rgb(250, 250, 250); border: 1px solid lightgrey; border-radius: 4px; padding: 16px; margin-bottom: 20px; }
+  .cet-formgroup-inner-container { background-color: rgb(255, 255, 255) !important; }
+  /** libellés de block : **/
+  label.cet-formgroup-container-label { color: rgb(30, 40, 30); font-size: 18px; }
+  button.cet-recherche-produit-element-btn { margin-left: 2px; }
+  .cet-qstprod-label-text { color: rgb(70, 80, 40); }
+  .cet-input-label { margin-left: 8px; }
+  .cet-qstprod-btnnav { margin-top: 20px; }
+  .form { margin-bottom: 60px; }
+  label { margin-left: 4px !important; }
+  .table { border-style: 1px solid black !important; }
+</style>

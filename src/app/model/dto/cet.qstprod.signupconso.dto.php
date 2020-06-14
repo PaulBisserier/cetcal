@@ -25,7 +25,7 @@ Class QstConsomateursDTO
     $this->paiments = $pPaiments;
     $this->paimentAutre = $pPaimentAutre;
     $this->driveadr = $pDriveAdr;
-    $this->drivejour =$drivejour;
+    $this->drivejour =$pDriveJour;
   }
 
 }

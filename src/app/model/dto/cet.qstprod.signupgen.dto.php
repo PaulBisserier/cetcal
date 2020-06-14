@@ -38,8 +38,8 @@ Class QstProdGeneraleDTO
     $pTelPort = "", $pNomFerme = "", $pSiret = "", $pAdrNumvoie = "", $pAdrRue = "", $pAdrLieudit = "", 
     $pAdrCommune = "", $pAdrCodePostal = "", $pAdrComplementAdr = "", $pPageFB = "", $pPageIG = "", 
     $pPageTwitter = "", $pPUrlWeb = "", $pUrlBoutiqueWww = "", $pOrgCertifBIO = "", $pTypeProd = "", 
-    $pSurfaceHTerres = "", $pSurfaceHSerre = "", $pNbrTetesBetail = "", $pHectolitresParAn = "",
-    $pSondageDifficultes = "", $pSondage = "", $pGroupeCagette)
+    $pSurfaceHTerres = 0, $pSurfaceHSerre = 0, $pNbrTetesBetail = 0, $pHectolitresParAn = 0,
+    $pSondageDifficultes = "", $pSondage = "", $pGroupeCagette = "")
   {
       $this->nom = $pNom;
       $this->prenom = $pPrenom;

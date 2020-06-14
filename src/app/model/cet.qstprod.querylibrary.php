@@ -3,15 +3,12 @@
 /**
  * Sql query's.
  */
-class CdcQueryLibrary
+class CETCALQueryLibrary
 {
 
-  /**
-   * Accéder aux données d'un utilisateur unique qui souhaite se connecter et donc qui possède déjà (a priori) 
-   * un compte sur le SI de la CDC.
-   */
-  const GET_USER_BY_EMAIL = "SELECT * FROM cdc_utlr WHERE email_utlr_cdc=:pEmail;";
+  const GET_ALL_PRODUCTEURS = "SELECT * FROM cetcal.qstprod_producteur;";
+  const GET_PROD_BY_PK = "SELECT * FROM cetcal.qstprod_producteur WHERE qstprod_producteur.qstprod_idpkai_producteur=:pPk;";
 
-  const GET_ALL_USER = "SELECT * FROM cdc_utlr;";
+  const INSERT_QSTPROD_PRODUCTEUR = "INSERT INTO cetcal.qstprod_producteur (nom, prenom, email, email_bu, mdpsha, telfixe, telport, nom_ferme, siret, adrferme_numvoie, adrferme_rue, adrferme_lieudit, adrferme_commune, adrferme_cp, adrferme_compladr, pageurl_fb, pageurl_ig, pageurl_twitter, url_web, url_boutique, orgcertifbio, typesproduction, surfacehectterres, surfacesousserre, tetes_betail, hl_par_an, groupe_cagette, specificites_productions, modes_commandes, modes_paiments, modes_receptions) VALUES (:pNom, :pPrenom, :pEmail, :pEmailBu, :pMdpsha, :pTelfixe, :pTelPort, :pNomFerme, :pSiret, :pAdrNumvoie, :pAdrRue, :pAdrLieudit, :pAdrCommune, :pAdrcp, :pAdrCmpladr, :pPageFb, :pPageIg, :pPageTwitter, :pUrlWeb, :pUrlBoutique, :pOrgCertifBio, :pTypesProduction, :pSurfaceHectTerres, :pSurfaceAresSerre, :pNbrTetes, :pHLParAn, :pGroupeCagette, :pSpecificitesProductions, :pModesConsoCommandes, :pModesConsoPaiments, :pModesConsoReceptions);";
 
 }

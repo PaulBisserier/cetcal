@@ -4,7 +4,7 @@ use PDO;
 /**
  *
  */
-class CdcPDOConnector {
+class CETCALPDOConnector {
 
   private $DNS;
   private $LOG;
@@ -12,7 +12,7 @@ class CdcPDOConnector {
 
   function __construct() 
   {
-    $this -> DNS = 'mysql:host=127.0.0.1;dbname=sicdc_openwifi;charset=utf8';
+    $this -> DNS = 'mysql:host=127.0.0.1;dbname=cetcal;charset=utf8';
     $this -> LOG = 'root';
     $this -> PWD = 'root';
   }

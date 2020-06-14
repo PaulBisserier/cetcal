@@ -14,14 +14,18 @@ $statut = $nav == 'valider' ? 'signupbesoins.form' : 'signupprods.form';
 /* *****************************************************************************/
 /* HTTP POST : var setup : *****************************************************/
 // POST form logic - dans l'ordre du formulaire HTML :
-$form_achats = $dataProcessor->processHttpFormArrayData($_POST['qstprod-consoachats']);
+$form_achats = $dataProcessor->processHttpFormArrayData(
+  isset($_POST['qstprod-consoachats']) ? $_POST['qstprod-consoachats'] : NULL);
 $form_achatAutre = $dataProcessor->processHttpFormData($_POST['qstprod-consoachatautre']);
-$form_receptionsMoyens = $dataProcessor->processHttpFormArrayData($_POST['qstprod-receptions']);
+$form_receptionsMoyens = $dataProcessor->processHttpFormArrayData(
+  isset($_POST['qstprod-receptions']) ? $_POST['qstprod-receptions'] : NULL);
 $form_receptionsMoyenAutre = $dataProcessor->processHttpFormData($_POST['qstprod-receptionautre']);
-$form_paimentsMoyens = $dataProcessor->processHttpFormArrayData($_POST['qstprod-paiments']);
+$form_paimentsMoyens = $dataProcessor->processHttpFormArrayData(
+  isset($_POST['qstprod-paiments']) ? $_POST['qstprod-paiments'] : NULL);
 $form_paimentsMoyenAutre = $dataProcessor->processHttpFormData($_POST['qstprod-paimentautre']);
 $form_driveadr = $dataProcessor->processHttpFormData($_POST['qstprod-adr-drive']);
-$form_drivejour = $dataProcessor->processHttpFormArrayData($_POST['qstprod-jour-liv']);
+$form_drivejour = $dataProcessor->processHttpFormArrayData(
+  isset($_POST['qstprod-jour-liv']) ? $_POST['qstprod-jour-liv'] : NULL);
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
 $consoDto = new QstConsomateursDTO($form_achats, $form_achatAutre,

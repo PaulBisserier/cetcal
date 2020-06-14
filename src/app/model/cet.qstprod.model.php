@@ -3,7 +3,7 @@
 /**
  * Abstract MODEL class.
  */
-class CdcModel 
+class CETCALModel 
 {
 
   /*
@@ -19,8 +19,8 @@ class CdcModel
   function __construct() 
   {
     $this->setConnection();
-    require_once('cdc.querylibrary.php');
-    $this->querylib = new CdcQueryLibrary();
+    require_once('cet.qstprod.querylibrary.php');
+    $this->querylib = new CETCALQueryLibrary();
   }
 
   /*
@@ -28,8 +28,8 @@ class CdcModel
    */
   private function setConnection() 
   {
-    require_once('cdc.pdoconnector.php');
-    $pdo = new CdcPDOConnector();
+    require_once('cet.qstprod.pdoconnector.php');
+    $pdo = new CETCALPDOConnector();
     $this->cnxdb = $pdo->getPdoConnexion();
   }
 

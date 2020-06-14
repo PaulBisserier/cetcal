@@ -37,7 +37,7 @@ Class QstProduitDTO
 
   function __construct($pSpecificite = "", $pSpecificiteAutre = "", 
     $pLegumes = "", $pLegumeAutre = "", $pViandes = "",
-    $pViandeAutre, $pLaitiers = "", $pLaitiersAutre = "", $pRuches = "",
+    $pViandeAutre = "", $pLaitiers = "", $pLaitiersAutre = "", $pRuches = "",
     $pRucheAutre = "", $pFruits = "", $pFruitAutre = "",
     $pChampignons = "", $pChampignonAutre = "", $pPlantes = "", $pPlanteAutre = "",
     $pSemences = "", $pSemenceAutre = "", $pTransformes = "", $pTransformeAutre = "",
