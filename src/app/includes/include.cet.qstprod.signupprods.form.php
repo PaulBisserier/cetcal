@@ -310,8 +310,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-primary" type="submit" onmousedown="$('#qstprod-signupprods-nav').val('retour');">Retour</button>
-          <button class="btn btn-primary" type="submit" onmousedown="$('#qstprod-signupprods-nav').val('valider');">Valider ces informations</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupprods-nav').val('retour');">Retour</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupprods-nav').val('valider');">Valider ces informations</button>
         </div>
       </div>
 

@@ -257,8 +257,8 @@ if (isset($_GET['sitkn']))
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-primary" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('retour');">Retour accueil</button>
-          <button class="btn btn-primary" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('valider');">Valider ces informations</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('retour');">Retour accueil</button>
+          <button class="btn btn-info" type="submit" id="btn-signupgen-valider-form">Valider ces informations</button>
         </div>
       </div>
 
@@ -266,7 +266,4 @@ if (isset($_GET['sitkn']))
     </form>
   </div>
 </div>
-
-<!-- ------------------------------ -->
-<!-- Specific js for this page only -->
 <script src="/src/scripts/js/cetcal/cetcal.min.signupgen.js"></script>

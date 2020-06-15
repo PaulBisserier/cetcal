@@ -7,6 +7,8 @@
       </button>
       <h5 class="alert-heading">Bienvenue Producteurs ! <span><a href="/src/app/controller/cet.qstprod.controller.login.form.php">Inscription annuaire</a></span></h5>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_a; ?></p>
+      <?php include $PHP_INCLUDES_PATH.'include.cet.qstprod.carousel.php'; ?>
+      <br>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_b; ?></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_c; ?></p>
       <p><b><?= CetQstprodConstTextes::login_intro_block_textinf_d; ?></b></p>

@@ -11,9 +11,9 @@
         <p id="modal-questionaire-paragraphe"></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="modal-questionaire-btn-primary" data-dismiss="modal"></button>
+        <button type="button" class="btn btn-success btn-sm" id="modal-questionaire-btn-primary" data-dismiss="modal"></button>
       </div>
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-primary" id="modal-questionaire-btn" data-toggle="modal" data-target="#modal-questionaire" hidden="hidden"></button>
+<button type="button" class="btn btn-success" id="modal-questionaire-btn" data-toggle="modal" data-target="#modal-questionaire" hidden="hidden" onclick="$('#modal-questionaire').fadeIn('slow');"></button>

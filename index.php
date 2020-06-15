@@ -10,7 +10,8 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
 ?>
 
 <!DOCTYPE html>
-<html lang="fr"><head>
+<html lang="fr">
+<head>
   <!--<base href="http://http://82.65.74.33/"/>-->
   <title>Annuaire des producteurs bio de la région castillon</title>
   <meta name="description" content="............"/>
@@ -22,6 +23,8 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   <script src="/src/scripts/js/jquery/jquery-3.4.1.min.js"></script>
   <script src="/src/scripts/js/bootstrap.min.js"></script>
   <script src="/src/scripts/js/cetcal/cetcal.min.js"></script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0" nonce="XVrFhpSY"></script>
 </head>
 <body onload="// do this or that...">
   <?php 
@@ -32,7 +35,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     $listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT));
 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php'; 
-    if (in_array($statut, CetQstProdFilArianneHelper::$values)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
+    if (in_array($statut, CetQstProdFilArianneHelper::$states)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
     $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
     include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
@@ -51,4 +54,22 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   .form { margin-bottom: 60px; }
   label { margin-left: 4px !important; }
   .table { border-style: 1px solid black !important; }
+  .carousel-inner p, h5, span, li, ol { color: black; }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-image: none;
+  }
+  .carousel-control-next-icon:after
+  {
+    content: '>';
+    font-size: 30px;
+    color: rgb(34, 139, 34);
+  }
+  .carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 30px;
+    color: rgb(34, 139, 34);
+  }
 </style>

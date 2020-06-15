@@ -137,15 +137,11 @@ $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['s
         <small class="form-text cet-qstprod-label-text">Souhaitez-vous valider votre inscription et envoyer votre questionnaire ? Si oui, merci de déclarer vos informations :</small>
       </label>
       <div class="input-group mb-3">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="qstprod-question-reseaux-participation-oui" 
-            name="qstprod-question-reseaux-participation" value="oui">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="qstprod-question-reseaux-participation-oui" 
+            name="qstprod-question-reseaux-participation" value="oui"
+            checked="false">
           <label class="form-check-label" for="qstprod-question-reseaux-participation-oui">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="qstprod-question-reseaux-participation-non" 
-            name="qstprod-question-reseaux-participation" value="non">
-          <label class="form-check-label" for="qstprod-question-reseaux-participation-non">Non, je ne souhaite plus m'inscrire.</label>
         </div>
       </div>
     </div>
@@ -158,8 +154,8 @@ $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['s
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-primary" type="submit" onmousedown="$('#qstprod-signuprecap-nav').val('retour');">Retour</button>
-          <button class="btn btn-primary" type="submit" onmousedown="$('#qstprod-signuprecap-nav').val('valider');">Valider votre inscription</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signuprecap-nav').val('retour');">Retour</button>
+          <button class="btn btn-info" type="submit" id="btn-signuprecap-valider-form">Valider votre inscription</button>
         </div>
       </div>
 
@@ -168,3 +164,4 @@ $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['s
     </form>
   </div>
 </div>
+<script src="/src/scripts/js/cetcal/cetcal.min.signuprecap.js"></script>
