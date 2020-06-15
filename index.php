@@ -39,6 +39,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
     include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
+    include $PHP_INCLUDES_PATH.'include.cet.qstprod.footer.php'
   ?>
 </body>
 </html>
@@ -72,4 +73,15 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     font-size: 30px;
     color: rgb(34, 139, 34);
   }
+  .cet-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    background-color: #f9f9f9;
+  }
+  .cet-footer p:last-child {
+    margin-bottom: 0;
+  }
+  p.cet-p, a.cet-p { color: rgb(34, 139, 34) !important; }
+  a.cet-p:hover { color: rgb(34, 100, 34) !important; }
+  li.cet-footer-li { background-color: #f9f9f9; }
 </style>
