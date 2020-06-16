@@ -85,4 +85,67 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   p.cet-p, a.cet-p { color: rgb(34, 139, 34) !important; }
   a.cet-p:hover { color: rgb(34, 100, 34) !important; }
   li.cet-footer-li { background-color: #f9f9f9; }
+
+  span.cet-qstprod-produit-type { 
+    font-size: 14px; 
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 6px;
+    margin: 2px;
+    display: inline-block;
+  }
+
+  span.cet-qstprod-produit-type.legumes {
+    color: #007E33 !important;
+    border: 1px solid #007E33;
+  }
+  span.cet-qstprod-produit-type.viandes {
+    color: #ef5350 !important;
+    border: 1px solid #ef5350;
+  }
+  span.cet-qstprod-produit-type.laitiers {
+    color: #69f0ae !important;
+    border: 1px solid #69f0ae;
+  }
+  span.cet-qstprod-produit-type.ruches {
+    color: #ffa000 !important;
+    border: 1px solid #ffa000;
+  }
+  span.cet-qstprod-produit-type.fruits {
+    color: #ef6c00 !important;
+    border: 1px solid #ef6c00;
+  }
+  span.cet-qstprod-produit-type.champignons {
+    color: #4e342e !important;
+    border: 1px solid #4e342e;
+  }
+  span.cet-qstprod-produit-type.plantes {
+    color: #1b5e20 !important;
+    border: 1px solid #1b5e20;
+  }
+  span.cet-qstprod-produit-type.semences {
+    color: #00695c !important;
+    border: 1px solid #00695c;
+  }
+  span.cet-qstprod-produit-type.transformes {
+    color: #0d47a1 !important;
+    border: 1px solid #0d47a1;
+  }
+
+  span.cet-qstprod-produit-type.hygienes {
+    color: #37474F !important;
+    border: 1px solid #37474F;
+  }
+  span.cet-qstprod-produit-type.entretiens {
+    color: #37474F !important;
+    border: 1px solid #37474F;
+  }
+  span.cet-qstprod-produit-type.nourritureanimaux {
+    color: #37474F !important;
+    border: 1px solid #37474F;
+  }
+  span.cet-qstprod-produit-type.autres {
+    color: #37474F !important;
+    border: 1px solid #37474F;
+  }
 </style>

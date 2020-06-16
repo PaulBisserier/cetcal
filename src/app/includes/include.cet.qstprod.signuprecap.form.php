@@ -157,13 +157,13 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td><span class="text-muted">Vos produits : </span>
-              <?php foreach ($produits->listAllProducts() as $k => $v): ?>
-                <br><span><?= $k; ?> :</span>
-                <?php foreach ($v as $prd): ?>
-                  <span><?= $prd ?>, </span>
+              <td>
+                <span class="text-muted">Vos produits : </span>
+                <?php foreach ($produits->listAllProducts() as $k => $v): ?>
+                  <?php foreach ($v as $prd): ?>
+                    <span class="cet-qstprod-produit-type <?= $k ?>"><?= $prd ?></span>
+                  <?php endforeach; ?>
                 <?php endforeach; ?>
-              <?php endforeach; ?>
               </td>
             </tr>
           </tbody>
