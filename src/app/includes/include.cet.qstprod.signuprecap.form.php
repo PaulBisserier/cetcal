@@ -173,6 +173,37 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
   </div>
 </div>
 
+<!-- -------------------------------------- -->
+<!-- ZONE de récap consomation.   -->
+<!-- -------------------------------------- -->
+<div class="row justify-content-lg-center">
+  <div class="col-lg-6">
+    <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos points de vente / distribution :</small></label>
+    <div id="qstprod-table-generale" class="cet-formgroup-container">
+      <div class="d-flex justify-content-center">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td><span class="text-muted">Vos lieux de Distribution / Vente : </span>
+              <?php if (isset($lieuxdist->pointsDeVente) && is_array($lieuxdist->pointsDeVente) && count($lieuxdist->pointsDeVente) > 0): ?>
+              <?php $counter = 0; ?>
+              <?php foreach ($lieuxdist->pointsDeVente as $lieuxVenteDist): ?>
+                <?php echo $lieuxVenteDist.($counter + 1 === count($lieuxdist->pointsDeVente) ? '' : ', '); ?>
+              <?php ++$counter; ?>
+              <?php endforeach; ?>
+              <?php endif; ?>
+              <?php if (isset($lieuxdist->pointsDeVenteAutre) && strlen($lieuxdist->pointsDeVenteAutre) > 0): ?>
+                <?php echo ', '.$lieuxdist->pointsDeVenteAutre; ?>
+              <?php endif; ?>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <div class="cet-formgroup-container">

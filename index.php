@@ -26,7 +26,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0" nonce="XVrFhpSY"></script>
 </head>
-<body>
+<body id="cet-annuaire-body">
   <?php 
     include $PHP_CONST_PATH.'cet.qstprod.const.textes.php';
     include $PHP_CONST_PATH.'cet.qstprod.const.listes.php';

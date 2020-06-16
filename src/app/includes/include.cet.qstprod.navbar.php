@@ -13,13 +13,13 @@
       </li>
       <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
         <li class="nav-item">
-          <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_intro').fadeIn(function(){ $('#' + 'cet-qstprod_seconnecter').hide('slow'); });">Je suis Producteur</a>
+          <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_intro').fadeIn(function(){ scrollTowards('cet-annuaire-body'); $('#' + 'cet-qstprod_seconnecter').hide('slow'); });">Je suis Producteur</a>
         </li>
       <?php endif; ?>
     </ul>
     <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
       <span class="navbar-text">
-        <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_seconnecter').fadeIn(function(){ $('#cet-qstprod_intro').hide('slow'); });">Votre page producteur</a>
+        <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_seconnecter').fadeIn(function(){ scrollTowards('cet-annuaire-body'); $('#cet-qstprod_intro').hide('slow'); });">Votre page producteur</a>
       </span>
     <?php endif; ?>
   </div>
