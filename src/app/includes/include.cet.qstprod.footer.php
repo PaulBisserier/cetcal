@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <p class="cet-p">Qui sommes nous ? :</p>
+        <p class="cet-p">Qui nous sommes :</p>
         <ul class="list-group list-group-flush">
           <li class="list-group-item cet-footer-li">Nous sommes une <b>Organisation à but non lucratif</b></li>
           <li class="list-group-item cet-footer-li">À Castillon une épicerie bio coopérative, un café associatif, un espace de création et de travail partagé.</li>

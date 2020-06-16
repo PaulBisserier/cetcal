@@ -16,3 +16,7 @@
 		}
     });
  });
+
+$(document).ready(function() {
+  $('input[name=qstprod-question-reseaux-participation]').prop('checked', false);
+ });

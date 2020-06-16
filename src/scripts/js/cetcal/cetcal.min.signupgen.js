@@ -17,3 +17,10 @@
 		}
     });
  });
+
+$(document).ready(function(){
+    checkFormInput(60, 'qstprod-nomferme');
+    checkSiret('qstprod-siret');
+    checkFormInput(60, 'qstprod-commune');
+    checkFormInputInteger(9, 4, 'qstprod-cp');
+});

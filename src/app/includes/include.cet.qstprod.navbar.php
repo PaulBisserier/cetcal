@@ -11,12 +11,16 @@
       <li class="nav-item">
         <a class="nav-link cet-p" href="#" onmousedown="scrollTowards('cet-annuaire-footer');">Qui sommes nous ?</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_seconnecter').hide(function(){ $('#' + 'cet-qstprod_intro').fadeIn('slow'); });">Je suis Producteur</a>
-      </li>
+      <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+        <li class="nav-item">
+          <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_intro').fadeIn(function(){ $('#' + 'cet-qstprod_seconnecter').hide('slow'); });">Je suis Producteur</a>
+        </li>
+      <?php endif; ?>
     </ul>
-    <span class="navbar-text">
-      <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_intro').hide(function(){ $('#cet-qstprod_seconnecter').fadeIn('slow'); });">Votre page producteur</a>
-    </span>
+    <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+      <span class="navbar-text">
+        <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_seconnecter').fadeIn(function(){ $('#cet-qstprod_intro').hide('slow'); });">Votre page producteur</a>
+      </span>
+    <?php endif; ?>
   </div>
 </nav>

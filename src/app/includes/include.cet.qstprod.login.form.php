@@ -1,10 +1,7 @@
 <!-- login html form -->
 <div class="cet-module row justify-content-lg-center" id="cet-qstprod_intro" style="margin-bottom: 60px;">
   <div class="col-lg-6">
-    <div class="alert alert-success fade show" role="alert">
-      <button type="button" class="close" aria-label="Close" onmousedown="$('#cet-qstprod_intro').fadeOut();">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div class="alert alert-success" role="alert">
       <h5 class="alert-heading">Bienvenue Producteurs ! <span><a href="/src/app/controller/cet.qstprod.controller.login.form.php">Inscription annuaire</a></span></h5>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_a; ?></p>
       <?php include $PHP_INCLUDES_PATH.'include.cet.qstprod.carousel.php'; ?>
@@ -14,17 +11,14 @@
       <p><b><?= CetQstprodConstTextes::login_intro_block_textinf_d; ?></b></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_f; ?></p>
       <p><b><?= CetQstprodConstTextes::login_intro_block_textinf_e; ?></b></p>
-      <a class="btn btn-success btn-block" href="/src/app/controller/cet.qstprod.controller.login.form.php" style="margin-top: 8px;">S'inscrire sur l'annuaire cetcal !</a>
+      <a class="btn btn-success btn-block" href="/src/app/controller/cet.qstprod.controller.login.form.php" style="margin-top: 8px;">S'inscrire sur l'annuaire</a>
     </div>
   </div>
 </div>
 
-<div class="cet-module row justify-content-lg-center" id="cet-qstprod_seconnecter" style="display: none;">
+<div class="cet-module row justify-content-lg-center" id="cet-qstprod_seconnecter" style="display: none; margin-bottom: 60px;">
   <div class="col-lg-5"> 
-    <div class="alert alert-success fade show" role="alert">
-      <button type="button" class="close" aria-label="Close" onmousedown="$('#cet-qstprod_seconnecter').fadeOut();">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div class="alert alert-success" role="alert">
       <h5 class="alert-heading">Bienvenue Producteurs !</h5>
       <form class="form" action="/src/app/controller/cet.qstprod.controller.login.form.php" method="post">
         <label for="qstprod-email"> - Veuillez renseigner votre identifiant et mot de passe :

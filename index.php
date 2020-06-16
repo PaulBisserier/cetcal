@@ -26,20 +26,21 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v7.0" nonce="XVrFhpSY"></script>
 </head>
-<body onload="// do this or that...">
+<body>
   <?php 
     include $PHP_CONST_PATH.'cet.qstprod.const.textes.php';
     include $PHP_CONST_PATH.'cet.qstprod.const.listes.php';
     include $PHP_UTILS_PATH.'cet.qstprod.utils.filereader.php';
     include $PHP_UTILS_PATH.'cet.qstprod.utils.filarianne.php';
     $listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT));
-
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php'; 
+
     if (in_array($statut, CetQstProdFilArianneHelper::$states)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
     $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
     include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
+
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
-    include $PHP_INCLUDES_PATH.'include.cet.qstprod.footer.php'
+    include $PHP_INCLUDES_PATH.'include.cet.qstprod.footer.php';
   ?>
 </body>
 </html>

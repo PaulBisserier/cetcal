@@ -5,85 +5,109 @@ session_start();
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
-$data = NULL; //new QstProdGeneraleDTO();
-$data = isset($_SESSION['signupgen.form']) ? unserialize($_SESSION['signupgen.form']) : NULL; 
-$produits = isset($_SESSION['signupprods.form']) ? unserialize($_SESSION['signupprods.form']) : NULL;
-$lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['signuplieuxdist.form']) : NULL;
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.sessionshelper.php');
+$sessionshelper = new SessionHelper($_SERVER['DOCUMENT_ROOT']);
+$infogenerales = $sessionshelper->getDto('signupgen.form', new QstProdGeneraleDTO()); 
+$produits = $sessionshelper->getDto('signupprods.form', new QstProduitDTO());
+$lieuxdist = $sessionshelper->getDto('signuplieuxdist.form', new QstLieuxDistributionDTO());
+$conso = $sessionshelper->getDto('signupconso.form', new QstConsomateursDTO());
+$besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
 ?>
+
 <!-- singup récapitulatif html form -->
 <!-- -------------------------------------- -->
 <!-- ZONE de récap informations générales.   -->
 <!-- -------------------------------------- -->
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <div id="qstprod-table-generale" class="alert alert-success table-responsive" role="alert">
-      <label> - Récapitulatif de vos informations générales :</label>
+    <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos informations générales :</small></label>
+    <div id="qstprod-table-generale" class="cet-formgroup-container">
       <div class="d-flex justify-content-center">
-        <table class="table table-borderless table-striped">
+        <table class="table table-borderless">
           <tbody>
-            <tr><td>Nom, prénom : </td><td><?= $data->nom; ?> <?= $data->prenom; ?></td></tr>
-            <tr><td>Adresse email : </td><td><?= $data->email; ?></td></tr>
-            <tr><td>Téléphone fix : </td><td><?= $data->telfix; ?></td></tr>
-            <tr><td>Téléphone mobil : </td><td><?= $data->telport; ?></td></tr>
-            <tr><td>Nom de la ferme : </td><td><?= $data->nomferme; ?></td></tr>
-            <tr><td>Siret associé à la ferme : </td><td><?= $data->siret; ?></td></tr>
-            <?php if (isset($data->adrLieudit) || isset($data->adrComplementAdr)) $displayCmplAdr = true; ?>
             <tr>
-              <td>Adresse postale de la ferme : </td>
-              <td><?= $data->adrNumvoie; ?> <?= $data->adrRue; ?><?php if ($displayCmplAdr) : ?><br><?= $data->adrLieudit; ?> <?= $data->adrComplementAdr; ?><?php endif; ?><br><?= $data->adrCommune; ?> <?= $data->adrCodePostal; ?>
+              <td><span class="text-muted">Nom, prénom : </span><?= $infogenerales->nom; ?> <?= $infogenerales->prenom; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Adresse email : </span><?= $infogenerales->email; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Téléphone fix : </span><?= $infogenerales->telfix; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Téléphone mobil : </span><?= $infogenerales->telport; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Nom de la ferme : </span><?= $infogenerales->nomferme; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Siret associé à la ferme : </span><?= $infogenerales->siret; ?></td>
+            </tr>
+            <?php if (isset($infogenerales->adrLieudit) || isset($infogenerales->adrComplementAdr)) $displayCmplAdr = true; ?>
+            <tr>
+              <td><span class="text-muted">Adresse postale de la ferme : </span><?= $infogenerales->adrNumvoie; ?> <?= $infogenerales->adrRue; ?><?php if ($displayCmplAdr) : ?><br><?= $infogenerales->adrLieudit; ?> <?= $infogenerales->adrComplementAdr; ?><?php endif; ?><br><?= $infogenerales->adrCommune; ?> <?= $infogenerales->adrCodePostal; ?>
               </td>
             </tr>
-            <tr><td>Page Facebook : </td><td><?= $data->pageFB; ?></td></tr>
-            <tr><td>Page Instagram : </td><td><?= $data->pageIG; ?></td></tr>
-            <tr><td>Page Twitter : </td><td><?= $data->pageTwitter; ?></td></tr>
-            <tr><td>Adresse web de votre site dédié : </td><td><?= $data->siteWebUrl; ?></td></tr>
-            <tr><td>Adresse web, Boutique en ligne : </td><td><?= $data->boutiqueEnLigneUrl; ?></td></tr>
-            <tr><td>Vous êtes installé à la ferme <b><?= $data->nomferme; ?></b> depuis : </td><td><?= $data->anneeInstallation; ?></td></tr>
-            <tr><td>Organisme Syndical : </td><td><?= $data->organismeSyndic; ?></td></tr>
-            <tr><td>Organisme Certificateur BIO : </td><td><?= $data->organismeCertificateurBIO; ?></td></tr>
-            <tr><td>Type de production : </td><td><?= $data->typeDeProduction; ?></td></tr>
-            <tr><td>Surface de terres cultivées : </td><td><?= $data->surfaceHectTerres; ?> <i>Hectares</i></td></tr>
-            <tr><td>Surface sous serre(s) : </td><td><?= $data->surfaceHectSousSerre; ?> <i>Hectares</i></td></tr>
-            <tr><td>Concernant les outils informatiques, vous avez répondu : </td><td><?= $data->reponseLibreBesoins; ?></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ------------------------- -->
-<!-- ZONE de récap produits.   -->
-<!-- ------------------------- -->
-<div class="row justify-content-lg-center">
-  <div class="col-lg-6">
-    <div id="qstprod-table-produits" class="alert alert-success table-responsive" role="alert" 
-      style="display: <?= $recapProduitsDisplayRecap; ?>;">
-      <label> - Récapitulatif de vos fiches produits :</label>
-      <div class="d-flex justify-content-center">
-        <table class="table table-borderless table-striped">
-          <thead class="thead-light">
             <tr>
-              <th scope="col">Nom</th>
-              <th scope="col">Type</th>
-              <th scope="col">Du,</th>
-              <th scope="col">Au</th>
-              <th scope="col">Expérience</th>
-              <th scope="col">C'est un produit</th>
+              <td><span class="text-muted">Page Facebook : </span><?= $infogenerales->pageFB; ?></td>
             </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($produits as $data): ?>
-            <?php $produit = new QstProduitDTO(); $produit = $data; ?>
             <tr>
-              <td><?= $produit->produitNom; ?></td>
-              <td><?= $produit->produitType; ?></td>
-              <td><?= $produit->produitDateDebut; ?></td>
-              <td><?= $produit->produitDateFin; ?></td>
-              <td><?= $produit->produitAnneesExperience; ?></td>
-              <td><?= $produit->produitAupresConsomateurs; ?></td>
-            </tr>  
-            <?php endforeach; ?>
+              <td><span class="text-muted">Page Instagram : </span><?= $infogenerales->pageIG; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Page Twitter : </span><?= $infogenerales->pageTwitter; ?></td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Adresse web de votre site dédié : </span><?= $infogenerales->siteWebUrl; ?></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Adresse web, Boutique en ligne : </span><?= $infogenerales->boutiqueEnLigneUrl; ?>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Votre groupe Cagette : </span><?= $infogenerales->groupeCagette; ?>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Organisme Certificateur BIO : </span><?= $infogenerales->organismeCertificateurBIO; ?>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="text-muted">Type de production : </span>
+              <?php if (isset($infogenerales->typeDeProduction) && is_array($infogenerales->typeDeProduction) && count($infogenerales->typeDeProduction) > 0): ?>
+              <?php $counter = 0; ?>
+              <?php foreach ($infogenerales->typeDeProduction as $typeprod): ?>
+              <?php echo $typeprod.($counter + 1 === count($infogenerales->typeDeProduction) ? '' : ', '); ?>
+              <?php ++$counter; ?>
+              <?php endforeach; ?>
+              <?php endif; ?>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Surface de terres cultivées : </span><?= $infogenerales->surfaceHectTerres; ?> <i>Hectares</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Surface sous serre(s) : </span><?= $infogenerales->surfaceHectSousSerre; ?> <i>Ares</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Nombre de têtes (si bétail) : </span><?= $infogenerales->nbrTetesBetail; ?>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="text-muted">Hectolitres / an (si production boissons) : </span><?= $infogenerales->hectolitresParAn; ?> <i>Hectolitres</i>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -96,27 +120,52 @@ $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['s
 <!-- -------------------------------------- -->
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <div id="qstprod-table-lieuxdist" class="alert alert-success table-responsive" role="alert" 
-      style="display: <?= $lieuxDistDisplayRecap; ?>;">
-      <label> - Récapitulatif de vos lieux de distribution :</label>
+    <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos points de vente / distribution :</small></label>
+    <div id="qstprod-table-generale" class="cet-formgroup-container">
       <div class="d-flex justify-content-center">
-        <table class="table table-borderless table-striped">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">lieux de distribution</th>
-              <th scope="col">Journée/date</th>
-              <th scope="col">Périodicité/mois</th>
-            </tr>
-          </thead>
+        <table class="table table-borderless">
           <tbody>
-            <?php foreach ($lieuxdist as $data): ?>
-            <?php $lieu = new QstLieuxDistributionDTO(); $lieu = $data; ?>
             <tr>
-              <td><?= $lieu->lieuNom; ?></td>
-              <td><?= $lieu->jourLivraison; ?></td>
-              <td><?= $lieu->periodiciteLivraison; ?></td>
-            </tr>  
-            <?php endforeach; ?>
+              <td><span class="text-muted">Vos lieux de Distribution / Vente : </span>
+              <?php if (isset($lieuxdist->pointsDeVente) && is_array($lieuxdist->pointsDeVente) && count($lieuxdist->pointsDeVente) > 0): ?>
+              <?php $counter = 0; ?>
+              <?php foreach ($lieuxdist->pointsDeVente as $lieuxVenteDist): ?>
+                <?php echo $lieuxVenteDist.($counter + 1 === count($lieuxdist->pointsDeVente) ? '' : ', '); ?>
+              <?php ++$counter; ?>
+              <?php endforeach; ?>
+              <?php endif; ?>
+              <?php if (isset($lieuxdist->pointsDeVenteAutre) && strlen($lieuxdist->pointsDeVenteAutre) > 0): ?>
+                <?php echo ', '.$lieuxdist->pointsDeVenteAutre; ?>
+              <?php endif; ?>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------------- -->
+<!-- ZONE de récap produits.                -->
+<!-- -------------------------------------- -->
+<div class="row justify-content-lg-center">
+  <div class="col-lg-6">
+    <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos points de vente / distribution :</small></label>
+    <div id="qstprod-table-generale" class="cet-formgroup-container">
+      <div class="d-flex justify-content-center">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td><span class="text-muted">Vos produits : </span>
+              <?php foreach ($produits->listAllProducts() as $k => $v): ?>
+                <br><span><?= $k; ?> :</span>
+                <?php foreach ($v as $prd): ?>
+                  <span><?= $prd ?>, </span>
+                <?php endforeach; ?>
+              <?php endforeach; ?>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -141,7 +190,7 @@ $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['s
           <input class="form-check-input" type="checkbox" id="qstprod-question-reseaux-participation-oui" 
             name="qstprod-question-reseaux-participation" value="oui"
             checked="false">
-          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
+          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui" checked="">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
         </div>
       </div>
     </div>
@@ -150,7 +199,7 @@ $lieuxdist = isset($_SESSION['signuplieuxdist.form']) ? unserialize($_SESSION['s
 
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <form class="form" method="post" action="/src/app/controller/cet.qstprod.controller.signuprecap.form.php">
+    <form id="signuprecap.form.declaratif" class="form" method="post" action="/src/app/controller/cet.qstprod.controller.signuprecap.form.php">
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
