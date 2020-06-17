@@ -11,6 +11,9 @@
       <li class="nav-item">
         <a class="nav-link cet-p" href="#" onmousedown="scrollTowards('cet-annuaire-footer');">Qui sommes nous ?</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link cet-p" href="#" onmousedown="scrollTowards('cet-annuaire-footer');">Notre projet</a>
+      </li>
       <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
         <li class="nav-item">
           <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_intro').fadeIn(function(){ scrollTowards('cet-annuaire-body'); $('#' + 'cet-qstprod_seconnecter').hide('slow'); });">Je suis Producteur</a>

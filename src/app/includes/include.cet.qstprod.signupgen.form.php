@@ -25,7 +25,7 @@ if (isset($_GET['sitkn']))
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">
       ---- ------------------------- -->
       <br>
-      <label class="cet-formgroup-container-label"><small class="form-text">Renseignez les information générales ci-dessous :</small></label>
+      <label class="cet-formgroup-container-label"><small class="form-text">Informations générales :</small></label>
       <div class="cet-formgroup-container">
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom de famille :</small></label>
@@ -199,7 +199,7 @@ if (isset($_GET['sitkn']))
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie de culture serre en <b>ares</b> :</small></label>
           <input class="form-control" id="qstprod-supserre" name="qstprod-supserre" type="number" min="0.01"
-            step="0.01" placeholder="Superficie de culture serre en hectares"
+            step="0.01" placeholder="Superficie de culture serre en ares"
             value="<?= isset($currentForm['qstprod-supserre']) ? $currentForm['qstprod-supserre'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
