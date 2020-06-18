@@ -6,10 +6,15 @@ try
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
   $dataProcessor = new HTTPDataProcessor();
 
+  $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], 
+    $_POST['qstprod-email'], $_POST['qstprod-email-conf'], $_POST['qstprod-nomferme'],
+    $_POST['qstprod-siret'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
+
   // SESSION init, re-init & start for data storage.
-  $nomferme = $dataProcessor->processHttpFormData($_POST['qstprod-nomferme']);
   $mdpprod = $dataProcessor->processHttpFormData($_POST['qstprod-mdp']);
+  $nomferme = $dataProcessor->processHttpFormData($_POST['qstprod-nomferme']);
   $siretprod = $dataProcessor->processHttpFormData($_POST['qstprod-siret']);
+
   $cetcal_session_id = hash('sha1', $nomferme.$mdpprod.$siretprod);
   session_id($cetcal_session_id);
   session_start();

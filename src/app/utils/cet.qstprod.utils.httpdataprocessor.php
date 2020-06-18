@@ -10,6 +10,14 @@ Class HTTPDataProcessor
   public function __construct()
   {}
 
+  public function checkNonNullData($array_data)
+  {
+    foreach ($array_data as $data) 
+    {
+      if (!isset($data) || strlen($data) <= 0) throw new Exception("Données obligatoires manquantes.");
+    }
+  }
+
   /**
    * Control/check input. When data is unset, appends to error message array for View layer purposes.
    * param0  : the data to check.

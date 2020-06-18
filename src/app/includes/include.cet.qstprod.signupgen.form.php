@@ -84,7 +84,7 @@ if (isset($_GET['sitkn']))
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° Siret de la ferme :</small></label>
-          <input class="form-control" id="qstprod-siret" name="qstprod-siret" type="text" maxlength="14" 
+          <input class="form-control is-invalid" id="qstprod-siret" name="qstprod-siret" type="text" maxlength="14" 
             minlength="14" placeholder="Siret" onblur="checkSiret(this.id);"
             value="<?= isset($currentForm['qstprod-siret']) ? $currentForm['qstprod-siret'] : $neant; ?>">
         </div>
