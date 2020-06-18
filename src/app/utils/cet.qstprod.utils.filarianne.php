@@ -10,11 +10,14 @@ Class CetQstProdFilArianneHelper
     "signupconso.form" => "Vos consomateurs",
     "signupbesoins.form" => "Besoins, Solidarité et Résilience",
     "signuprecap.form" => "Récapitulatif du questionnaire",
+    "signupeffectue.form" => "Confirmation d'inscription"
   );
   public static $states = array(
-    "signupgen.form", "signuplieuxdist.form", "signupprods.form", "signupconso.form", "signupbesoins.form", "signuprecap.form"
+    "signupgen.form", "signuplieuxdist.form", "signupprods.form", "signupconso.form", "signupbesoins.form", "signuprecap.form", "signupeffectue.form"
   );
-
+  public static $statesFilAriane = array(
+    "signupgen.form", "signuplieuxdist.form", "signupprods.form", "signupconso.form", "signupbesoins.form", "signuprecap.form", "signupeffectue.form"
+  );
 
   private static $result = "";
 
