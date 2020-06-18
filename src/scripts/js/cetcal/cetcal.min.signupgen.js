@@ -2,7 +2,7 @@
  * Prevent form submit if any necessary fields are unset.
  */
   $(function(){
-    $('#btn-signupgen-valider-form').on('mousedown', function(e) {
+    $('#btn-signupgen-form-valider').on('mousedown', function(e) {
         if (document.querySelector('.is-invalid') !== null) {
         	e.preventDefault();
         	var text = 'Des informations obligatoires sont manquantes au formulaire.'
@@ -18,9 +18,8 @@
     });
  });
 
-$(document).ready(function(){
+$(document).ready(function() {
     checkFormInput(60, 'qstprod-nomferme');
-    checkSiret('qstprod-siret');
     checkFormInput(60, 'qstprod-commune');
     checkFormInputInteger(9, 4, 'qstprod-cp');
 });

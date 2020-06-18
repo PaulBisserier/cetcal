@@ -11,7 +11,7 @@ $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signup
   <div class="col-lg-6">
     <form id="signuplieuxdist.form" class="form" method="post" 
       action="/src/app/controller/cet.qstprod.controller.signuplieuxdist.form.php">
-      <label for="cdc-signup-email"> - Veuillez renseigner vos lieux de distribution / vente :
+      <label for="cdc-signup-email">Veuillez renseigner vos lieux de distribution / vente :
         <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
           <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
         </small>
@@ -47,8 +47,12 @@ $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signup
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signuplieuxdist-nav').val('retour');">Retour</button>
-          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signuplieuxdist-nav').val('valider');">Valider ces informations</button>
+          <button class="btn btn-info" type="submit" 
+            onmousedown="$('#qstprod-signuplieuxdist-nav').val('retour');" 
+            id="btn-signuplieuxdist.form-retour">Retour</button>
+          <button class="btn btn-info" type="submit" 
+            onmousedown="$('#qstprod-signuplieuxdist-nav').val('valider');"
+            id="btn-signuplieuxdist.form-valider">Valider ces informations</button>
         </div>
       </div>
 

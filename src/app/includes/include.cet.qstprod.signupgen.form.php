@@ -14,7 +14,7 @@ if (isset($_GET['sitkn']))
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <form id="signupgen.form" class="form" method="post" action="/src/app/controller/cet.qstprod.controller.signupgen.form.php">
-      <label for="cdc-signup-email"> - Veuillez renseigner les information demandées ci-dessous :
+      <label for="cdc-signup-email">Veuillez renseigner les information demandées ci-dessous :
         <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
           <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
         </small>
@@ -84,7 +84,7 @@ if (isset($_GET['sitkn']))
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° Siret de la ferme :</small></label>
-          <input class="form-control is-invalid" id="qstprod-siret" name="qstprod-siret" type="text" maxlength="14" 
+          <input class="form-control" id="qstprod-siret" name="qstprod-siret" type="text" maxlength="14" 
             minlength="14" placeholder="Siret" onblur="checkSiret(this.id);"
             value="<?= isset($currentForm['qstprod-siret']) ? $currentForm['qstprod-siret'] : $neant; ?>">
         </div>
@@ -257,8 +257,9 @@ if (isset($_GET['sitkn']))
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('retour');">Retour accueil</button>
-          <button class="btn btn-info" type="submit" id="btn-signupgen-valider-form">Valider ces informations</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('retour');"
+            id="btn-signupgen-form-retour">Retour accueil</button>
+          <button class="btn btn-info" type="submit" id="btn-signupgen-form-valider" onmousedown="$('#qstprod-signupgen-nav').val('valider');">Valider ces informations</button>
         </div>
       </div>
 

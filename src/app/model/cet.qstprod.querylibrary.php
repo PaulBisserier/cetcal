@@ -13,4 +13,13 @@ class CETCALQueryLibrary
 
   const INSERT_QSTPROD_LIEUX = "INSERT INTO cetcal.cetcal_lieu (fk_lieu_qstprod_idpkai_producteur, nom) VALUES (:pFk, :pPointsDeVente);";
 
+  const INSERT_QSTPROD_PRODUIT = "INSERT INTO cetcal.cetcal_produits (fk_produits_qstprod_idpkai_producteur, nom, categorie) VALUES (:pFk, :pNomProduit, :pCategorie);";
+
+  const INSERT_SONDAGE_DIFFICULTES = "INSERT INTO cetcal.cet_sondage (fk_sondage_qstprod_idpkai_producteur, question, reponse) VALUES (:pFk, \"besoins et difficultés\", :pReponse);";
+
+  const INSERT_SONDAGE = "INSERT INTO cetcal.cet_sondage (fk_sondage_qstprod_idpkai_producteur, question, reponse) VALUES (:pFk, :pQuestion, :pReponse);";
+
+  const INSERT_INFORMATION = "INSERT INTO cetcal.cetcal_information_producteur (fk_infop_qstprod_idpkai_producteur, clef_information, valeure_information) VALUES (:pFk, :pK, :pV);";
+
+  const SELECT_SIRET_PRODUCTEUR_PAR_SIRET = "SELECT siret FROM cetcal.qstprod_producteur WHERE siret=:pSiret;";
 }

@@ -8,18 +8,36 @@ session_start();
 
 /** ***************************************************************************
  * Time to insert it all from SESSION to DB.
- *
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.qstprod.producteurs.model.php');
-$model = new QSTPRODProducteurModel();
-$data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
-  isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
-  isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
+ */
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.producteurs.model.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.lieuxdist.model.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.produits.model.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.questionnaire.sondage.producteur.model.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.informations.model.php');
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.qstprod.lieuxdist.model.php');
-$model = new QSTPRODLieuxModel();
-$model->createLieu($data['pk'], isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL);
-// Do the same for Produits, sondage, information prod.
-** ***************************************************************************/
+// Vérifier si le producteur existe déjà en base. Si oui, erreur & notifier vue.
+$inscrit = 
+
+$model = new QSTPRODProducteurModel();
+if ($model->exists(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL)) 
+{
+  $data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
+    isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
+    isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
+  $model = new QSTPRODLieuxModel();
+  $model->createLieu($data['pk'], isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL);
+  $model = new QSTPRODProduitsModel();
+  $model->createProduits($data['pk'], isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL);
+  $model = new QSTPRODSondageProducteurModel();
+  $model->createSondages($data['pk'], isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL);
+  $model = new QSTPRODInformationsModel();
+  $model->createInformations($data['pk'], isset($_SESSION['signupbesoins.form']) ? $_SESSION['signupbesoins.form'] : NULL);
+}
+else
+{
+  
+}
+/** ***************************************************************************/
 
 // Prepare navigation :
 $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signuprecap-nav']);

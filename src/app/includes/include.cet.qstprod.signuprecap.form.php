@@ -218,10 +218,10 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
       </label>
       <div class="input-group mb-3">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="qstprod-question-reseaux-participation-oui" 
-            name="qstprod-question-reseaux-participation" value="oui"
+          <input class="form-check-input" type="checkbox" id="qstprod-declaration-valide" 
+            name="qstprod-declaration-valide" value="oui"
             checked="false">
-          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui" checked="">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
+          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
         </div>
       </div>
     </div>
@@ -234,8 +234,11 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signuprecap-nav').val('retour');">Retour</button>
-          <button class="btn btn-info" type="submit" id="btn-signuprecap-valider-form">Valider votre inscription</button>
+          <button class="btn btn-info" type="submit" 
+            onmousedown="$('#qstprod-signuprecap-nav').val('retour');"
+            id="btn-signuprecap.form-retour">Retour</button>
+          <button class="btn btn-info" type="submit" id="btn-signuprecap-form-valider"
+            onmousedown="$('#qstprod-signuprecap-nav').val('valider');">Valider votre inscription</button>
         </div>
       </div>
 

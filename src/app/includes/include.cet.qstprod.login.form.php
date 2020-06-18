@@ -21,7 +21,7 @@
     <div class="alert alert-success" role="alert">
       <h5 class="alert-heading">Bienvenue Producteurs !</h5>
       <form class="form" action="/src/app/controller/cet.qstprod.controller.login.form.php" method="post">
-        <label for="qstprod-email"> - Veuillez renseigner votre identifiant et mot de passe :
+        <label for="qstprod-email">Veuillez renseigner votre identifiant et mot de passe :
           <small class="form-text text-muted" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
             <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
           </small>

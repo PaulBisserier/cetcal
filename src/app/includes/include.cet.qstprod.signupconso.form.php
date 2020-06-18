@@ -10,7 +10,7 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
   <div class="col-lg-6">
     <form id="signupconso.form" class="form" method="post" 
       action="/src/app/controller/cet.qstprod.controller.signupconso.form.php">
-      <label for="cdc-signup-email"> - Veuillez renseigner vos informations consomateurs :
+      <label for="cdc-signup-email">Veuillez renseigner vos informations consomateurs :
         <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
           <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
         </small>
@@ -108,8 +108,10 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
 
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
-          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupconso-nav').val('retour');">Retour</button>
-          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupconso-nav').val('valider');">Valider ces informations</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupconso-nav').val('retour');"
+            id="btn-signupconso.form-retour">Retour</button>
+          <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupconso-nav').val('valider');"
+            id="btn-signupconso.form-valider">Valider ces informations</button>
         </div>
       </div>
 
