@@ -69,16 +69,23 @@ try
 
     $form_cagette = $dataProcessor->processHttpFormData($_POST['qstprod-cagette']);
 
-    // Check for data isset/unset erros.
-    $dataProcessor->scanForErrors();
+    /**
+     * identifiant de connexion annuaire : composé du mail ou du n° de téléphone (fixe ou mobile) ou
+     * du siret de la ferme.
+     */
+    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.identifiantcet.php');
+    $idHelper = new IdentifiantCETHelper($form_obl_email, $form_telfix, $form_telport, $form_obl_siret);
+    $identifiant_cet = $idHelper->identifiant;
+
     // Construct new DTO object :
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
-    $dtoQstGeneralesProd = new QstProdGeneraleDTO($form_obl_nom, $form_obl_prenom, $form_obl_email, $form_obl_mdp_hash, 
+    $dtoQstGeneralesProd = new QstProdGeneraleDTO($form_obl_nom, $form_obl_prenom, 
+      $form_obl_email, $form_obl_mdp_hash, 
       $form_telfix, $form_telport, $form_obl_nomferme, $form_obl_siret, $form_adr_numvoie, $form_adr_rue, 
       $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig, 
       $form_pagetwitter, $form_siteweb, $form_boutiquewww, "" /* org certif bio deprecated */, 
       $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
-      $form_sondage_difficultes, $form_sondage, $form_cagette);
+      $form_sondage_difficultes, $form_sondage, $form_cagette, $identifiant_cet);
     $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);
   }
 

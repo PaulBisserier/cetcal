@@ -68,6 +68,7 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->bindParam(":pModesConsoCommandes", $commandes, PDO::PARAM_STR);
     $stmt->bindParam(":pModesConsoPaiments", $paimentsModes, PDO::PARAM_STR);
     $stmt->bindParam(":pModesConsoReceptions", $receps, PDO::PARAM_STR);
+    $stmt->bindParam(":pIndentifiantCet", $dtoGenerale->identifiant_cet, PDO::PARAM_STR);
 
     $stmt->execute();
 

@@ -14,7 +14,7 @@ Class HTTPDataProcessor
   {
     foreach ($array_data as $data) 
     {
-      if (!isset($data) || strlen($data) <= 0) throw new Exception("Données obligatoires manquantes.");
+      if (!isset($data) || strlen($data) <= 0) throw new Exception("Des donnees obligatoires sont manquantes.");
     }
   }
 
@@ -34,14 +34,6 @@ Class HTTPDataProcessor
   {
     $data = [];
     return !isset($array) || !is_array($array) || count($array) < 1 ? $data : $array;
-  }
-
-  public function scanForErrors()
-  {
-    if (count($this->errors) > 0) 
-    {
-      // Prepare to sendback to View layers.
-    }
   }
 
 }
