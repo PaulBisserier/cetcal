@@ -20,6 +20,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   <META HTTP-EQUIV="Expires" CONTENT="-1">
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
   <link rel="stylesheet" href="/src/scripts/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="/src/scripts/js/jquery/jquery-3.4.1.min.js"></script>
   <script src="/src/scripts/js/bootstrap.min.js"></script>
   <script src="/src/scripts/js/cetcal/cetcal.min.js"></script>
@@ -40,12 +41,14 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
 
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
+    include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal.notreprojet.php';
     include $PHP_INCLUDES_PATH.'include.cet.qstprod.footer.php';
   ?>
 </body>
 </html>
 <style type="text/css">
   .cet-formgroup-container { background-color: rgb(250, 250, 250); border: 1px solid lightgrey; border-radius: 4px; padding: 16px; margin-bottom: 20px; }
+  .cet-accordion { background-color: rgb(250, 250, 250); border: 1px solid lightgrey; border-radius: 4px; margin-bottom: 20px; }
   .cet-formgroup-inner-container { background-color: rgb(255, 255, 255) !important; }
   /** libellés de block : **/
   label.cet-formgroup-container-label { color: rgb(30, 40, 30); font-size: 18px; }
@@ -53,6 +56,10 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   .cet-qstprod-label-text { color: rgb(70, 80, 40); }
   .cet-input-label { margin-left: 8px; }
   .cet-qstprod-btnnav { margin-top: 20px; }
+  .cet-accordion-icon { color: #5cb85c; float: right; font-size:28px; margin-left: 12px; }
+  .cet-accordion-icon:hover { color: #28a745; }
+  .cet-accordion-badge { background-color: #5cb85c; font-size: 16px; font-weight: lighter; padding: 6px; }
+  .cet-accordion-badge:hover { background-color: #28a745 !important; }
   .form { margin-bottom: 60px; }
   label { margin-left: 4px !important; }
   .table { border-style: 1px solid black !important; }

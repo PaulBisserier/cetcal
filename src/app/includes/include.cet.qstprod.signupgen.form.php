@@ -84,7 +84,7 @@ if (isset($_GET['sitkn']))
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° Siret de la ferme :</small></label>
-          <input class="form-control is-invalid" id="qstprod-siret" name="qstprod-siret" type="text" maxlength="14" 
+          <input class="form-control" id="qstprod-siret" name="qstprod-siret" type="text" maxlength="14" 
             minlength="14" placeholder="Siret" onblur="checkSiret(this.id);"
             value="<?= isset($currentForm['qstprod-siret']) ? $currentForm['qstprod-siret'] : $neant; ?>">
         </div>
@@ -135,48 +135,10 @@ if (isset($_GET['sitkn']))
         </div>
       </div>
 
-      <label class="cet-formgroup-container-label" for="qstprod-www"><small class="form-text">Informations web et réseaux sociaux :</small></label> 
-      <div class="cet-formgroup-container">
-        <div class="form-group mb-3"> 
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Page Facebook de la ferme :</small></label>
-          <input class="form-control" id="qstprod-fb" name="qstprod-fb" type="text" 
-            placeholder="Page Facebook de la ferme (si existant)"
-            value="<?= isset($currentForm['qstprod-fb']) ? $currentForm['qstprod-fb'] : $neant; ?>">
-        </div>
-        <div class="form-group mb-3">   
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Page Instagram de la ferme :</small></label>
-          <input class="form-control" id="qstprod-ig" name="qstprod-ig" type="text" 
-            placeholder="Page Instagram de la ferme (si existant)"
-            value="<?= isset($currentForm['qstprod-ig']) ? $currentForm['qstprod-ig'] : $neant; ?>">
-        </div>
-        <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Compte Twitter de la ferme :</small></label>   
-          <input class="form-control" id="qstprod-twitter" name="qstprod-twitter" type="text" 
-            placeholder="Compte Twitter de la ferme (si existant)"
-            value="<?= isset($currentForm['qstprod-twitter']) ? $currentForm['qstprod-twitter'] : $neant; ?>">
-        </div>
-        <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Site internet de votre exploitation :</small></label>
-          <input class="form-control" id="qstprod-www" name="qstprod-www" type="text" 
-            placeholder="Site internet de votre exploitation (si existant)"
-            value="<?= isset($currentForm['qstprod-www']) ? $currentForm['qstprod-www'] : $neant; ?>">
-        </div>
-        <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Adresse web de votre boutique ligne :</small></label>
-          <input class="form-control" id="qstprod-adrwebboutiqueenligne" name="qstprod-adrwebboutiqueenligne" 
-            type="text" placeholder="Adresse web de boutique en ligne"
-            value="<?= isset($currentForm['qstprod-adrwebboutiqueenligne']) ? $currentForm['qstprod-adrwebboutiqueenligne'] : $neant; ?>">
-        </div>
-      </div>
+      <?php include $PHP_INCLUDES_PATH.'areas/include.cet.qstprod.signupinfosweb.area.form.php'; ?>
 
       <label class="cet-formgroup-container-label"><small class="form-text">Activité de production :</small></label>
       <div class="cet-formgroup-container">
-        <div class="form-group mb-3"> 
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Organisme certificateur BIO :</small></label>
-          <input class="form-control" id="qstprod-orgcertifbio" name="qstprod-orgcertifbio" type="text" 
-            placeholder="Organisme certificateur BIO"
-            value="<?= isset($currentForm['qstprod-orgcertifbio']) ? $currentForm['qstprod-orgcertifbio'] : $neant; ?>">
-        </div>
         <label><small class="form-text">Concernant votre activité de production ? (plusieurs options possibles)</small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->activites as $activite): ?>
@@ -216,41 +178,7 @@ if (isset($_GET['sitkn']))
         </div>
       </div>
 
-      <label class="cet-formgroup-container-label"><small class="form-text">Sondage :</small></label>
-      <div class="cet-formgroup-container">
-        <label><small class="form-text">Quels sont vos besoins et difficultés ?</small></label>
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->sondage_difficultes as $sondagedifficulte): ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $sondagedifficulte; ?>" id="qstprod-sondagedifficulte-<?= $counter; ?>" 
-            name="qstprod-sondagedifficultes[]"
-            <?= isset($currentForm['qstprod-sondagedifficultes']) && in_array($sondagedifficulte, $currentForm['qstprod-sondagedifficultes']) ? 
-              'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-sondagedifficulte-<?= $counter; ?>"><?= $sondagedifficulte; ?></label>
-        </div>
-        <?php ++$counter; ?>
-        <?php endforeach; ?>
-
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->sondage_divers as $divers): ?>
-        <?php for ($i=0; $i < count($divers) - 1; $i++): ?>
-          <?php if ($i == 0): ?>
-            <br>
-            <label><small class="form-text"><?= $divers[$i]; ?></small></label>
-          <?php endif; ?>
-          <?php if ($i > 0): ?>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="<?= $divers[$i]; ?>" id="qstprod-sondage-<?= ++$counter; ?>" 
-                name="qstprod-sondage[]"
-                <?= isset($currentForm['qstprod-sondage']) && in_array($divers[$i], $currentForm['qstprod-sondage']) ? 
-              'checked="checked"' : $neant; ?>>
-              <label class="form-check-label cet-qstprod-label-text" for="qstprod-sondage-<?= $counter; ?>"><?= $divers[$i]; ?></label>
-            </div>
-            <?php ++$counter; ?>
-          <?php endif; ?>
-        <?php endfor; ?>
-        <?php endforeach; ?>
-      </div>
+      <?php include $PHP_INCLUDES_PATH.'areas/include.cet.qstprod.signupsondage.area.form.php'; ?>
       <!-- ------------------------ -->
       <!-- INPUTS formulaire STOP : -->      
       <!-- ------------------------ -->

@@ -1,0 +1,33 @@
+<div class="modal fade" tabindex="-1" id="modal-cet-notre-projet" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_titre; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_debut; ?></p>
+        <ul>
+          <li class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_priorite_1; ?></li>
+          <li class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_priorite_2; ?></li>
+          <li class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_priorite_3; ?></li>
+          <li class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_priorite_4; ?>
+            <ul>
+              <li class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_priorite_4_a; ?></li>
+              <li class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_priorite_4_b; ?></li>
+            </ul>
+          </li>
+        </ul>
+        <?php include $PHP_INCLUDES_PATH.'include.cet.qstprod.carousel.modal.notreprojet.php'; ?>
+        <br><br>
+        <p class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_fin; ?></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">J'ai compris</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-success" id="modal-cet-notre-projet-btn" data-toggle="modal" data-target="#modal-cet-notre-projet" hidden="hidden"></button>
