@@ -117,9 +117,9 @@ $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbe
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
           <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupbesoins-nav').val('retour');"
-            id="btn-signupbesoins.form-retour">Retour</button>
+            id="btn-signupbesoins.form-retour"><?= CetQstprodConstLibelles::form_retour; ?></button>
           <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupbesoins-nav').val('valider');"
-            id="btn-signupbesoins.form-valider">Valider ces informations</button>
+            id="btn-signupbesoins.form-valider"><?= CetQstprodConstLibelles::form_valider; ?></button>
         </div>
       </div>
 

@@ -48,7 +48,7 @@
         </div>
         <a href="#cet-infosweb-accordion" style="float: right; margin-bottom: 20px; color: white;" 
           class="btn btn-success btn-sm scrolltowards" data-toggle="collapse" data-target="#cet-infosweb">
-          <i>Fermer cette zone</i>
+          <i><?= CetQstprodConstLibelles::close_form_area; ?></i>
           <i class="fa fa-hand-o-up cet-accordion-icon" style="color: white;"></i>
         </a>
       </div>

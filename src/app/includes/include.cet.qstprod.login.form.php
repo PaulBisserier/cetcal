@@ -3,15 +3,15 @@
   <div class="col-lg-6">
     <div class="alert alert-success" role="alert">
       <h5 class="alert-heading">Bienvenue Producteurs ! <span><a href="/src/app/controller/cet.qstprod.controller.login.form.php">Inscription annuaire</a></span></h5>
-      <p><?= CetQstprodConstTextes::login_intro_block_textinf_a; ?></p>
+      <p><?= CetQstprodConstTextes::login_intro_block_textinf_e; ?></p>
+      <p><a class="btn btn-success btn-block" href="/src/app/controller/cet.qstprod.controller.login.form.php" style="margin-top: 8px;">S'inscrire sur l'annuaire</a></p>
+      <p><?= CetQstprodConstTextes::login_intro_block_textinf_d; ?></p>
+      <br>
       <?php include $PHP_INCLUDES_PATH.'include.cet.qstprod.carousel.php'; ?>
       <br>
+      <p><?= CetQstprodConstTextes::login_intro_block_textinf_a; ?></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_b; ?></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_c; ?></p>
-      <p><b><?= CetQstprodConstTextes::login_intro_block_textinf_d; ?></b></p>
-      <p><?= CetQstprodConstTextes::login_intro_block_textinf_f; ?></p>
-      <p><b><?= CetQstprodConstTextes::login_intro_block_textinf_e; ?></b></p>
-      <a class="btn btn-success btn-block" href="/src/app/controller/cet.qstprod.controller.login.form.php" style="margin-top: 8px;">S'inscrire sur l'annuaire</a>
     </div>
   </div>
 </div>

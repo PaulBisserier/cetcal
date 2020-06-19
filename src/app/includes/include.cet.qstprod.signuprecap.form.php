@@ -236,7 +236,7 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
         <div class="col text-center">
           <button class="btn btn-info" type="submit" 
             onmousedown="$('#qstprod-signuprecap-nav').val('retour');"
-            id="btn-signuprecap.form-retour">Retour</button>
+            id="btn-signuprecap.form-retour"><?= CetQstprodConstLibelles::form_retour; ?></button>
           <button class="btn btn-info" type="submit" id="btn-signuprecap-form-valider"
             onmousedown="$('#qstprod-signuprecap-nav').val('valider');">Valider votre inscription</button>
         </div>

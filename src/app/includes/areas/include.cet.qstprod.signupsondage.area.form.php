@@ -3,7 +3,7 @@
     <div class="card-header" id="cet-sondage-1-heading">
       <h5 class="mb-0">
         <a class="badge badge-success cet-accordion-badge" href="#" data-toggle="collapse" data-target="#cet-sondage-1" aria-expanded="true" aria-controls="cet-sondage-1">
-          Pourriez-vous répondre à quelques questions ?
+          Pour mieux vous connaître (ces informations sont confidentielles) - sondage.
         </a>
         <a class="align-middle" href="#" data-toggle="collapse" 
           data-target="#cet-sondage-1" aria-expanded="true" 
@@ -52,7 +52,7 @@
         <?php endforeach; ?>
         <a href="#cet-sondage-1-accordion" style="float: right; margin-bottom: 20px; color: white;" 
           class="btn btn-success btn-sm scrolltowards" data-toggle="collapse" data-target="#cet-sondage-1">
-          <i>Fermer cette zone</i>
+          <i><?= CetQstprodConstLibelles::close_form_area; ?></i>
           <i class="fa fa-hand-o-up cet-accordion-icon" style="color: white;"></i>
         </a>
       </div>

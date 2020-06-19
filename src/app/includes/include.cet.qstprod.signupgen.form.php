@@ -187,7 +187,7 @@ if (isset($_GET['sitkn']))
         <div class="col text-center">
           <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('retour');"
             id="btn-signupgen-form-retour">Retour accueil</button>
-          <button class="btn btn-info" type="submit" id="btn-signupgen-form-valider" onmousedown="$('#qstprod-signupgen-nav').val('valider');">Valider ces informations</button>
+          <button class="btn btn-info" type="submit" id="btn-signupgen-form-valider" onmousedown="$('#qstprod-signupgen-nav').val('valider');"><?= CetQstprodConstLibelles::form_valider; ?></button>
         </div>
       </div>
 

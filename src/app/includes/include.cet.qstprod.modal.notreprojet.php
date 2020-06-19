@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" id="modal-cet-notre-projet" role="dialog">
+<div class="modal fade" tabindex="-1" id="modal-cet-notre-projet" role="dialog" style="display: none;">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,7 +25,7 @@
         <p class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_fin; ?></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">J'ai compris</button>
+        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal"><?= CetQstprodConstLibelles::modal_compris; ?></button>
       </div>
     </div>
   </div>
