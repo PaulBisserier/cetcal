@@ -18,14 +18,13 @@ try
   /* *****************************************************************************/
   /* HTTP POST : var setup : *****************************************************/
   // POST form logic - dans l'ordre du formulaire HTML :
-  $form_solidarites = $dataProcessor->processHttpFormArrayData($_POST['qstprod-besoins-solsprods']);
+  $form_solidarites = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-besoins-solsprods']) ? $_POST['qstprod-besoins-solsprods'] : NULL);
   $form_solidarite_autre = $dataProcessor->processHttpFormData($_POST['qstprod-solprod-autre']);
   $form_participer = $dataProcessor->processHttpFormData($_POST['qstprod-question-reseaux-participation']);
-  $form_besoins = $dataProcessor->processHttpFormArrayData($_POST['qstprod-besoins-actions']);
+  $form_besoins = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-besoins-actions']) ? $_POST['qstprod-besoins-actions'] : NULL);
   $form_besoin_autre = $dataProcessor->processHttpFormData($_POST['qstprod-action-autre']);
-  $form_reflexions = $dataProcessor->processHttpFormArrayData($_POST['qstprod-besoins-groupesres']);
+  $form_reflexions = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-besoins-groupesres']) ? $_POST['qstprod-besoins-groupesres'] : NULL);
   $form_reflexion_autre = $dataProcessor->processHttpFormData($_POST['qstprod-grouperes-autre']);
-
 
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
   $besoinsDto = new QstBesoinsDTO($form_solidarites, $form_solidarite_autre, $form_participer,
@@ -41,7 +40,7 @@ try
 }
 catch (Exception $e) 
 {
+  session_write_close();
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage().'&sitkn='.$cetcal_session_id);
   exit();
 }
-?>

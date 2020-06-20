@@ -6,10 +6,11 @@ try
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
   $dataProcessor = new HTTPDataProcessor();
   $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signuprecap-nav']);
+  $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_id']);
+
   if ($nav == 'valider')
   {
     // Prepare to read Session.
-    $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_id']);
     session_id($cetcal_session_id);
     session_start();
 
@@ -26,15 +27,14 @@ try
     $data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
       isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
       isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
-    /*$model = new QSTPRODLieuxModel();
+    $model = new QSTPRODLieuxModel();
     $model->createLieu($data['pk'], isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL);
     $model = new QSTPRODProduitsModel();
     $model->createProduits($data['pk'], isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL);
-    $model = new QSTPRODSondageProducteurModel();
+    /*$model = new QSTPRODSondageProducteurModel();
     $model->createSondages($data['pk'], isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL);
     $model = new QSTPRODInformationsModel();
     $model->createInformations($data['pk'], isset($_SESSION['signupbesoins.form']) ? $_SESSION['signupbesoins.form'] : NULL);*/
-    
     /** ***************************************************************************/
   }
 
@@ -50,6 +50,5 @@ catch (Exception $e)
 {
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage().'&sitkn='.$cetcal_session_id);
   exit();
-  var_dump($e);
 }
 ?>

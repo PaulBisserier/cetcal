@@ -1,13 +1,9 @@
 <?php
-
 /**
  * Sql query's.
  */
 class CETCALQueryLibrary
 {
-
-  const GET_ALL_PRODUCTEURS = "SELECT * FROM cetcal.cetcal_producteur;";
-  const GET_PROD_BY_PK = "SELECT * FROM cetcal.cetcal_producteur WHERE cetcal_producteur.pk_producteur=:pPk;";
 
   const INSERT_QSTPROD_PRODUCTEUR = "INSERT INTO cetcal.cetcal_producteur (nom, prenom, email, email_bu, mdpsha, telfixe, telport, nom_ferme, siret, adrferme_numvoie, adrferme_rue, adrferme_lieudit, adrferme_commune, adrferme_cp, adrferme_compladr, pageurl_fb, pageurl_ig, pageurl_twitter, url_web, url_boutique, orgcertifbio, surfacehectterres, surfacesousserre, tetes_betail, hl_par_an, groupe_cagette, identifiant_cet) VALUES (:pNom, :pPrenom, :pEmail, :pEmailBu, :pMdpsha, :pTelfixe, :pTelPort, :pNomFerme, :pSiret, :pAdrNumvoie, :pAdrRue, :pAdrLieudit, :pAdrCommune, :pAdrcp, :pAdrCmpladr, :pPageFb, :pPageIg, :pPageTwitter, :pUrlWeb, :pUrlBoutique, :pOrgCertifBio, :pSurfaceHectTerres, :pSurfaceAresSerre, :pNbrTetes, :pHLParAn, :pGroupeCagette, :pIndentifiantCet);";
 
@@ -17,15 +13,13 @@ class CETCALQueryLibrary
 
   const INSERT_CETCAL_MODE_CONSO = "INSERT INTO cetcal.cetcal_mode_conso (clef_mode_conso, val_mode_conso, fk_producteur_mode_conso) VALUES (:pClef, :pVal, :pPkProducteur);";
 
-  const INSERT_QSTPROD_LIEUX = "INSERT INTO cetcal.cetcal_lieu (fk_lieu_qstprod_idpkai_producteur, nom) VALUES (:pFk, :pPointsDeVente);";
+  const INSERT_CETCAL_LIEU = "INSERT INTO cetcal.cetcal_lieu (nom, adresse_literale, jours_producteur, jour_collecte_conso) VALUES (:pNom, :pAdrLit, :pJoursProducteur, :pJourCollecteConso);";
+  const INSERT_PRODUCTEUR_JOIN_LIEU = "INSERT INTO cetcal.producteur_join_lieu (fk_producteur_join, fk_lieu) VALUES (:pFkProducteur, :pFkLieu);";
 
-  const INSERT_QSTPROD_PRODUIT = "INSERT INTO cetcal.cetcal_produits (fk_produits_qstprod_idpkai_producteur, nom, categorie) VALUES (:pFk, :pNomProduit, :pCategorie);";
+  const INSERT_CETCAL_PRODUIT = "INSERT INTO cetcal.cetcal_produit (nom, categorie) VALUES (:pNom, :pCategorie);";
+  const INSERT_PRODUCTEUR_JOIN_PRODUITS = "INSERT INTO cetcal.producteur_join_produits (fk_producteur_join, fk_produits_join) VALUES (:pFkProducteur, :pFkProduit);";
 
-  const INSERT_SONDAGE_DIFFICULTES = "INSERT INTO cetcal.cet_sondage (fk_sondage_qstprod_idpkai_producteur, question, reponse) VALUES (:pFk, \"besoins et difficultés\", :pReponse);";
-
-  const INSERT_SONDAGE = "INSERT INTO cetcal.cet_sondage (fk_sondage_qstprod_idpkai_producteur, question, reponse) VALUES (:pFk, :pQuestion, :pReponse);";
-
-  const INSERT_INFORMATION = "INSERT INTO cetcal.cetcal_information_producteur (fk_infop_qstprod_idpkai_producteur, clef_information, valeure_information) VALUES (:pFk, :pK, :pV);";
-
-  const SELECT_SIRET_PRODUCTEUR_PAR_SIRET = "SELECT siret FROM cetcal.cetcal_producteur WHERE siret=:pSiret;";
+  const INSERT_SONDAGE_DIFFICULTES = "";
+  const INSERT_SONDAGE = "";
+  const INSERT_CETCAL_INFORMATION = "";
 }
