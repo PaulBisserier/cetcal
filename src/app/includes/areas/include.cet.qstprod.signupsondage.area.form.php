@@ -20,11 +20,11 @@
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->sondage_difficultes as $sondagedifficulte): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $sondagedifficulte; ?>" id="qstprod-sondagedifficulte-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $sondagedifficulte); ?>" id="qstprod-sondagedifficulte-<?= $counter; ?>" 
             name="qstprod-sondagedifficultes[]"
-            <?= isset($currentForm['qstprod-sondagedifficultes']) && in_array($sondagedifficulte, $currentForm['qstprod-sondagedifficultes']) ? 
+            <?= isset($currentForm['qstprod-sondagedifficultes']) && in_array(implode(';', $sondagedifficulte), $currentForm['qstprod-sondagedifficultes']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-sondagedifficulte-<?= $counter; ?>"><?= $sondagedifficulte; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-sondagedifficulte-<?= $counter; ?>"><?= $sondagedifficulte[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -34,17 +34,17 @@
         <?php for ($i=0; $i < count($divers) - 1; $i++): ?>
           <?php if ($i == 0): ?>
             <br>
-            <label><small class="form-text"><?= $divers[$i]; ?></small></label>
+            <label><small class="form-text"><?= $divers[$i][1]; ?></small></label>
           <?php endif; ?>
           <?php if ($i > 0): ?>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="<?= $divers[$i]; ?>" 
+              <input class="form-check-input" type="checkbox" value="<?= implode(';', $divers[$i]); ?>" 
                 id="qstprod-sondage-<?= ++$counter; ?>" 
                 name="qstprod-sondage[]"
-                <?= isset($currentForm['qstprod-sondage']) && in_array($divers[$i], $currentForm['qstprod-sondage']) ?
+                <?= isset($currentForm['qstprod-sondage']) && in_array(implode(';', $divers[$i]), $currentForm['qstprod-sondage']) ?
                   'checked="checked"' : $neant; ?>>
               <label class="form-check-label cet-qstprod-label-text" 
-                for="qstprod-sondage-<?= $counter; ?>"><?= $divers[$i]; ?></label>
+                for="qstprod-sondage-<?= $counter; ?>"><?= $divers[$i][1]; ?></label>
             </div>
             <?php ++$counter; ?>
           <?php endif; ?>

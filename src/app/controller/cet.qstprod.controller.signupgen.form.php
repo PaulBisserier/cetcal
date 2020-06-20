@@ -1,11 +1,9 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
-$cetcal_session_id = "";
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
+  $dataProcessor = new HTTPDataProcessor();
 try 
 {
-  require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
-  $dataProcessor = new HTTPDataProcessor();
-
   $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], 
     $_POST['qstprod-nomferme'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
 
@@ -13,10 +11,11 @@ try
   $mdpprod = $dataProcessor->processHttpFormData($_POST['qstprod-mdp']);
   $nomferme = $dataProcessor->processHttpFormData($_POST['qstprod-nomferme']);
   $siretprod = $dataProcessor->processHttpFormData($_POST['qstprod-siret']);
-
+  
   $cetcal_session_id = hash('sha1', $nomferme.$mdpprod.$siretprod);
   session_id($cetcal_session_id);
   session_start();
+
   // Prepare navigation :
   $nav = htmlspecialchars($_POST['qstprod-signupgen-nav']);
   if ($nav != 'valider' && $nav != 'retour') 
@@ -99,7 +98,7 @@ try
 }
 catch (Exception $e) 
 {
-  header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage().'&sitkn='.$cetcal_session_id);
+  session_write_close();
+  header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage());
   exit();
 }
-?>

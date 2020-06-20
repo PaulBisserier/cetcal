@@ -1,10 +1,12 @@
-manque de temps
-manque de main d'oeuvre
-manque d'équipement
-livraisons compliquées
-trop d'invendus en fin de marché
-manque de moyens financiers
-manque de connaissances techniques
-trop de charge de travail
-trop de temps passé pour commercialiser
-prix de vente trop bas
+#question-clef=s001
+#question-valeure-literale="Quels sont vos besoins et difficultés ?"
+s001;manque de temps
+s001;manque de main d'oeuvre
+s001;manque d'équipement
+s001;livraisons compliquées
+s001;trop d'invendus en fin de marché
+s001;manque de moyens financiers
+s001;manque de connaissances techniques
+s001;trop de charge de travail
+s001;trop de temps passé pour commercialiser
+s001;prix de vente trop bas

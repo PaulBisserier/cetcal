@@ -31,11 +31,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->type_culture as $typeculture): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $typeculture; ?>" id="qstprod-typeculture-<?=$counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $typeculture); ?>" id="qstprod-typeculture-<?=$counter; ?>" 
             name="qstprod-typescultures[]"
-            <?= isset($currentForm['qstprod-typescultures']) && in_array($typeculture, $currentForm['qstprod-typescultures']) ? 
+            <?= isset($currentForm['qstprod-typescultures']) && in_array(implode(';', $typeculture), $currentForm['qstprod-typescultures']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-typeculture-<?= $counter; ?>"><?= $typeculture; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-typeculture-<?= $counter; ?>"><?= $typeculture[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -53,11 +53,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_legumes as $pv4Legumes): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pv4Legumes; ?>" id="qstprod-produit-legume-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $pv4Legumes); ?>" id="qstprod-produit-legume-<?= $counter; ?>" 
             name="qstprod-produits-legumes[]"
-            <?= isset($currentForm['qstprod-produits-legumes']) && in_array($pv4Legumes, $currentForm['qstprod-produits-legumes']) ? 
+            <?= isset($currentForm['qstprod-produits-legumes']) && in_array(implode(';', $pv4Legumes), $currentForm['qstprod-produits-legumes']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-legume-<?= $counter; ?>"><?= $pv4Legumes; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-legume-<?= $counter; ?>"><?= $pv4Legumes[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -72,11 +72,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_viandes as $pv4viande): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pv4viande; ?>" id="qstprod-produit-viande-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $pv4viande); ?>" id="qstprod-produit-viande-<?= $counter; ?>" 
             name="qstprod-produits-viandes[]"
-            <?= isset($currentForm['qstprod-produits-viandes']) && in_array($pv4viande, $currentForm['qstprod-produits-viandes']) ? 
+            <?= isset($currentForm['qstprod-produits-viandes']) && in_array(implode(';', $pv4viande), $currentForm['qstprod-produits-viandes']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-viande-<?= $counter; ?>"><?= $pv4viande; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-viande-<?= $counter; ?>"><?= $pv4viande[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -91,11 +91,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_laitiers as $pv4laitier): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pv4laitier; ?>" id="qstprod-produit-laitier-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $pv4laitier); ?>" id="qstprod-produit-laitier-<?= $counter; ?>" 
             name="qstprod-produits-laitiers[]"
-            <?= isset($currentForm['qstprod-produits-laitiers']) && in_array($pv4laitier, $currentForm['qstprod-produits-laitiers']) ? 
+            <?= isset($currentForm['qstprod-produits-laitiers']) && in_array(implode(';', $pv4laitier), $currentForm['qstprod-produits-laitiers']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-laitier-<?= $counter; ?>"><?= $pv4laitier; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-laitier-<?= $counter; ?>"><?= $pv4laitier[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -110,11 +110,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_mielruche as $pv4mielruche): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pv4mielruche; ?>" id="qstprod-produit-mielruche-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $pv4mielruche); ?>" id="qstprod-produit-mielruche-<?= $counter; ?>" 
             name="qstprod-produits-mielsruches[]"
-            <?= isset($currentForm['qstprod-produits-mielsruches']) && in_array($pv4mielruche, $currentForm['qstprod-produits-mielsruches']) ? 
+            <?= isset($currentForm['qstprod-produits-mielsruches']) && in_array(implode(';', $pv4mielruche), $currentForm['qstprod-produits-mielsruches']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-mielruche-<?= $counter; ?>"><?= $pv4mielruche; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-mielruche-<?= $counter; ?>"><?= $pv4mielruche[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -129,11 +129,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_fruits as $fruit): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $fruit; ?>" id="qstprod-produit-fruit-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $fruit); ?>" id="qstprod-produit-fruit-<?= $counter; ?>" 
             name="qstprod-produits-fruits[]"
-            <?= isset($currentForm['qstprod-produits-fruits']) && in_array($fruit, $currentForm['qstprod-produits-fruits']) ? 
+            <?= isset($currentForm['qstprod-produits-fruits']) && in_array(implode(';', $fruit), $currentForm['qstprod-produits-fruits']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-fruit-<?= $counter; ?>"><?= $fruit; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-fruit-<?= $counter; ?>"><?= $fruit[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -148,11 +148,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_champignons as $champignon): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $champignon; ?>" id="qstprod-produit-champignon-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $champignon); ?>" id="qstprod-produit-champignon-<?= $counter; ?>" 
             name="qstprod-produits-champignons[]"
-            <?= isset($currentForm['qstprod-produits-champignons']) && in_array($champignon, $currentForm['qstprod-produits-champignons']) ? 
+            <?= isset($currentForm['qstprod-produits-champignons']) && in_array(implode(';', $champignon), $currentForm['qstprod-produits-champignons']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-champignon-<?= $counter; ?>"><?= $champignon; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-champignon-<?= $counter; ?>"><?= $champignon[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -167,11 +167,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_plantes as $plante): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $plante; ?>" id="qstprod-produit-plante-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $plante); ?>" id="qstprod-produit-plante-<?= $counter; ?>" 
             name="qstprod-produits-plantes[]"
-            <?= isset($currentForm['qstprod-produits-plantes']) && in_array($plante, $currentForm['qstprod-produits-plantes']) ? 
+            <?= isset($currentForm['qstprod-produits-plantes']) && in_array(implode(';', $plante), $currentForm['qstprod-produits-plantes']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-plante-<?= $counter; ?>"><?= $plante; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-plante-<?= $counter; ?>"><?= $plante[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -186,11 +186,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_semences as $semence): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $semence; ?>" id="qstprod-produit-semence-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $semence); ?>" id="qstprod-produit-semence-<?= $counter; ?>" 
             name="qstprod-produits-semences[]"
-            <?= isset($currentForm['qstprod-produits-semences']) && in_array($semence, $currentForm['qstprod-produits-semences']) ? 
+            <?= isset($currentForm['qstprod-produits-semences']) && in_array(implode(';', $semence), $currentForm['qstprod-produits-semences']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-semence-<?= $counter; ?>"><?= $semence; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-semence-<?= $counter; ?>"><?= $semence[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -208,11 +208,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_transformes as $transforme): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $transforme; ?>" id="qstprod-produit-transforme-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $transforme); ?>" id="qstprod-produit-transforme-<?= $counter; ?>" 
             name="qstprod-produits-transformes[]"
-            <?= isset($currentForm['qstprod-produits-transformes']) && in_array($transforme, $currentForm['qstprod-produits-transformes']) ? 
+            <?= isset($currentForm['qstprod-produits-transformes']) && in_array(implode(';', $transforme), $currentForm['qstprod-produits-transformes']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-transforme-<?= $counter; ?>"><?= $transforme; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-transforme-<?= $counter; ?>"><?= $transforme[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -227,11 +227,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_cereales as $cereale): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $cereale; ?>" id="qstprod-produit-cereale-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $cereale); ?>" id="qstprod-produit-cereale-<?= $counter; ?>" 
             name="qstprod-produits-cereales[]"
-            <?= isset($currentForm['qstprod-produits-cereales']) && in_array($cereale, $currentForm['qstprod-produits-cereales']) ? 
+            <?= isset($currentForm['qstprod-produits-cereales']) && in_array(implode(';', $cereale), $currentForm['qstprod-produits-cereales']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-cereale-<?= $counter; ?>"><?= $cereale; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-cereale-<?= $counter; ?>"><?= $cereale[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -246,11 +246,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_hygienes as $hygiene): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $hygiene; ?>" id="qstprod-produit-hygiene-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $hygiene); ?>" id="qstprod-produit-hygiene-<?= $counter; ?>" 
             name="qstprod-produits-hygienes[]"
-            <?= isset($currentForm['qstprod-produits-hygienes']) && in_array($hygiene, $currentForm['qstprod-produits-hygienes']) ? 
+            <?= isset($currentForm['qstprod-produits-hygienes']) && in_array(implode(';', $hygiene), $currentForm['qstprod-produits-hygienes']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-hygiene-<?= $counter; ?>"><?= $hygiene; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-hygiene-<?= $counter; ?>"><?= $hygiene[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -265,11 +265,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_entretiens as $entretien): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $entretien; ?>" id="qstprod-produit-entretien-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $entretien); ?>" id="qstprod-produit-entretien-<?= $counter; ?>" 
             name="qstprod-produits-entretiens[]"
-            <?= isset($currentForm['qstprod-produits-entretiens']) && in_array($entretien, $currentForm['qstprod-produits-entretiens']) ? 
+            <?= isset($currentForm['qstprod-produits-entretiens']) && in_array(implode(';', $entretien), $currentForm['qstprod-produits-entretiens']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-entretien-<?= $counter; ?>"><?= $entretien; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-entretien-<?= $counter; ?>"><?= $entretien[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -284,11 +284,11 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_animaux as $animal): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $animal; ?>" id="qstprod-produit-animal-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $animal); ?>" id="qstprod-produit-animal-<?= $counter; ?>" 
             name="qstprod-produits-animaux[]"
-            <?= isset($currentForm['qstprod-produits-animaux']) && in_array($animal, $currentForm['qstprod-produits-animaux']) ? 
+            <?= isset($currentForm['qstprod-produits-animaux']) && in_array(implode(';', $animal), $currentForm['qstprod-produits-animaux']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-animal-<?= $counter; ?>"><?= $animal; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-animal-<?= $counter; ?>"><?= $animal[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>

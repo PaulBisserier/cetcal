@@ -1,11 +1,13 @@
-troc de surplus de production
-prêt de matériel
-entraide
-coup de main
-soutien à nouveaux installés du secteur
-service de remplacement
-CUMA
-laboratoire de transformation partagé 
-abattage mutualisé
-magasin de producteurs
-autre
+#question-clef=sl01
+#question-valeure-literale="Participez vous à un réseau de solidarité entre producteurs ?"
+sl01;troc de surplus de production
+sl01;prêt de matériel
+sl01;entraide
+sl01;coup de main
+sl01;soutien à nouveaux installés du secteur
+sl01;service de remplacement
+sl01;CUMA
+sl01;laboratoire de transformation partagé 
+sl01;abattage mutualisé
+sl01;magasin de producteurs
+sl01;autre

@@ -31,11 +31,11 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_achats as $consoachat): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $consoachat; ?>" id="qstprod-consoachat-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $consoachat); ?>" id="qstprod-consoachat-<?= $counter; ?>" 
             name="qstprod-consoachats[]"
-            <?= isset($currentForm['qstprod-consoachats']) && in_array($consoachat, $currentForm['qstprod-consoachats']) ? 
+            <?= isset($currentForm['qstprod-consoachats']) && in_array(implode(';', $consoachat), $currentForm['qstprod-consoachats']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-consoachat-<?= $counter; ?>"><?= $consoachat; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-consoachat-<?= $counter; ?>"><?= $consoachat[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -50,12 +50,12 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_receptions as $reception): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $reception; ?>" id="qstprod-reception-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $reception); ?>" id="qstprod-reception-<?= $counter; ?>" 
             name="qstprod-receptions[]"
-            <?= isset($currentForm['qstprod-receptions']) && in_array($reception, $currentForm['qstprod-receptions']) ? 
+            <?= isset($currentForm['qstprod-receptions']) && in_array(implode(';', $reception), $currentForm['qstprod-receptions']) ? 
               'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-reception-<?= $counter; ?>">
-            <?= $reception; ?>
+            <?= $reception[1]; ?>
           </label>
         </div>
         <?php ++$counter; ?>
@@ -76,11 +76,11 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_drive_jours as $jour): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $jour; ?>" id="qstprod-jour-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $jour); ?>" id="qstprod-jour-<?= $counter; ?>" 
             name="qstprod-joursdrive[]"
-            <?= isset($currentForm['qstprod-joursdrive']) && in_array($jour, $currentForm['qstprod-joursdrive']) ? 
+            <?= isset($currentForm['qstprod-joursdrive']) && in_array(implode(';', $jour), $currentForm['qstprod-joursdrive']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-joursdrive-<?= $counter; ?>"><?= $jour; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-joursdrive-<?= $counter; ?>"><?= $jour[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
@@ -90,11 +90,11 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_paiements as $paiment): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $paiment; ?>" id="qstprod-paiment-<?= $counter; ?>"
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $paiment); ?>" id="qstprod-paiment-<?= $counter; ?>"
             name="qstprod-paiments[]"
-            <?= isset($currentForm['qstprod-paiments']) && in_array($paiment, $currentForm['qstprod-paiments']) ? 
+            <?= isset($currentForm['qstprod-paiments']) && in_array(implode(';', $paiment), $currentForm['qstprod-paiments']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-paiment-<?= $counter; ?>"><?= $paiment; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-paiment-<?= $counter; ?>"><?= $paiment[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>

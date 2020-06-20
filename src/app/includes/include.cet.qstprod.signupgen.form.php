@@ -143,11 +143,11 @@ if (isset($_GET['sitkn']))
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->activites as $activite): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $activite; ?>" id="qstprod-besoins-activite-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $activite); ?>" id="qstprod-besoins-activite-<?= $counter; ?>" 
             name="qstprod-besoins-activites[]"
-            <?= isset($currentForm['qstprod-besoins-activites']) && in_array($activite, $currentForm['qstprod-besoins-activites']) ? 
+            <?= isset($currentForm['qstprod-besoins-activites']) && in_array(implode(';', $activite), $currentForm['qstprod-besoins-activites']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-activite-<?= $counter; ?>"><?= $activite; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-besoins-activite-<?= $counter; ?>"><?= $activite[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>

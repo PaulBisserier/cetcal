@@ -1,10 +1,10 @@
-<?php 
-require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
-$neant = '';
+<?php
 $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 session_id($cetcal_session_id);
 session_start();
 $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signuplieuxdist.form.post'] : array();
+$neant = '';
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
 ?>
 <!-- singup lieux de distribution informations html form -->
 <div class="row justify-content-lg-center">
@@ -28,11 +28,11 @@ $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signup
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->points_vente_producteurs as $pdv): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= $pdv; ?>" id="qstprod-pdv-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $pdv); ?>" id="qstprod-pdv-<?= $counter; ?>" 
             name="qstprod-pdv[]"
-            <?= isset($currentForm['qstprod-pdv']) && in_array($pdv, $currentForm['qstprod-pdv']) ? 
+            <?= isset($currentForm['qstprod-pdv']) && in_array(implode(';', $pdv), $currentForm['qstprod-pdv']) ? 
               'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-pdv-<?= $counter; ?>"><?= $pdv; ?></label>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-pdv-<?= $counter; ?>"><?= $pdv[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>

@@ -13,27 +13,13 @@ class QSTPRODProducteurModel extends CETCALModel
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
+    $nullClef= '0000';
     $dtoGenerale = new QstProdGeneraleDTO();
     $dtoGenerale = unserialize($pProducteurDto);
-    $typeProd = "";
-    foreach ($dtoGenerale->typeDeProduction as $type) $typeProd = $typeProd."[".$type."]";
     $dtoProduits = new QstProduitDTO();
     $dtoProduits = unserialize($pProduitsDto);
-    $specProduits = "";
-    foreach ($dtoProduits->specificite as $spec) $specProduits = $specProduits."[".$spec."]";
-    $specProduits = $specProduits.(strlen($dtoProduits->specificiteAutre) <= 0 ? "" : "[".$dtoProduits->specificiteAutre."]");
     $dtoConsomation = new QstConsomateursDTO();
     $dtoConsomation = unserialize($pConsoDto);
-    $commandes = "";
-    foreach ($dtoConsomation->consoachats as $achat) $commandes = $commandes."[".$achat."]";
-    $commandes = $commandes.(
-      strlen($dtoConsomation->consoachatsAutre) <= 0 ? "" : "[".$dtoConsomation->consoachatsAutre."]");
-    $paimentsModes = "";
-    foreach ($dtoConsomation->paiments as $paiment) $paimentsModes = $paimentsModes."[".$paiment."]";
-    $paimentsModes = $paimentsModes.(strlen($dtoConsomation->paimentAutre) <= 0 ? "" : "[".$dtoConsomation->paimentAutre."]");
-    $receps = "";
-    foreach ($dtoConsomation->receptions as $recep) $receps = $receps."[".$recep."]";
-    $receps = $receps.(strlen($dtoConsomation->receptionAutre) <= 0 ? "" : "[".$dtoConsomation->receptionAutre."]");
 
     $qLib = $this->getQuerylib();
     $stmt = $this->getCnxdb()->prepare($qLib::INSERT_QSTPROD_PRODUCTEUR);
@@ -58,22 +44,102 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->bindParam(":pUrlWeb", $dtoGenerale->siteWebUrl, PDO::PARAM_STR);
     $stmt->bindParam(":pUrlBoutique", $dtoGenerale->boutiqueEnLigneUrl, PDO::PARAM_STR);
     $stmt->bindParam(":pOrgCertifBio", $dtoGenerale->organismeCertificateurBIO, PDO::PARAM_STR);
-    $stmt->bindParam(":pTypesProduction", $typeProd, PDO::PARAM_STR);
     $stmt->bindParam(":pSurfaceHectTerres", strval($dtoGenerale->surfaceHectTerres), PDO::PARAM_STR);
     $stmt->bindParam(":pSurfaceAresSerre", strval($dtoGenerale->surfaceHectSousSerre), PDO::PARAM_STR);
     $stmt->bindParam(":pNbrTetes", strval($dtoGenerale->nbrTetesBetail), PDO::PARAM_STR);
     $stmt->bindParam(":pHLParAn", strval($dtoGenerale->hectolitresParAn), PDO::PARAM_STR);
     $stmt->bindParam(":pGroupeCagette", $dtoGenerale->groupeCagette, PDO::PARAM_STR);
-    $stmt->bindParam(":pSpecificitesProductions", $specProduits, PDO::PARAM_STR);
-    $stmt->bindParam(":pModesConsoCommandes", $commandes, PDO::PARAM_STR);
-    $stmt->bindParam(":pModesConsoPaiments", $paimentsModes, PDO::PARAM_STR);
-    $stmt->bindParam(":pModesConsoReceptions", $receps, PDO::PARAM_STR);
     $stmt->bindParam(":pIndentifiantCet", $dtoGenerale->identifiant_cet, PDO::PARAM_STR);
-
     $stmt->execute();
+    $pk = $this->getCnxdb()->lastInsertId();
 
-    return array("pk" => $this->getCnxdb()->lastInsertId(),
-      "ev" => $dtoGenerale->email);
+    foreach ($dtoGenerale->typeDeProduction as $type) 
+    {
+      $typeprod = explode(';', $type);
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_TYPEPRODUCTION);
+      $stmt->bindParam(":pClef", $typeprod[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $typeprod[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+
+    foreach ($dtoProduits->specificite as $spec)
+    {
+      $speci = explode(';', $spec);
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_SPECIFICITE_PRODUITS);
+      $stmt->bindParam(":pClef", $speci[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $speci[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+    if (strlen($dtoProduits->specificiteAutre) > 0) 
+    {
+      $nullClef = "0002";
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_SPECIFICITE_PRODUITS);
+      $stmt->bindParam(":pClef", $nullClef, PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $dtoProduits->specificiteAutre, PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+
+    foreach ($dtoConsomation->consoachats as $achat) 
+    {
+      $cachat = explode(';', $achat);
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
+      $stmt->bindParam(":pClef", $cachat[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $cachat[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+    if (strlen($dtoConsomation->consoachatsAutre) > 0) 
+    {
+      $nullClef = "c001";
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
+      $stmt->bindParam(":pClef", $nullClef, PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $dtoConsomation->consoachatsAutre, PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+    
+    foreach ($dtoConsomation->paiments as $paiment) 
+    {
+      $cpaie = explode(';', $paiment);
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
+      $stmt->bindParam(":pClef", $cpaie[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $cpaie[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+    if (strlen($dtoConsomation->paimentAutre) > 0) 
+    {
+      $nullClef = "c003";
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
+      $stmt->bindParam(":pClef", $nullClef, PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $dtoConsomation->paimentAutre, PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+
+    foreach ($dtoConsomation->receptions as $recep)
+    {
+      $crecep = explode(';', $recep);
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
+      $stmt->bindParam(":pClef", $crecep[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $crecep[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+    if (strlen($dtoConsomation->receptionAutre) > 0) 
+    {
+      $nullClef = "c003";
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
+      $stmt->bindParam(":pClef", $nullClef, PDO::PARAM_STR);
+      $stmt->bindParam(":pVal", $dtoConsomation->receptionAutre, PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pk, PDO::PARAM_INT);
+      $stmt->execute();
+    }
+
+    return array("pk" => $pk, "ev" => $dtoGenerale->email);
   }
 
   public function exists($pProducteurDto) 

@@ -1,6 +1,7 @@
-glanage
-don de surproduction
-don de légumes déclassés
-visite de découverte
-visites scolaires
-woofing local ou international
+#question-clef=sc01
+sc01;glanage
+sc01;don de surproduction
+sc01;don de légumes déclassés
+sc01;visite de découverte
+sc01;visites scolaires
+sc01;woofing local ou international

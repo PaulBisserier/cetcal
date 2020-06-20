@@ -1,17 +1,19 @@
-Apiculteur
-Boulangerie / pâtisserie bio
-Élevage / laitier / viande
-Horticulteur
-Semencier graines reproductibles
-Producteur fruits
-Producteur légumes
-Grandes cultures / céréales
-Pêche et ou coquillages
-Producteur de plantes aromatiques et/ou médicinales
-Viticulteur bio ou biodynamie
-Brasseur bio
-Fromager
-Producteur d'algues
-Producteur de champignons
-Producteur confitures, conserves
-Production glaces / sorbets
+#question-clef=0001
+#question-valeure-literale="Concernant votre activité de production ? (plusieurs options possibles)"
+0001;Apiculteur
+0001;Boulangerie / pâtisserie bio
+0001;Élevage / laitier / viande
+0001;Horticulteur
+0001;Semencier graines reproductibles
+0001;Producteur fruits
+0001;Producteur légumes
+0001;Grandes cultures / céréales
+0001;Pêche et ou coquillages
+0001;Producteur de plantes aromatiques et/ou médicinales
+0001;Viticulteur bio ou biodynamie
+0001;Brasseur bio
+0001;Fromager
+0001;Producteur d'algues
+0001;Producteur de champignons
+0001;Producteur confitures, conserves
+0001;Production glaces / sorbets
