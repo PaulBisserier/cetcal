@@ -16,23 +16,23 @@ class QSTPRODSondageProducteurModel extends CETCALModel
     
     foreach ($dtoinfos->sondageDifficultes as $difficulte) 
     {
+      $qrsondage = explode(";", $difficulte);
       $qLib = $this->getQuerylib();
-      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_SONDAGE_DIFFICULTES);
-      $stmt->bindParam(":pFk", $pPK, PDO::PARAM_INT);
-      $stmt->bindParam(":pReponse", $difficulte, PDO::PARAM_STR);
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_SONDAGE);
+      $stmt->bindParam(":pPkProducteur", $pPK, PDO::PARAM_INT);
+      $stmt->bindParam(":pClefQuestion", $qrsondage[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pReponse", $qrsondage[1], PDO::PARAM_STR);
       $stmt->execute();
     }
 
-    $counter = 0;
-    $cat = "";
     foreach ($dtoinfos->sondage as $reponse) 
     {
+      $qrsondage = explode(";", $reponse);
       $qLib = $this->getQuerylib();
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_SONDAGE);
-      $stmt->bindParam(":pFk", $pPK, PDO::PARAM_INT);
-      $cat = "sondage_producteur_q".strval(++$counter);
-      $stmt->bindParam(":pQuestion", $cat, PDO::PARAM_STR);
-      $stmt->bindParam(":pReponse", $reponse, PDO::PARAM_STR);
+      $stmt->bindParam(":pPkProducteur", $pPK, PDO::PARAM_INT);
+      $stmt->bindParam(":pClefQuestion", $qrsondage[0], PDO::PARAM_STR);
+      $stmt->bindParam(":pReponse", $qrsondage[1], PDO::PARAM_STR);
       $stmt->execute();
     }
   }

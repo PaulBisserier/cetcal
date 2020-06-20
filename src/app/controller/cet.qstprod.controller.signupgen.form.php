@@ -62,7 +62,7 @@ try
     $form_hectolitresparan = $dataProcessor->processHttpFormData($_POST['qstprod-hectolitresparan']);
 
     $form_sondage_difficultes = $dataProcessor->processHttpFormArrayData(
-      isset($_POST['qstprod-sondagedifficultes']) ? $_POST['qstprod-sondagedifficultess'] : NULL);
+      isset($_POST['qstprod-sondagedifficultes']) ? $_POST['qstprod-sondagedifficultes'] : NULL);
     $form_sondage = $dataProcessor->processHttpFormArrayData(
       isset($_POST['qstprod-sondage']) ? $_POST['qstprod-sondage'] : NULL);
 

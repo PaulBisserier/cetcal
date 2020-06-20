@@ -23,6 +23,11 @@ try
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.questionnaire.sondage.producteur.model.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.informations.model.php');
 
+    /**
+     * Vérifier si couplage email | tel fixe | tel port existe en base. 
+     * Si oui, erreure car le producteur est déjà inscrit.
+     */
+
     $model = new QSTPRODProducteurModel();
     $data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
       isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
@@ -31,10 +36,10 @@ try
     $model->createLieu($data['pk'], isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL);
     $model = new QSTPRODProduitsModel();
     $model->createProduits($data['pk'], isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL);
-    /*$model = new QSTPRODSondageProducteurModel();
+    $model = new QSTPRODSondageProducteurModel();
     $model->createSondages($data['pk'], isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL);
     $model = new QSTPRODInformationsModel();
-    $model->createInformations($data['pk'], isset($_SESSION['signupbesoins.form']) ? $_SESSION['signupbesoins.form'] : NULL);*/
+    $model->createInformations($data['pk'], isset($_SESSION['signupbesoins.form']) ? $_SESSION['signupbesoins.form'] : NULL);
     /** ***************************************************************************/
   }
 
