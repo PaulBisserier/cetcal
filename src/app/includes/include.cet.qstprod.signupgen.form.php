@@ -35,41 +35,47 @@ if (isset($_GET['sitkn']))
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Prénom :</small></label>
           <input class="form-control" id="qstprod-prenom" name="qstprod-prenom" type="text" placeholder="Prénom"
-            value="<?= isset($currentForm['qstprod-prenom']) ? $currentForm['qstprod-prenom'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-prenom']) ? $currentForm['qstprod-prenom'] : $neant; ?>"
+            maxlength="30">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Adresse e-mail :</small></label>
           <input class="form-control" id="qstprod-email" name="qstprod-email" type="text" placeholder="Adresse e-mail"
-            value="<?= isset($currentForm['qstprod-email']) ? $currentForm['qstprod-email'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-email']) ? $currentForm['qstprod-email'] : $neant; ?>"
+            maxlength="60">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Confirmation adresse e-mail :</small></label>
-          <input class="form-control" id="qstprod-email-conf" name="qstprod-email-conf" type="text" placeholder="Confirmation adresse e-mail" 
+          <input class="form-control" id="qstprod-email-conf" name="qstprod-email-conf" type="text" 
+            placeholder="Confirmation adresse e-mail" 
             onblur="checkValidEmailConfirmation(60, 'qstprod-email', this.id);"
-            value="<?= isset($currentForm['qstprod-email-conf']) ? $currentForm['qstprod-email-conf'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-email-conf']) ? $currentForm['qstprod-email-conf'] : $neant; ?>"
+            maxlength="60">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Mot de passe de connexion à l'annuaire (8 caractères minimum) :</small></label>
           <input class="form-control is-invalid" id="qstprod-mdp" name="qstprod-mdp" type="password" 
             placeholder="Mot de passe de connexion à l'annuaire"
-            onblur="checkFormInputMin(30, 8, this.id);">
+            onblur="checkFormInputMin(30, 8, this.id);"
+            maxlength="30">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Confirmer votre mot de passe :</small></label>
           <input class="form-control is-invalid" id="qstprod-mdpconf" name="qstprod-mdpconf" 
             type="password" placeholder="Confirmer votre mot de passe"
-            onblur="checkMotsDePasse(30, 8, 'qstprod-mdp', this.id);">
+            onblur="checkMotsDePasse(30, 8, 'qstprod-mdp', this.id);"
+            maxlength="30">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° de téléphone fixe :</small></label>
           <input class="form-control" id="qstprod-numbtel-fix" name="qstprod-numbtel-fix" type="text" 
-            maxlength="10" placeholder="N° de téléphone fix."
+            maxlength="10" minlength="10"> placeholder="N° de téléphone fix."
             value="<?= isset($currentForm['qstprod-numbtel-fix']) ? $currentForm['qstprod-numbtel-fix'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° de téléphone mobile :</small></label>
           <input class="form-control" id="qstprod-numbtel-port" name="qstprod-numbtel-port" type="text" 
-            maxlength="10" placeholder="N° de téléphone mobile."
+            maxlength="10" minlength="10" placeholder="N° de téléphone mobile."
             value="<?= isset($currentForm['qstprod-numbtel-port']) ? $currentForm['qstprod-numbtel-port'] : $neant; ?>">
         </div>
       </div>
@@ -80,7 +86,8 @@ if (isset($_GET['sitkn']))
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom commercial de la ferme :</small></label>
           <input class="form-control is-invalid" id="qstprod-nomferme" name="qstprod-nomferme" type="text" 
             placeholder="Nom commercial de la ferme" onblur="checkFormInput(60, this.id);"
-            value="<?= isset($currentForm['qstprod-nomferme']) ? $currentForm['qstprod-nomferme'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-nomferme']) ? $currentForm['qstprod-nomferme'] : $neant; ?>"
+            maxlength="60">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° Siret de la ferme :</small></label>
@@ -92,24 +99,28 @@ if (isset($_GET['sitkn']))
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Numéro sur voirie de la ferme :</small></label>
           <input class="form-control" id="qstprod-numvoie" name="qstprod-numvoie" type="text" 
             placeholder="Numéro sur voirie"
-            value="<?= isset($currentForm['qstprod-numvoie']) ? $currentForm['qstprod-numvoie'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-numvoie']) ? $currentForm['qstprod-numvoie'] : $neant; ?>"
+            maxlength="12">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom de la rue, chemin, avenue... :</small></label>
           <input class="form-control" id="qstprod-rue" name="qstprod-rue" type="text" 
             placeholder="Nom de la rue, chemin, avenue..."
-            value="<?= isset($currentForm['qstprod-rue']) ? $currentForm['qstprod-rue'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-rue']) ? $currentForm['qstprod-rue'] : $neant; ?>"
+            maxlength="128">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Lieu dit :</small></label>
           <input class="form-control" id="qstprod-lieudit" name="qstprod-lieudit" type="text" placeholder="Lieu dit"
-            value="<?= isset($currentForm['qstprod-lieudit']) ? $currentForm['qstprod-lieudit'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-lieudit']) ? $currentForm['qstprod-lieudit'] : $neant; ?>"
+            maxlength="60">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Commune de la ferme :</small></label>
           <input class="form-control is-invalid" id="qstprod-commune" name="qstprod-commune" type="text" placeholder="Commune"
-            onblur="checkFormInput(60, this.id);"
-            value="<?= isset($currentForm['qstprod-commune']) ? $currentForm['qstprod-commune'] : $neant; ?>">
+            onblur="checkFormInput(45, this.id);"
+            value="<?= isset($currentForm['qstprod-commune']) ? $currentForm['qstprod-commune'] : $neant; ?>"
+            maxlength="45">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Code postal :</small></label>
@@ -121,7 +132,8 @@ if (isset($_GET['sitkn']))
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Complément d'adresse :</small></label>
           <input class="form-control" id="qstprod-cmpladrs" name="qstprod-cmpladrs" type="text" 
             placeholder="Complément d'adresse"
-            value="<?= isset($currentForm['qstprod-cmpladrs']) ? $currentForm['qstprod-cmpladrs'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-cmpladrs']) ? $currentForm['qstprod-cmpladrs'] : $neant; ?>"
+            maxlength="60">
         </div>
       </div>
 
@@ -131,7 +143,8 @@ if (isset($_GET['sitkn']))
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Quel est votre groupe cagette ?</small></label>
           <input class="form-control" id="qstprod-cagette" name="qstprod-cagette" type="text" 
             placeholder="Indiquer votre groupe cagette"
-            value="<?= isset($currentForm['qstprod-cagette']) ? $currentForm['qstprod-cagette'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-cagette']) ? $currentForm['qstprod-cagette'] : $neant; ?>"
+            maxlength="60">
         </div>
       </div>
 

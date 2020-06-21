@@ -50,7 +50,7 @@
     public $consomateurs_drive_jours = NULL;
 
     function __construct($fileReader)
-    {
+    {      
       $this->activites = $fileReader->readWithKV('cet.qstprod.liste.activites');
       $this->besoins = $fileReader->read('cet.qstprod.liste.besoins');
       //$this->produits_frais = $fileReader->read('cet.qstprod.liste.produits.frais');
@@ -90,6 +90,8 @@
       $this->consomateurs_receptions = $fileReader->readWithKV('cet.qstprod.liste.v4.consoreception');
       $this->consomateurs_paiements = $fileReader->readWithKV('cet.qstprod.liste.v4.consopaiements');
       $this->consomateurs_drive_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
+
+      error_log(CET_LOG::TAG."files loaded today}", 3, $LOG_FILE);
     }
  }
  ?>

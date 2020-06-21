@@ -41,7 +41,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-pdvautre" name="qstprod-pdvautre" type="text" 
             placeholder="Point de distribution ou vente autre"
-            value="<?= isset($currentForm['qstprod-pdvautre']) ? $currentForm['qstprod-pdvautre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-pdvautre']) ? $currentForm['qstprod-pdvautre'] : $neant; ?>"
+            maxlength="128">
         </div>
       </div>
 

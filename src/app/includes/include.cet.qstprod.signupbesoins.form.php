@@ -43,7 +43,8 @@ $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbe
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-solprod-autre" name="qstprod-solprod-autre" type="text" 
             placeholder="Autre ? Merci de préciser"
-            value="<?= isset($currentForm['qstprod-solprod-autre']) ? $currentForm['qstprod-solprod-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-solprod-autre']) ? $currentForm['qstprod-solprod-autre'] : $neant; ?>"
+            maxlength="128">
         </div>
 
         <br>
@@ -80,11 +81,11 @@ $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbe
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-action-autre" name="qstprod-action-autre" type="text" 
             placeholder="Autre ? Merci de préciser"
-            value="<?= isset($currentForm['qstprod-action-autre']) ? $currentForm['qstprod-action-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-action-autre']) ? $currentForm['qstprod-action-autre'] : $neant; ?>"
+            maxlength="128">
         </div>
       </div>
     
-
       <label class="cet-formgroup-container-label"> 
         <small class="form-text">Seriez vous prêt à rejoindre un groupe de réflexion sur la résilience alimentaire ?</small>
       </label>
@@ -107,7 +108,8 @@ $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbe
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-grouperes-autre" name="qstprod-grouperes-autre" type="text" 
             placeholder="Autre ? Merci de préciser"
-            value="<?= isset($currentForm['qstprod-grouperes-autre']) ? $currentForm['qstprod-grouperes-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-grouperes-autre']) ? $currentForm['qstprod-grouperes-autre'] : $neant; ?>"
+            maxlength="128">
         </div>
       </div>
       <!-- ------------------------ -->

@@ -1,6 +1,9 @@
 <?php
 $tag_mep = "CETCAL v4";
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
+include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.log.php';
+$logUtils = new CETLogUtils($DOC_ROOT);
+$LOG_FILE = $logUtils->file;
 $PHP_INCLUDES_PATH = $DOC_ROOT.'/src/app/includes/';
 $PHP_CONST_PATH = $DOC_ROOT.'/src/app/const/';
 $PHP_CONTROLLER_PATH = $DOC_ROOT.'/src/app/controller/';

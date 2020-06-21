@@ -43,7 +43,8 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-consoachatautre" name="qstprod-consoachatautre" type="text" 
             placeholder="Autre ? Merci de préciser"
-            value="<?= isset($currentForm['qstprod-consoachatautre']) ? $currentForm['qstprod-consoachatautre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-consoachatautre']) ? $currentForm['qstprod-consoachatautre'] : $neant; ?>"
+            maxlength="128">
         </div>
         <br>
         <label><small class="form-text">Comment le consommateur va réceptionner vos produits ? (plusieurs options possibles)</small></label>
@@ -64,13 +65,15 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-receptionautre" name="qstprod-receptionautre" type="text" 
             placeholder="Autre ? Merci de préciser"
-            value="<?= isset($currentForm['qstprod-receptionautre']) ? $currentForm['qstprod-receptionautre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-receptionautre']) ? $currentForm['qstprod-receptionautre'] : $neant; ?>"
+            maxlength="128">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si drive avec point de collect, preciser l'adresse :</small></label>   
           <input class="form-control" id="qstprod-adr-drive" name="qstprod-adr-drive" type="text" 
             placeholder="Si drive avec point de collect, preciser"
-            value="<?= isset($currentForm['qstprod-adr-drive']) ? $currentForm['qstprod-adr-drive'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-adr-drive']) ? $currentForm['qstprod-adr-drive'] : $neant; ?>"
+            maxlength="256">
         </div>
         <label><small class="form-text">Si drive, quels jours de collect ?</small></label>
         <?php $counter = 0; ?>
@@ -102,7 +105,8 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-paimentautre" name="qstprod-paimentautre" type="text" 
             placeholder="Autre ? Merci de préciser"
-            value="<?= isset($currentForm['qstprod-paimentautre']) ? $currentForm['qstprod-paimentautre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-paimentautre']) ? $currentForm['qstprod-paimentautre'] : $neant; ?>"
+            maxlength="128">
         </div>
       </div>
 

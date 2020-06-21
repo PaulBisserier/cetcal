@@ -1,4 +1,5 @@
 <?php
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
   $dataProcessor = new HTTPDataProcessor();
@@ -99,6 +100,7 @@ try
 catch (Exception $e) 
 {
   session_write_close();
+  error_log(CET_LOG::TAG.$e->getMessage()."}[stacktrace=".$e->getTraceAsString()."]", 3, $LOG_FILE);
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage());
   exit();
 }

@@ -43,7 +43,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-typeculture-autre" name="qstprod-typeculture-autre" type="text" 
             placeholder="Quel autre spécificité, label ou type d'agriculture ?"
-            value="<?= isset($currentForm['qstprod-typeculture-autre']) ? $currentForm['qstprod-typeculture-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-typeculture-autre']) ? $currentForm['qstprod-typeculture-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
       </div>
 
@@ -65,7 +66,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-legume-autre" name="qstprod-produit-legume-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-legume-autre']) ? $currentForm['qstprod-produit-legume-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-legume-autre']) ? $currentForm['qstprod-produit-legume-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>viandes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -84,7 +86,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-viande-autre" name="qstprod-produit-viande-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-viande-autre']) ? $currentForm['qstprod-produit-viande-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-viande-autre']) ? $currentForm['qstprod-produit-viande-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>produits laitiers</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -103,7 +106,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-laitier-autre" name="qstprod-produit-laitier-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-laitier-autre']) ? $currentForm['qstprod-produit-laitier-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-laitier-autre']) ? $currentForm['qstprod-produit-laitier-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>produits de la ruche</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -122,7 +126,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-mielruche-autre" name="qstprod-produit-mielruche-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-mielruche-autre']) ? $currentForm['qstprod-produit-mielruche-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-mielruche-autre']) ? $currentForm['qstprod-produit-mielruche-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>fruits</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -141,7 +146,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-fruit-autre" name="qstprod-produit-fruit-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-fruit-autre']) ? $currentForm['qstprod-produit-fruit-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-fruit-autre']) ? $currentForm['qstprod-produit-fruit-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>champignons</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -160,7 +166,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-champignon-autre" name="qstprod-produit-champignon-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-champignon-autre']) ? $currentForm['qstprod-produit-champignon-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-champignon-autre']) ? $currentForm['qstprod-produit-champignon-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>plantes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -179,7 +186,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-plante-autre" name="qstprod-produit-plante-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-plante-autre']) ? $currentForm['qstprod-produit-plante-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-plante-autre']) ? $currentForm['qstprod-produit-plante-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>plants et semences</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -198,7 +206,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-semence-autre" name="qstprod-produit-semence-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-semence-autre']) ? $currentForm['qstprod-produit-semence-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-semence-autre']) ? $currentForm['qstprod-produit-semence-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
       </div>
 
@@ -220,7 +229,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-transforme-autre" name="qstprod-produit-transforme-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-transforme-autre']) ? $currentForm['qstprod-produit-transforme-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-transforme-autre']) ? $currentForm['qstprod-produit-transforme-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>céréales et dérivés/légumineuses</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -239,7 +249,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-cereale-autre" name="qstprod-produit-cereale-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-cereale-autre']) ? $currentForm['qstprod-produit-cereale-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-cereale-autre']) ? $currentForm['qstprod-produit-cereale-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>produits d'hygiène</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -258,7 +269,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-hygiene-autre" name="qstprod-produit-hygiene-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-hygiene-autre']) ? $currentForm['qstprod-produit-hygiene-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-hygiene-autre']) ? $currentForm['qstprod-produit-hygiene-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>produits d'entretien</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -277,7 +289,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-entretien-autre" name="qstprod-produit-entretien-autre" type="text"
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-entretien-autre']) ? $currentForm['qstprod-produit-entretien-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-entretien-autre']) ? $currentForm['qstprod-produit-entretien-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quels <b>nourriture pour animaux</b> vendez-vous ? (plusieurs options possibles) : </small></label>
@@ -296,7 +309,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-produit-animal-autre" name="qstprod-produit-animal-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-animal-autre']) ? $currentForm['qstprod-produit-animal-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-animal-autre']) ? $currentForm['qstprod-produit-animal-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
         <br>
         <label><small class="form-text">Quel <b>autre produit</b> vendez-vous ? (si les réponses font défaut, merci de nous renseigner) : </small></label>
@@ -304,7 +318,8 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <input class="form-control" id="qstprod-produit-autre-autre" 
             name="qstprod-produit-autre-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
-            value="<?= isset($currentForm['qstprod-produit-autre-autre']) ? $currentForm['qstprod-produit-autre-autre'] : $neant; ?>">
+            value="<?= isset($currentForm['qstprod-produit-autre-autre']) ? $currentForm['qstprod-produit-autre-autre'] : $neant; ?>"
+            maxlength="45">
         </div>
       </div>
 
