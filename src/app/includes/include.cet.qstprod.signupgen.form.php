@@ -69,7 +69,7 @@ if (isset($_GET['sitkn']))
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° de téléphone fixe :</small></label>
           <input class="form-control" id="qstprod-numbtel-fix" name="qstprod-numbtel-fix" type="text" 
-            maxlength="10" minlength="10"> placeholder="N° de téléphone fix."
+            maxlength="10" minlength="10" placeholder="N° de téléphone fix."
             value="<?= isset($currentForm['qstprod-numbtel-fix']) ? $currentForm['qstprod-numbtel-fix'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">

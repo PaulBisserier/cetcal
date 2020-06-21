@@ -1,17 +1,8 @@
 <?php
-$tag_mep = "CETCAL v4";
-$DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
-include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.log.php';
-$logUtils = new CETLogUtils($DOC_ROOT);
-$LOG_FILE = $logUtils->file;
-$PHP_INCLUDES_PATH = $DOC_ROOT.'/src/app/includes/';
-$PHP_CONST_PATH = $DOC_ROOT.'/src/app/const/';
-$PHP_CONTROLLER_PATH = $DOC_ROOT.'/src/app/controller/';
-$PHP_UTILS_PATH = $DOC_ROOT.'/src/app/utils/';
+include $_SERVER['DOCUMENT_ROOT'].'/cet.qstprod.startup.php';
 include $PHP_CONTROLLER_PATH.'cet.qstprod.controller.index.php';
 $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $_GET['statut'] : 'login.form');
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -33,14 +24,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   </head>
   <body id="cet-annuaire-body">
     <?php
-      include $PHP_CONST_PATH.'cet.qstprod.const.textes.php';
-      include $PHP_CONST_PATH.'cet.qstprod.const.listes.php';
-      include $PHP_CONST_PATH.'cet.qstprod.const.libelles.php';
-      include $PHP_UTILS_PATH.'cet.qstprod.utils.filereader.php';
-      include $PHP_UTILS_PATH.'cet.qstprod.utils.filarianne.php';
-      $listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT));
-
-      include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php'; 
+      include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php';
       if (in_array($statut, CetQstProdFilArianneHelper::$statesFilAriane)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
       $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
       include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
