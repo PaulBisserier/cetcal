@@ -31,6 +31,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
       include $PHP_INCLUDES_PATH.'include.cet.qstprod.footer.php';
       include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal1.php';
       include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal.notreprojet.php';
+      include $PHP_INCLUDES_PATH.'include.cet.qstprod.modal.donnes.numeriques.php';
     ?>
   </body>
 </html>
