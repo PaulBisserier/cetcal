@@ -34,6 +34,8 @@ Class QstProduitDTO
   public $nourritureAnimaux;
   public $nourritureAnimauxAutre;
   public $autreProduitInconnu;
+  public $boissons;
+  public $boissonAutre;
 
   function __construct($pSpecificite = "", $pSpecificiteAutre = "", 
     $pLegumes = "", $pLegumeAutre = "", $pViandes = "",
@@ -43,7 +45,7 @@ Class QstProduitDTO
     $pSemences = "", $pSemenceAutre = "", $pTransformes = "", $pTransformeAutre = "",
     $pCereales = "", $pCerealeAutre = "", $pHygienes = "", $pHygieneAutre = "",
     $pEntretiens = "", $pEntretienAutre = "", $pNourritureAnimaux = "", 
-    $pNourritureAnimauxAutre = "", $pAutreInconnu = "")
+    $pNourritureAnimauxAutre = "", $pAutreInconnu = "", $pBoissons = "", $pBoissonAutre = "")
   {
     $this->specificite = $pSpecificite;
     $this->specificiteAutre = $pSpecificiteAutre;
@@ -74,6 +76,8 @@ Class QstProduitDTO
     $this->nourritureAnimaux = $pNourritureAnimaux;
     $this->nourritureAnimauxAutre = $pNourritureAnimauxAutre;
     $this->autreProduitInconnu = $pAutreInconnu;
+    $this->boissons = $pBoissons;
+    $this->boissonAutre = $pBoissonAutre;
   }
 
   function listAllProducts()
@@ -119,6 +123,13 @@ Class QstProduitDTO
       foreach ($this->champignons as $v) array_push($listChampignons, explode(';', $v)[1]);
     }
     if (isset($this->champignonAutre) && strlen($this->champignonAutre) > 0) array_push($listChampignons, $this->champignonAutre);
+
+    $listBoissons = array();
+    if (isset($this->boissons) && is_array($this->boissons) && count($this->boissons) > 0)
+    {
+      foreach ($this->boissons as $v) array_push($listBoissons, explode(';', $v)[1]);
+    }
+    if (isset($this->boissonAutre) && strlen($this->boissonAutre) > 0) array_push($listChampignons, $this->boissonAutre);
 
     $listPlantes = array();
     if (isset($this->plantes) && is_array($this->plantes) && count($this->plantes) > 0)
@@ -179,6 +190,7 @@ Class QstProduitDTO
     $listingComplet['ruches'] = $listRuches;
     $listingComplet['fruits'] = $listFruits;
     $listingComplet['champignons'] = $listChampignons;
+    $listingComplet['boissons'] = $listBoissons;
     $listingComplet['plantes'] = $listPlantes;
     $listingComplet['semences'] = $listSemences;
     $listingComplet['transformes'] = $listTransformes;

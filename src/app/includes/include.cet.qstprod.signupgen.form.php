@@ -14,12 +14,7 @@ if (isset($_GET['sitkn']))
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <form id="signupgen.form" class="form" method="post" action="/src/app/controller/cet.qstprod.controller.signupgen.form.php">
-      <label>Veuillez renseigner les information demandées ci-dessous :
-        <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
-          <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
-        </small>
-      </label>
-
+      <?php include $PHP_INCLUDES_PATH.'areas/include.cet.qstprod.signup.entete.form.php'; ?>
       <!-- ------------------------- -->
       <!-- INPUTS formulaire START : ---
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">

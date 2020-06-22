@@ -25,6 +25,7 @@ Class CetQstprodConstListes
   public $produits_v4_mielruche = NULL;
   public $produits_v4_fruits = NULL;
   public $produits_v4_champignons = NULL;
+  public $produits_v4_boissons = NULL;
   public $produits_v4_plantes = NULL;
   public $produits_v4_semences = NULL;
   public $produits_v4_transformes = NULL;
@@ -57,6 +58,7 @@ Class CetQstprodConstListes
     $this->produits_v4_mielruche = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.mielruche');
     $this->produits_v4_fruits = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.fruits');
     $this->produits_v4_champignons = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.champignons');
+    $this->produits_v4_boissons = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.boissons');
     $this->produits_v4_plantes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.plantes');
     $this->produits_v4_semences = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.semences');
     $this->produits_v4_transformes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.transformes');

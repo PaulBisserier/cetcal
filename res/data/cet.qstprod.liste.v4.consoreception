@@ -1,7 +1,7 @@
 #question-clef=c002
 #question-valeure-literale="Comment le consommateur va réceptionner vos produits ? (plusieurs options possibles)"
 c002;sur place
-c002;Drive avec point de collecte (adresse, date)
+cdr1;Drive avec point de collecte (adresse, date)
 c002;Livraison à domicile
 c002;Retrait de commande à la structure (si différente structure)
 c002;Réseaux avec abonnement (AMAP)

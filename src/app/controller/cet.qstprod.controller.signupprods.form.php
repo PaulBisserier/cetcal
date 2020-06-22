@@ -1,4 +1,8 @@
-<?php 
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
+$logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
+$LOG_FILE = $logUtils->file;
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
 try 
@@ -40,6 +44,9 @@ try
   $form_champignons = $dataProcessor->processHttpFormArrayData(
     isset($_POST['qstprod-produits-champignons']) ? $_POST['qstprod-produits-champignons'] : NULL);
   $form_champignonAutre = $dataProcessor->processHttpFormData($_POST['qstprod-produit-champignon-autre']);
+  $form_boissons = $dataProcessor->processHttpFormArrayData(
+    isset($_POST['qstprod-produits-boissons']) ? $_POST['qstprod-produits-boissons'] : NULL);
+  $form_boissonAutre = $dataProcessor->processHttpFormData($_POST['qstprod-produit-boisson-autre']);
   $form_plantes = $dataProcessor->processHttpFormArrayData(
     isset($_POST['qstprod-produits-plantes']) ? $_POST['qstprod-produits-plantes'] : NULL);
   $form_planteAutre = $dataProcessor->processHttpFormData($_POST['qstprod-produit-plante-autre']);
@@ -71,7 +78,7 @@ try
     $form_semenceAutre, $form_transformes, $form_transformeAutre, 
     $form_cereales, $form_cerealeAutre, $form_hygienes, $form_hygieneAutre,
     $form_entretiens, $form_entretienAutre, $form_animaux, 
-    $form_animauxAutre, $form_autreAutre);
+    $form_animauxAutre, $form_autreAutre, $form_boissons, $form_boissonAutre);
   $_SESSION['signupprods.form'] = serialize($dtoProdProduits);
 
   $_SESSION['signupprods.form.post'] = $_POST;

@@ -1,4 +1,8 @@
-<?php 
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
+$logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
+$LOG_FILE = $logUtils->file;
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
 try 
@@ -33,7 +37,9 @@ try
       isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
       isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
     $model = new QSTPRODLieuxModel();
-    $model->createLieu($data['pk'], isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL);
+    $model->createLieu($data['pk'], 
+      isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL,
+      isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
     $model = new QSTPRODProduitsModel();
     $model->createProduits($data['pk'], isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL);
     $model = new QSTPRODSondageProducteurModel();

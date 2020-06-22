@@ -1,4 +1,8 @@
-<?php 
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
+$logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
+$LOG_FILE = $logUtils->file;
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
 try 

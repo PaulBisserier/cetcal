@@ -11,12 +11,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
   <div class="col-lg-6">
     <form id="signuplieuxdist.form" class="form" method="post" 
       action="/src/app/controller/cet.qstprod.controller.signuplieuxdist.form.php">
-      <label for="cdc-signup-email">Veuillez renseigner vos lieux de distribution / vente :
-        <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
-          <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
-        </small>
-      </label>
-
+      <?php include $PHP_INCLUDES_PATH.'areas/include.cet.qstprod.signup.entete.form.php'; ?>
       <!-- ------------------------- -->
       <!-- INPUTS formulaire START : ---
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">

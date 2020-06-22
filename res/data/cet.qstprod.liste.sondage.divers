@@ -2,6 +2,7 @@ s002;Vous êtes :
 s002;Propriétaire du foncier
 s002;En fermage et location pour vos bâtiments
 s002;Propriétaire d’une grande partie et en fermage pour certaines parcelles
+s002;Cotisant solidaire et exploitant à titre principal
 #
 s003;Vous êtes installé :
 s003;Sur la ferme familiale
@@ -11,6 +12,7 @@ s004;Avez vous bénéficié :
 s004;D’une formation agricole (BPREA, CAP, BEP, Bac Pro, DEUT...)
 s004;Formation sur le tas
 s004;Aucune formation agricole
+s004;D'une reconversion
 #
 s005;Selon vous les produits avec label Bio sont ils vendus :
 s005;Vraiment trop cher
@@ -20,13 +22,18 @@ s005;Vraiment pas assez cher
 #
 s006;Votre clientèle est selon vos observations plutôt :
 s006;plutôt des gens aisés
-s006;constituée d’une majorité de smicards ou de personnes touchant des bas salaires
+s006;constituée d’une majorité de petits revenus ou de personnes touchant des bas salaires
 s006;homogène (toutes les classes sociales sont présentes)
 #
 s007;Êtes vous en mesure de vous verser un salaire ?
 s007;oui, tous les mois
 s007;oui, parfois
 s007;non, jamais
+#
+s017;Quels critères utilisez-vous pour fixer vos prix ?
+s017;Prix de la concurrence locale
+s017;Prix du marché (voir agrimer, ex. agrimer Bio et agrimer en gros)
+s017;Calcul à partir du temps passé plus vos charges
 #
 s008;Vos produits sont ils vendus
 s008;au même prix que dans la grande distribution
@@ -40,18 +47,16 @@ s009;trop dur
 s009;trop d’heures et trop dur
 s009;normalement comme la plupart des personnes
 #
+s018;En moyenne, combien d'heures travailllez-vous par semaine ?
+s018;De 20 à 35 heures par semaine
+s018;De 35 à 50 heures par semaine
+s018;De 50 à 70 heures par semaine
+s018;Plus de 70 heures par semaine
+#
 s010;Considérez vous que votre travail est
 s010;Reconnu à sa juste valeur
 s010;Pas assez connu pour être reconnu à sa juste valeur
 s010;Dénigré systématiquement
-#
-s011;Quels sont vos principales difficultés
-s011;le manque de temps
-s011;le manque d’argent
-s011;l’impossibilité de partir en vacances
-s011;la charge de travail
-s011;la pénibilité de votre métier
-s011;l’impact sur votre vie familiale/vie de couple
 #
 s012;Quel est l’activité qui peut parfois vous peser ?
 s012;la commercialisation vous prend trop de temps
@@ -65,7 +70,7 @@ s013;non
 s013;pas assez
 s013;trop vétuste
 #
-s014;Conseillé techniquement ?
+s014;Selon vous, estimez vous être suffisamment conseillé techniquement ?
 s014;oui
 s014;non
 s014;pas assez

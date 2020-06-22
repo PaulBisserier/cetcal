@@ -1,0 +1,16 @@
+
+CetQstprodConstListes - files loaded today}
+CetQstprodConstListes - files loaded today}
+CetQstprodConstListes - files loaded today}
+CetQstprodConstListes - files loaded today}
+CetQstprodConstListes - files loaded today}
+CetQstprodConstListes - files loaded today}[CETCAL log] {Des donnees obligatoires sont manquantes.}[stacktrace=#0 /var/www/cet-questionnaire-producteurs/src/app/controller/cet.qstprod.controller.signupgen.form.php(12): HTTPDataProcessor->checkNonNullData(Array)
+#1 {main}][CETCAL log] {Des donnees obligatoires sont manquantes.}[stacktrace=#0 /var/www/cet-questionnaire-producteurs/src/app/controller/cet.qstprod.controller.signupgen.form.php(12): HTTPDataProcessor->checkNonNullData(Array)
+#1 {main}]
+CetQstprodConstListes - files loaded today}[CETCAL log] {Undefined variable: dtoConsomation}[stacktrace=#0 /var/www/cet-questionnaire-producteurs/src/app/model/cet.qstprod.lieuxdist.model.php(46): exception_error_handler(8, 'Undefined varia...', '/var/www/cet-qu...', 46, Array)
+#1 /var/www/cet-questionnaire-producteurs/src/app/controller/cet.qstprod.controller.signuprecap.form.php(42): QSTPRODLieuxModel->createLieu('6', 'O:23:"QstLieuxD...', 'O:18:"QstConsom...')
+#2 {main}][CETCAL log] {Undefined variable: dtoConsomation}[stacktrace=#0 /var/www/cet-questionnaire-producteurs/src/app/model/cet.qstprod.lieuxdist.model.php(47): exception_error_handler(8, 'Undefined varia...', '/var/www/cet-qu...', 47, Array)
+#1 /var/www/cet-questionnaire-producteurs/src/app/controller/cet.qstprod.controller.signuprecap.form.php(42): QSTPRODLieuxModel->createLieu('7', 'O:23:"QstLieuxD...', 'O:18:"QstConsom...')
+#2 {main}][CETCAL log] {Undefined variable: dtoConsomation}[stacktrace=#0 /var/www/cet-questionnaire-producteurs/src/app/model/cet.qstprod.lieuxdist.model.php(47): exception_error_handler(8, 'Undefined varia...', '/var/www/cet-qu...', 47, Array)
+#1 /var/www/cet-questionnaire-producteurs/src/app/controller/cet.qstprod.controller.signuprecap.form.php(42): QSTPRODLieuxModel->createLieu('8', 'O:23:"QstLieuxD...', 'O:18:"QstConsom...')
+#2 {main}]

@@ -11,12 +11,7 @@ $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbe
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <form class="form" method="post" action="/src/app/controller/cet.qstprod.controller.signupbesoins.form.php">
-      <label for="cdc-signup-email">Veuillez répondre aux questions ci-dessous :
-        <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
-          <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
-        </small>
-      </label>
-
+      <?php include $PHP_INCLUDES_PATH.'areas/include.cet.qstprod.signup.entete.form.php'; ?>
       <!-- ------------------------- -->
       <!-- INPUTS formulaire START : ---
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">

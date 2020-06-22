@@ -14,12 +14,7 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
     <form id="signupprods.form" class="form" method="post" 
       action="/src/app/controller/cet.qstprod.controller.signupprods.form.php"
       onload="setupRechercheProduit();">
-      <label for="cdc-signup-email">Veuillez renseigner vos informations produits :
-        <small class="form-text cet-qstprod-label-text" style="margin-top: 2px;">Cet annuaire garantie la confidentialité de vos données numériques.<br>
-          <a href="#">Prendre connaissance de notre politique relative aux données numériques.</a>
-        </small>
-      </label>
-
+      <?php include $PHP_INCLUDES_PATH.'areas/include.cet.qstprod.signup.entete.form.php'; ?>
       <!-- ------------------------- -->
       <!-- INPUTS formulaire START : ---
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">
@@ -167,6 +162,26 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <input class="form-control" id="qstprod-produit-champignon-autre" name="qstprod-produit-champignon-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
             value="<?= isset($currentForm['qstprod-produit-champignon-autre']) ? $currentForm['qstprod-produit-champignon-autre'] : $neant; ?>"
+            maxlength="45">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>boissons</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_boissons as $boisson): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $boisson); ?>" id="qstprod-produit-boisson-<?= $counter; ?>" 
+            name="qstprod-produits-boissons[]"
+            <?= isset($currentForm['qstprod-produits-boissons']) && in_array(implode(';', $boisson), $currentForm['qstprod-produits-boissons']) ? 
+              'checked="checked"' : $neant; ?>>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-boisson-<?= $counter; ?>"><?= $boisson[1]; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-boisson-autre" name="qstprod-produit-boisson-autre" type="text" 
+            placeholder="Dites-nous quel autre produit"
+            value="<?= isset($currentForm['qstprod-produit-boisson-autre']) ? $currentForm['qstprod-produit-boisson-autre'] : $neant; ?>"
             maxlength="45">
         </div>
         <br>

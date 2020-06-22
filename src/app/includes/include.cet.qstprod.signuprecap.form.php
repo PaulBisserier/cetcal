@@ -22,7 +22,14 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
 <!-- -------------------------------------- -->
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
-    <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos informations générales :</small></label>
+    <label class="cet-formgroup-container-label">
+      <small class="form-text">Récapitulatif de vos informations générales :</small>
+    </label>
+    <label>
+      <small class="form-text text-muted" style="color: rgb(70, 80, 40) !important;"><?= CetQstprodConstLibelles::lib_general_entete_garantit; ?><br>
+        <a href="#" class="cet-conditions-donnees-numerique"><?= CetQstprodConstLibelles::lib_general_entete_donnees; ?></a>
+      </small>
+    </label>
     <div id="qstprod-table-generale" class="cet-formgroup-container">
       <div class="d-flex justify-content-center">
         <table class="table table-borderless">
