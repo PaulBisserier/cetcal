@@ -16,19 +16,6 @@
     <div id="cet-sondage-1" class="collapse" aria-labelledby="cet-sondage-1-heading" data-parent="#cet-sondage-1-accordion">
       <div class="card-body">
         <label class="cet-formgroup-container-label"><small class="form-text">Sondage :</small></label>
-        <label><small class="form-text">Quels sont vos besoins et difficultés ?</small></label>
-        <?php $counter = 0; ?>
-        <?php foreach ($listes_arrays->sondage_difficultes as $sondagedifficulte): ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= implode(';', $sondagedifficulte); ?>" id="qstprod-sondagedifficulte-<?= $counter; ?>" 
-            name="qstprod-sondagedifficultes[]"
-            <?= isset($currentForm['qstprod-sondagedifficultes']) && in_array(implode(';', $sondagedifficulte), $currentForm['qstprod-sondagedifficultes']) ? 
-              'checked="checked"' : $neant; ?>>
-          <label class="form-check-label cet-qstprod-label-text" for="qstprod-sondagedifficulte-<?= $counter; ?>"><?= $sondagedifficulte[1]; ?></label>
-        </div>
-        <?php ++$counter; ?>
-        <?php endforeach; ?>
-
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->sondage_divers as $divers): ?>
         <?php for ($i=0; $i < count($divers) - 1; $i++): ?>

@@ -78,7 +78,7 @@ if (isset($_GET['sitkn']))
       <label class="cet-formgroup-container-label" for="qstprod-nomferme"><small class="form-text">Renseignez vos informations d'adresse d'exploitation :</small></label>
       <div class="cet-formgroup-container">
         <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom commercial de la ferme :</small></label>
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom de la ferme :</small></label>
           <input class="form-control is-invalid" id="qstprod-nomferme" name="qstprod-nomferme" type="text" 
             placeholder="Nom commercial de la ferme" onblur="checkFormInput(60, this.id);"
             value="<?= isset($currentForm['qstprod-nomferme']) ? $currentForm['qstprod-nomferme'] : $neant; ?>"
@@ -161,13 +161,13 @@ if (isset($_GET['sitkn']))
         <?php endforeach; ?>
         <br>
         <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie cultivée plein champ en <b>hectares</b> :</small></label>
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie cultivée <b>plein champ</b> en <b>hectares</b> :</small></label>
           <input class="form-control" id="qstprod-surfacepc" name="qstprod-surfacepc" type="number" min="0.01"
             step="0.01" placeholder="Superficie cultivée plein champ en hectares"
             value="<?= isset($currentForm['qstprod-surfacepc']) ? $currentForm['qstprod-surfacepc'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie de culture serre en <b>ares</b> :</small></label>
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie de culture <b>serre</b> en <b>ares</b> :</small></label>
           <input class="form-control" id="qstprod-supserre" name="qstprod-supserre" type="number" min="0.01"
             step="0.01" placeholder="Superficie de culture serre en ares"
             value="<?= isset($currentForm['qstprod-supserre']) ? $currentForm['qstprod-supserre'] : $neant; ?>">

@@ -13,7 +13,7 @@ class CETCALQueryLibrary
 
   const INSERT_CETCAL_MODE_CONSO = "INSERT INTO cetcal.cetcal_mode_conso (clef_mode_conso, val_mode_conso, fk_producteur_mode_conso) VALUES (:pClef, :pVal, :pPkProducteur);";
 
-  const INSERT_CETCAL_LIEU = "INSERT INTO cetcal.cetcal_lieu (nom, adresse_literale, jours_producteur, jour_collecte_conso) VALUES (:pNom, :pAdrLit, :pJoursProducteur, :pJourCollecteConso);";
+  const INSERT_CETCAL_LIEU = "INSERT INTO cetcal.cetcal_lieu (nom, adresse_literale, jour_producteur, jour_collecte_conso) VALUES (:pNom, :pAdrLit, :pJoursProducteur, :pJourCollecteConso);";
   const INSERT_PRODUCTEUR_JOIN_LIEU = "INSERT INTO cetcal.producteur_join_lieu (fk_producteur_join, fk_lieu) VALUES (:pFkProducteur, :pFkLieu);";
 
   const INSERT_CETCAL_PRODUIT = "INSERT INTO cetcal.cetcal_produit (nom, categorie) VALUES (:pNom, :pCategorie);";

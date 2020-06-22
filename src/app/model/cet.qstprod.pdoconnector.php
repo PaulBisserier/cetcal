@@ -12,14 +12,14 @@ class CETCALPDOConnector {
   private $DNS_prod;
   private $LOG_prod;
   private $PWD_prod;
-  private $production = false;
+  private $production = true;
 
   function __construct() 
   {
     $this->DNS = 'mysql:host=127.0.0.1;dbname=cetcal;charset=utf8';
     $this->LOG = 'root';
     $this->PWD = 'root';
-    $this->DNS_prod = 'mysql:host=;dbname=cetcal;charset=utf8';
+    $this->DNS_prod = 'mysql:host=localhost;port=3306;dbname=cetcal;charset=utf8';
     $this->LOG_prod = '';
     $this->PWD_prod = '';
   }
@@ -54,7 +54,7 @@ class CETCALPDOConnector {
     }
     catch (PDOException $ex)
     { 
-      die("SICDC - Connection failed : ".$ex -> getMessage()); 
+      die("CETCAL QSTPROD Connection failed : ".$ex -> getMessage()); 
     }
   }
 

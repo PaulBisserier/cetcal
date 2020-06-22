@@ -20,6 +20,11 @@ class QSTPRODProducteurModel extends CETCALModel
     $dtoProduits = unserialize($pProduitsDto);
     $dtoConsomation = new QstConsomateursDTO();
     $dtoConsomation = unserialize($pConsoDto);
+    $ZERO_DECIMAL = "0";
+    $surface_hect = empty(strval($dtoGenerale->surfaceHectTerres)) ? $ZERO_DECIMAL : strval($dtoGenerale->surfaceHectTerres);
+    $surface_serre = empty(strval($dtoGenerale->surfaceHectSousSerre)) ? $ZERO_DECIMAL : strval($dtoGenerale->surfaceHectSousSerre);
+    $nombre_tetes_betail = empty(strval($dtoGenerale->nbrTetesBetail)) ? $ZERO_DECIMAL : strval($dtoGenerale->nbrTetesBetail);
+    $hectolitres_an = empty(strval($dtoGenerale->hectolitresParAn)) ? $ZERO_DECIMAL : strval($dtoGenerale->hectolitresParAn);
 
     $qLib = $this->getQuerylib();
     $stmt = $this->getCnxdb()->prepare($qLib::INSERT_QSTPROD_PRODUCTEUR);
@@ -44,10 +49,10 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->bindParam(":pUrlWeb", $dtoGenerale->siteWebUrl, PDO::PARAM_STR);
     $stmt->bindParam(":pUrlBoutique", $dtoGenerale->boutiqueEnLigneUrl, PDO::PARAM_STR);
     $stmt->bindParam(":pOrgCertifBio", $dtoGenerale->organismeCertificateurBIO, PDO::PARAM_STR);
-    $stmt->bindParam(":pSurfaceHectTerres", strval($dtoGenerale->surfaceHectTerres), PDO::PARAM_STR);
-    $stmt->bindParam(":pSurfaceAresSerre", strval($dtoGenerale->surfaceHectSousSerre), PDO::PARAM_STR);
-    $stmt->bindParam(":pNbrTetes", strval($dtoGenerale->nbrTetesBetail), PDO::PARAM_STR);
-    $stmt->bindParam(":pHLParAn", strval($dtoGenerale->hectolitresParAn), PDO::PARAM_STR);
+    $stmt->bindParam(":pSurfaceHectTerres", $surface_hect, PDO::PARAM_STR);
+    $stmt->bindParam(":pSurfaceAresSerre", $surface_serre, PDO::PARAM_STR);
+    $stmt->bindParam(":pNbrTetes", $nombre_tetes_betail, PDO::PARAM_STR);
+    $stmt->bindParam(":pHLParAn", $hectolitres_an, PDO::PARAM_STR);
     $stmt->bindParam(":pGroupeCagette", $dtoGenerale->groupeCagette, PDO::PARAM_STR);
     $stmt->bindParam(":pIndentifiantCet", $dtoGenerale->identifiant_cet, PDO::PARAM_STR);
     $stmt->execute();

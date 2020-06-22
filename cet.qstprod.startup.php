@@ -1,5 +1,7 @@
 <?php
-$tag_mep = "CETCAL v4";
+$reboot = isset($_GET['reboot']) && htmlentities(htmlspecialchars($_GET['reboot'])) == "true";
+
+$tag_mep = "";
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
 $PHP_INCLUDES_PATH = $DOC_ROOT.'/src/app/includes/';
 $PHP_CONST_PATH = $DOC_ROOT.'/src/app/const/';
@@ -13,7 +15,7 @@ $logUtils = new CETLogUtils($DOC_ROOT);
 $LOG_FILE = $logUtils->file;
 
 session_start();
-$listes_arrays = isset($_SESSION['cetcal.listes']) ? $_SESSION['cetcal.listes'] : new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT), $LOG_FILE);
+$listes_arrays = isset($_SESSION['cetcal.listes']) && !$reboot ? $_SESSION['cetcal.listes'] : new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT), $LOG_FILE);
 $_SESSION['cetcal.listes'] = $listes_arrays;
 session_write_close();
 

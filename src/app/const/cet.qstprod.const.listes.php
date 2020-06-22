@@ -16,7 +16,6 @@ Class CetQstprodConstListes
   public $solidaires_actions = NULL;
   public $solidaires_groupe_resilience = NULL;
 
-  public $sondage_difficultes = NULL;
   public $sondage_divers = NULL;
 
   public $produits_v4_legumes = NULL;
@@ -50,7 +49,6 @@ Class CetQstprodConstListes
     $this->solidaires_actions = $fileReader->readWithKV('cet.qstprod.liste.solidarite.actions');
     $this->solidaires_groupe_resilience = $fileReader->readWithKV('cet.qstprod.liste.groupe.resilience');
     $this->points_vente_producteurs = $fileReader->readWithKV('cet.qstprod.liste.pointdevente');
-    $this->sondage_difficultes = $fileReader->readWithKV('cet.qstprod.liste.sondage.difficultes');
     $this->sondage_divers = $fileReader->readQAFile('cet.qstprod.liste.sondage.divers');
     $this->produits_v4_legumes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.legumes');
     $this->produits_v4_viandes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.viandes');
