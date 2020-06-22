@@ -162,14 +162,14 @@ if (isset($_GET['sitkn']))
         <br>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie cultivée <b>plein champ</b> en <b>hectares</b> :</small></label>
-          <input class="form-control" id="qstprod-surfacepc" name="qstprod-surfacepc" type="number" min="0.01"
-            step="0.01" placeholder="Superficie cultivée plein champ en hectares"
+          <input class="form-control" id="qstprod-surfacepc" name="qstprod-surfacepc" type="number" min="0.10"
+            step="0.10" placeholder="Superficie cultivée plein champ en hectares"
             value="<?= isset($currentForm['qstprod-surfacepc']) ? $currentForm['qstprod-surfacepc'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie de culture <b>serre</b> en <b>ares</b> :</small></label>
-          <input class="form-control" id="qstprod-supserre" name="qstprod-supserre" type="number" min="0.01"
-            step="0.01" placeholder="Superficie de culture serre en ares"
+          <input class="form-control" id="qstprod-supserre" name="qstprod-supserre" type="number" min="0.10"
+            step="0.10" placeholder="Superficie de culture serre en ares"
             value="<?= isset($currentForm['qstprod-supserre']) ? $currentForm['qstprod-supserre'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
