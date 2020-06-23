@@ -12,7 +12,7 @@ class CETCALPDOConnector {
   private $DNS_prod;
   private $LOG_prod;
   private $PWD_prod;
-  private $production = true;
+  private $production = false;
 
   function __construct() 
   {

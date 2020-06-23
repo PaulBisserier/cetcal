@@ -2,27 +2,17 @@ s002;Vous êtes :
 s002;Propriétaire du foncier
 s002;En fermage et location pour vos bâtiments
 s002;Propriétaire d’une grande partie et en fermage pour certaines parcelles
-s002;Cotisant solidaire et exploitant à titre principal
-#
-s001;Quels sont vos besoins et difficultés ?
-s001;manque de temps
-s001;la charge de travail
-s001;la pénibilité de votre métier
-s001;manque de main d'oeuvre
-s001;manque d'équipement
-s001;livraisons compliquées
-s001;trop d'invendus en fin de marché
-s001;manque de moyens financiers
-s001;manque de connaissances techniques
-s001;trop de charge de travail
-s001;trop de temps passé pour commercialiser
-s001;prix de vente trop bas
-s001;l’impossibilité de partir en vacances
-s001;l’impact sur votre vie familiale/vie de couple
+s002;En espace test
 #
 s003;Vous êtes installé :
 s003;Sur la ferme familiale
 s003;Hors cadre familial
+#
+s024;Vous êtes :
+s024;En association ou société
+s024;Cotisant principal
+s024;Cotisant solidaire
+s024;Au titre du suivi
 #
 s004;Avez vous bénéficié :
 s004;D’une formation agricole (BPREA, CAP, BEP, Bac Pro, DEUT...)
@@ -48,11 +38,6 @@ s005;trop cher
 s005;pas assez cher
 s005;Vraiment pas assez cher
 #
-s006;Votre clientèle est selon vos observations plutôt :
-s006;plutôt des gens aisés
-s006;constituée d’une majorité de petits revenus ou de personnes touchant des bas salaires
-s006;homogène (toutes les classes sociales sont présentes)
-#
 s023;Vos produits sont ils vendus
 s023;au même prix que dans la grande distribution
 s023;moins cher
@@ -64,11 +49,10 @@ s017;Prix de la concurrence locale
 s017;Prix du marché (voir agrimer, ex. agrimer Bio et agrimer en gros)
 s017;Calcul à partir du temps passé plus vos charges
 #
-s008;Vos produits sont ils vendus
-s008;au même prix que dans la grande distribution
-s008;moins cher
-s008;plus cher
-s008;vous ne savez pas
+s006;Votre clientèle est selon vos observations plutôt :
+s006;plutôt des gens aisés
+s006;constituée d’une majorité de personnes ayant des faibles revenus
+s006;Mixte (toutes les classes sociales sont présentes)
 #
 s007;Êtes vous en mesure de vous verser un salaire ?
 s007;oui, tous les mois
@@ -81,16 +65,21 @@ s009;trop dur
 s009;trop d’heures et trop dur
 s009;normalement comme la plupart des personnes
 #
-s018;En moyenne, combien d'heures travailllez-vous par semaine ?
-s018;De 20 à 35 heures par semaine
-s018;De 35 à 50 heures par semaine
-s018;De 50 à 70 heures par semaine
-s018;Plus de 70 heures par semaine
-#
-s010;Considérez vous que votre travail est
-s010;Reconnu à sa juste valeur
-s010;Pas assez connu pour être reconnu à sa juste valeur
-s010;Dénigré systématiquement
+s001;Quels sont vos besoins et difficultés ?
+s001;manque de temps
+s001;la charge de travail
+s001;la pénibilité de votre métier
+s001;manque de main d'oeuvre
+s001;manque d'équipement
+s001;livraisons compliquées
+s001;trop d'invendus en fin de marché
+s001;manque de moyens financiers
+s001;manque de connaissances techniques
+s001;trop de charge de travail
+s001;trop de temps passé pour commercialiser
+s001;prix de vente trop bas
+s001;l’impossibilité de partir en vacances
+s001;l’impact sur votre vie familiale/vie de couple
 #
 s012;Quel est l’activité qui peut parfois vous peser ?
 s012;la commercialisation vous prend trop de temps
@@ -114,9 +103,32 @@ s015;oui
 s015;non
 s015;pas assez
 #
+s010;Considérez vous que votre travail est
+s010;Reconnu à sa juste valeur
+s010;Pas assez connu pour être reconnu à sa juste valeur
+s010;Dénigré systématiquement
+#
 s016;Selon vous, vous pensez que si certains domaines de votre activité (commercialisation, livraisons, travail administratif...) pouvaient être géré différemment vous pourriez produire :
 s016;Plus
 s016;Mieux
 s016;Autant mais bénéficier de quelque repos ou loisirs
 s016;Aucune des trois réponses précédentes car vous êtes déjà au maximum de votre capacité de production
+#
+#s008;Vos produits sont ils vendus
+#s008;au même prix que dans la grande distribution
+#s008;moins cher
+#s008;plus cher
+#s008;vous ne savez pas
+#
+s025;vous aimeriez produire plus ?
+s025;Oui
+s025;Non
+#
+s026;vous aimeriez être plus proche de vos valeurs ?
+s026;Oui
+s026;Non
+#
+s027;votre organisation est-elle optimum?
+s027;Oui
+s027;Non
 #
