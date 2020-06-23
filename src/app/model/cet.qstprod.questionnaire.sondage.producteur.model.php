@@ -35,6 +35,45 @@ class QSTPRODSondageProducteurModel extends CETCALModel
       $stmt->bindParam(":pReponse", $qrsondage[1], PDO::PARAM_STR);
       $stmt->execute();
     }
+
+    if (isset($dtoinfos->sondageNombrePostes)) 
+    {
+      $clefQuestion = "snbp";
+      $valQuestion = "Nombre de postes";
+      $qLib = $this->getQuerylib();
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_SONDAGE_NBRS);
+      $stmt->bindParam(":pPkProducteur", $pPK, PDO::PARAM_INT);
+      $stmt->bindParam(":pClefQuestion", $clefQuestion, PDO::PARAM_STR);
+      $stmt->bindParam(":pValQuestion", $valQuestion, PDO::PARAM_STR);
+      $stmt->bindParam(":pReponse", $dtoinfos->sondageNombrePostes, PDO::PARAM_STR);
+      $stmt->execute();
+    }
+
+    if (isset($dtoinfos->sondageNombreSaisonniers)) 
+    {
+      $clefQuestion = "snbs";
+      $valQuestion = "Nombre de saisonniers";
+      $qLib = $this->getQuerylib();
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_SONDAGE_NBRS);
+      $stmt->bindParam(":pPkProducteur", $pPK, PDO::PARAM_INT);
+      $stmt->bindParam(":pClefQuestion", $clefQuestion, PDO::PARAM_STR);
+      $stmt->bindParam(":pValQuestion", $valQuestion, PDO::PARAM_STR);
+      $stmt->bindParam(":pReponse", $dtoinfos->sondageNombreSaisonniers, PDO::PARAM_STR);
+      $stmt->execute();
+    }
+
+    if (isset($dtoinfos->sondageNombreHeuresSemaine)) 
+    {
+      $clefQuestion = "snhs";
+      $valQuestion = "Nombre d'heures semaine";
+      $qLib = $this->getQuerylib();
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_SONDAGE_NBRS);
+      $stmt->bindParam(":pPkProducteur", $pPK, PDO::PARAM_INT);
+      $stmt->bindParam(":pClefQuestion", $clefQuestion, PDO::PARAM_STR);
+      $stmt->bindParam(":pValQuestion", $valQuestion, PDO::PARAM_STR);
+      $stmt->bindParam(":pReponse", $dtoinfos->sondageNombreHeuresSemaine, PDO::PARAM_STR);
+      $stmt->execute();
+    }
   }
 
 }

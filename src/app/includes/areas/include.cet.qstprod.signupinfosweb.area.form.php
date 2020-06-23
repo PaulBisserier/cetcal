@@ -19,22 +19,8 @@
         <div class="form-group mb-3"> 
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Page Facebook de la ferme :</small></label>
           <input class="form-control" id="qstprod-fb" name="qstprod-fb" type="text" 
-          placeholder="Page Facebook de la ferme (si existant)"
+          placeholder="Copiez-collez le lien de votre page Facebook"
           value="<?= isset($currentForm['qstprod-fb']) ? $currentForm['qstprod-fb'] : $neant; ?>"
-          maxlength="60">
-        </div>
-        <div class="form-group mb-3">   
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Page Instagram de la ferme :</small></label>
-          <input class="form-control" id="qstprod-ig" name="qstprod-ig" type="text" 
-          placeholder="Page Instagram de la ferme (si existant)"
-          value="<?= isset($currentForm['qstprod-ig']) ? $currentForm['qstprod-ig'] : $neant; ?>"
-          maxlength="60">
-        </div>
-        <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Compte Twitter de la ferme :</small></label>   
-          <input class="form-control" id="qstprod-twitter" name="qstprod-twitter" type="text" 
-          placeholder="Compte Twitter de la ferme (si existant)"
-          value="<?= isset($currentForm['qstprod-twitter']) ? $currentForm['qstprod-twitter'] : $neant; ?>"
           maxlength="60">
         </div>
         <div class="form-group mb-3">
@@ -50,6 +36,20 @@
           type="text" placeholder="Adresse web de boutique en ligne"
           value="<?= isset($currentForm['qstprod-adrwebboutiqueenligne']) ? $currentForm['qstprod-adrwebboutiqueenligne'] : $neant; ?>"
           maxlength="128">
+        </div>
+        <div class="form-group mb-3">   
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Page Instagram de la ferme :</small></label>
+          <input class="form-control" id="qstprod-ig" name="qstprod-ig" type="text" 
+          placeholder="Nom de compte Istagram (si existant)"
+          value="<?= isset($currentForm['qstprod-ig']) ? $currentForm['qstprod-ig'] : $neant; ?>"
+          maxlength="60">
+        </div>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Compte Twitter de la ferme :</small></label>   
+          <input class="form-control" id="qstprod-twitter" name="qstprod-twitter" type="text" 
+          placeholder="Compte Twitter de la ferme (si existant)"
+          value="<?= isset($currentForm['qstprod-twitter']) ? $currentForm['qstprod-twitter'] : $neant; ?>"
+          maxlength="60">
         </div>
         <a href="#cet-infosweb-accordion" style="float: right; margin-bottom: 20px; color: white;" 
           class="btn btn-success btn-sm scrolltowards" data-toggle="collapse" data-target="#cet-infosweb">

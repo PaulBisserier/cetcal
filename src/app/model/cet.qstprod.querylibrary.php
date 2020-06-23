@@ -20,6 +20,6 @@ class CETCALQueryLibrary
   const INSERT_PRODUCTEUR_JOIN_PRODUITS = "INSERT INTO cetcal.producteur_join_produits (fk_producteur_join, fk_produits_join) VALUES (:pFkProducteur, :pFkProduit);";
 
   const INSERT_SONDAGE = "INSERT INTO cetcal.cetcal_sondage (fk_producteur_sondage, clef_question, reponse) VALUES (:pPkProducteur, :pClefQuestion, :pReponse);";
-
+  const INSERT_SONDAGE_NBRS = "INSERT INTO cetcal.cetcal_sondage (fk_producteur_sondage, clef_question, val_question, reponse) VALUES (:pPkProducteur, :pClefQuestion, :pValQuestion, :pReponse);";
   const INSERT_CETCAL_INFORMATION = "INSERT INTO cetcal.cetcal_information_producteur (fk_producteur_information_producteur, clef_information, information) VALUES (:pPkProducteur, :pClefInformation, :pInformation);";
 }

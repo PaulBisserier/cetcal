@@ -30,6 +30,18 @@ s004;Formation sur le tas
 s004;Aucune formation agricole
 s004;D'une reconversion
 #
+s021;Vous avez recours à :
+s021;un ou plusieurs aidants familiaux sur la partie exploitation
+s021;une entreprise de prestation de service
+s021;une aide administrative (professionnelle ou familiale)
+s021;Une CUMA
+s021;Une aide pour la communication
+#
+s022;Faîtes vous appel à :
+s022;un centre de gestion agréé
+s022;à un comptable
+s022;Vous vous chargez vous même de votre comptabilité
+#
 s005;Selon vous les produits avec label Bio sont ils vendus :
 s005;Vraiment trop cher
 s005;trop cher
@@ -41,10 +53,11 @@ s006;plutôt des gens aisés
 s006;constituée d’une majorité de petits revenus ou de personnes touchant des bas salaires
 s006;homogène (toutes les classes sociales sont présentes)
 #
-s007;Êtes vous en mesure de vous verser un salaire ?
-s007;oui, tous les mois
-s007;oui, parfois
-s007;non, jamais
+s023;Vos produits sont ils vendus
+s023;au même prix que dans la grande distribution
+s023;moins cher
+s023;plus cher
+s023;vous ne savez pas
 #
 s017;Quels critères utilisez-vous pour fixer vos prix ?
 s017;Prix de la concurrence locale
@@ -56,6 +69,11 @@ s008;au même prix que dans la grande distribution
 s008;moins cher
 s008;plus cher
 s008;vous ne savez pas
+#
+s007;Êtes vous en mesure de vous verser un salaire ?
+s007;oui, tous les mois
+s007;oui, parfois
+s007;non, jamais
 #
 s009;Pensez vous travailler
 s009;trop d’heures

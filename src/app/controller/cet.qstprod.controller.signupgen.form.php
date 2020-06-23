@@ -69,6 +69,9 @@ try
       isset($_POST['qstprod-sondagedifficultes']) ? $_POST['qstprod-sondagedifficultes'] : NULL);
     $form_sondage = $dataProcessor->processHttpFormArrayData(
       isset($_POST['qstprod-sondage']) ? $_POST['qstprod-sondage'] : NULL);
+    $form_nombre_postes = $dataProcessor->processHttpFormData($_POST['qstprod-nbrpostes']);
+    $form_nombre_saisonniers = $dataProcessor->processHttpFormData($_POST['qstprod-nbrsaisonniers']);
+    $form_nombre_heuressemaine = $dataProcessor->processHttpFormData($_POST['qstprod-nbrheuressemaine']);
 
     $form_cagette = $dataProcessor->processHttpFormData($_POST['qstprod-cagette']);
 
@@ -88,7 +91,8 @@ try
       $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig, 
       $form_pagetwitter, $form_siteweb, $form_boutiquewww, "" /* org certif bio deprecated */, 
       $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
-      $form_sondage_difficultes, $form_sondage, $form_cagette, $identifiant_cet);
+      $form_sondage_difficultes, $form_sondage, $form_cagette, $identifiant_cet, 
+      $form_nombre_postes, $form_nombre_saisonniers, $form_nombre_heuressemaine);
     $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);
   }
 

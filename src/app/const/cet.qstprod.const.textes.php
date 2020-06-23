@@ -2,7 +2,7 @@
 Class CetQstprodConstTextes 
 {
   const bouchon = "BOUCHON";
-
+  const informatif_sondage = "Enquête auprès des producteurs : Ce questionnaire vise à prendre la mesure des freins et difficultés rencontrées par les producteurs. Vos réponses seront gérées de manière anonyme et ne seront pas divulguées dans la version consultable de l’annuaire.";
   const login_intro_block_textinf_a = "Castillonnais en transition porte un projet de développement des Circuits alimentaires locaux de produits bio ou y tendant pour notre territoire. Il s'agit de mettre à disposition des consommateurs un annuaire en ligne apportant une information claire et à jour sur comment se procurer ces productions alimentaires du territoire. Le but de cet annuaire est de favoriser le rapprochement entre les consommateurs et les producteurs pour remettre l'alimentation et l'agriculture à leur juste place dans nos vies, dans le respect de notre environnement."; 
   const login_intro_block_textinf_b = "Notre projet a également l'ambition, dans un deuxième temps, de favoriser la solidarité et d'envisager la résilience alimentaire de notre territoire."; 
   const login_intro_block_textinf_c = "Cet annuaire sera diffusée localement auprès de toutes les structures qui sont en lien avec le public : les mairies, les CDC , offices de tourisme, asso locales ..., avec un flyer papier.";  
