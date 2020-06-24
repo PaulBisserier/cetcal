@@ -12,7 +12,7 @@
         <a class="nav-link cet-p" href="#" onmousedown="scrollTowards('cet-annuaire-footer');">Qui sommes nous ?</a>
       </li>
       <li class="nav-item">
-        <a id="cet-notre-projet" class="nav-link cet-p" href="#">Notre projet, Circuits Alimentaires Courts</a>
+        <a id="cet-notre-projet" class="nav-link cet-p" href="#">Notre projet, <i>Circuits Alimentaires Courts</i></a>
       </li>
       <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
         <li class="nav-item">

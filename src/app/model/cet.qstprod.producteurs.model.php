@@ -10,6 +10,15 @@ class QSTPRODProducteurModel extends CETCALModel
   
   public function createProducteur($pProducteurDto, $pProduitsDto, $pConsoDto) 
   {
+    /**
+     * Générer un identifiant de connexion et cela dans tous les 
+     * cas (email, n° tel fixe ou mobile renseingés).
+     */
+    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.identifiantcet.php');
+    $idHelper = new IdentifiantCETHelper();
+    $cetcal_web_id = $idHelper->generateRandomString(12);
+    while ($this->identifiantExists($cetcal_web_id)) $cetcal_web_id = $idHelper->generateRandomString(12);
+
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
@@ -49,7 +58,7 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->bindParam(":pNbrTetes", $dtoGenerale->nbrTetesBetail, PDO::PARAM_STR);
     $stmt->bindParam(":pHLParAn", $dtoGenerale->hectolitresParAn, PDO::PARAM_STR);
     $stmt->bindParam(":pGroupeCagette", $dtoGenerale->groupeCagette, PDO::PARAM_STR);
-    $stmt->bindParam(":pIndentifiantCet", $dtoGenerale->identifiant_cet, PDO::PARAM_STR);
+    $stmt->bindParam(":pIndentifiantCet", $cetcal_web_id, PDO::PARAM_STR);
     $stmt->execute();
     $pk = $this->getCnxdb()->lastInsertId();
 
@@ -156,6 +165,20 @@ class QSTPRODProducteurModel extends CETCALModel
     foreach ($data as $row) 
     {
       if (isset($row['siret']) && strcmp($row['siret'], $dtoGenerale->siret) === 0) return true;
+    }
+    return $false;
+  }
+
+  private function identifiantExists($pIdCet) 
+  {
+    $qLib = $this->getQuerylib();
+    $stmt = $this->getCnxdb()->prepare($qLib::SELECT_ALL_ID_CET_PRODUCTEUR);
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+
+    foreach ($data as $row) 
+    {
+      if (isset($row['identifiant_cet']) && strcmp($row['identifiant_cet'], $pIdCet) === 0) return true;
     }
     return $false;
   }

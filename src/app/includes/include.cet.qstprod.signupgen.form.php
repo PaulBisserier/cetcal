@@ -1,4 +1,5 @@
 <?php
+$cetcal_session_id = "";
 $neant = '';
 $currentForm = [];
 if (isset($_GET['sitkn']))
@@ -64,7 +65,7 @@ if (isset($_GET['sitkn']))
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">N° de téléphone fixe :</small></label>
           <input class="form-control" id="qstprod-numbtel-fix" name="qstprod-numbtel-fix" type="text" 
-            maxlength="10" minlength="10" placeholder="N° de téléphone fix."
+            maxlength="10" minlength="10" placeholder="N° de téléphone fixe."
             value="<?= isset($currentForm['qstprod-numbtel-fix']) ? $currentForm['qstprod-numbtel-fix'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
@@ -80,7 +81,7 @@ if (isset($_GET['sitkn']))
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom de la ferme :</small></label>
           <input class="form-control is-invalid" id="qstprod-nomferme" name="qstprod-nomferme" type="text" 
-            placeholder="Nom commercial de la ferme" onblur="checkFormInput(60, this.id);"
+            placeholder="Nom de la ferme" onblur="checkFormInput(60, this.id);"
             value="<?= isset($currentForm['qstprod-nomferme']) ? $currentForm['qstprod-nomferme'] : $neant; ?>"
             maxlength="60">
         </div>
@@ -128,17 +129,6 @@ if (isset($_GET['sitkn']))
           <input class="form-control" id="qstprod-cmpladrs" name="qstprod-cmpladrs" type="text" 
             placeholder="Complément d'adresse"
             value="<?= isset($currentForm['qstprod-cmpladrs']) ? $currentForm['qstprod-cmpladrs'] : $neant; ?>"
-            maxlength="60">
-        </div>
-      </div>
-
-      <label class="cet-formgroup-container-label"><small class="form-text">Cagette.net :</small></label> 
-      <div class="cet-formgroup-container">
-        <div class="form-group mb-3"> 
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Quel est votre groupe cagette ?</small></label>
-          <input class="form-control" id="qstprod-cagette" name="qstprod-cagette" type="text" 
-            placeholder="Indiquer votre groupe cagette"
-            value="<?= isset($currentForm['qstprod-cagette']) ? $currentForm['qstprod-cagette'] : $neant; ?>"
             maxlength="60">
         </div>
       </div>
@@ -194,11 +184,12 @@ if (isset($_GET['sitkn']))
       <div class="row cet-qstprod-btnnav">
         <div class="col text-center">
           <button class="btn btn-info" type="submit" onmousedown="$('#qstprod-signupgen-nav').val('retour');"
-            id="btn-signupgen-form-retour">Retour accueil</button>
+            id="btn-signupgen-form-retour">Annuler et retour accueil</button>
           <button class="btn btn-info" type="submit" id="btn-signupgen-form-valider" onmousedown="$('#qstprod-signupgen-nav').val('valider');"><?= CetQstprodConstLibelles::form_valider; ?></button>
         </div>
       </div>
 
+      <input type="text" name="cetcal_session_id" id="cetcal_session_id" value="<?= $cetcal_session_id; ?>" hidden="hidden">
       <input type="text" name="qstprod-signupgen-nav" id="qstprod-signupgen-nav" value="unset" hidden="hidden">
     </form>
   </div>

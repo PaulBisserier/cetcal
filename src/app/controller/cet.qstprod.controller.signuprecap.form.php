@@ -1,4 +1,5 @@
 <?php
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.globals.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
 $logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
@@ -16,6 +17,10 @@ try
   {
     // Prepare to read Session.
     session_id($cetcal_session_id);
+    // 1 heure de Session côté serveur.
+    ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
+    // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
+    session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
     session_start();
 
     /** ***************************************************************************
@@ -26,11 +31,6 @@ try
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.produits.model.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.questionnaire.sondage.producteur.model.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.informations.model.php');
-
-    /**
-     * Vérifier si couplage email | tel fixe | tel port existe en base. 
-     * Si oui, erreure car le producteur est déjà inscrit.
-     */
 
     $model = new QSTPRODProducteurModel();
     $data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
