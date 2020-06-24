@@ -17,7 +17,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
       <input class="form-control" id="qstprod-" name="qstprod-" type="text" placeholder="">
       ---- ------------------------- -->
       <br>
-      <label class="cet-formgroup-container-label"><small class="form-text">Renseignez un lieux de distribution ou de vente :</small></label>
+      <label class="cet-formgroup-container-label"><small class="form-text">Renseignez les lieux de distribution ou de vente :</small></label>
       <div class="cet-formgroup-container">
         <label><small class="form-text">Vos activités de distribution / vente (plusieurs options possibles) : </small></label>
         <?php $counter = 0; ?>

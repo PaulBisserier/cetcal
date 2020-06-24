@@ -17,7 +17,7 @@ Class CetQstprodConstTextes
   const nouveau_monde_p2 = "Dans le cadre de cette dernière activité, nous avons été retenu par la Région Nouvelle Aquitaine pour mettre en place un projet de développement de « circuits alimentaires locaux ». Il comprend le recensement des producteurs bio dans un rayon de 40 km autour de Castillon avec la réalisation d'un annuaire via une plateforme numérique.";
   const nouveau_monde_p3 = "Afin d'avoir une vraie plus-value par rapport aux plateformes existantes, nous souhaitons via ce questionnaire vous référencer et connaître vos besoins et vos attentes par rapport à ce type d'outil. Cela dans un moment particulier de crise sanitaire et économique, mais aussi d'une profonde volonté collective de renforcement de la résilience et de l'autonomie de nos territoires via une relocalisation de la production, la transformation et la commercialisation de notre alimentation.";
 
-  const notre_projet_titre = "Notre projet vous est expliqué";
+  const notre_projet_titre = "Voici notre projet : Circuits Alimentaires Courts (ou CAL)";
   const notre_projet_debut = "L'association Castillonnais en transition est composé de girondins et périgourdins engagés. Elle travaillent au développement de la bio locale. Nos priorités sont de :";
   const notre_projet_priorite_1 = "Remettre l'agriculture, l'alimentation, le vivant, à une place centrale.";
   const notre_projet_priorite_2 = "Renforcer la résilience alimentaire de nos territoires.";

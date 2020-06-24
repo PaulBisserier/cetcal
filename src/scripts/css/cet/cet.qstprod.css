@@ -15,11 +15,13 @@ button.cet-recherche-produit-element-btn { margin-left: 2px; }
 label { margin-left: 4px !important; }
 .table { border-style: 1px solid black !important; }
 .carousel-inner p, h5, span, li, ol { color: black; }
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carousel-control-prev-icon, .carousel-control-next-icon {
   height: 100px;
   width: 100px;
   background-image: none;
+}
+.carousel-item .img-fluid {
+  width:100%;
 }
 .carousel-control-next-icon:after
 {

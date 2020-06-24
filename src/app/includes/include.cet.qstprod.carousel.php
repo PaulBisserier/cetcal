@@ -1,10 +1,9 @@
-<div id="cet-carousel-1" class="carousel slide" data-ride="carousel" style="max-height: 260px !important; min-height: 260px !important;">
+<div id="cet-carousel-1" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="/res/content/cet_baniere_eur_region.png" alt="Partenaires">
-      <div class="carousel-caption d-none d-md-block">
-        <p></p>
-      </div>
+      <picture>
+        <img class="d-block img-fluid" src="/res/content/cet_baniere_eur_region.png" alt="Partenaires">
+      </picture>
     </div>
     <div class="carousel-item">
       <div class="container h-100">
@@ -14,10 +13,9 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="/res/content/cet_baniere.jpg" alt="Castillonais en Transition">
-      <div class="carousel-caption d-none d-md-block">
-        <p></p>
-      </div>
+      <picture>
+        <img class="d-block img-fluid" style="display: block !important;" src="/res/content/cet_baniere.jpg" alt="Castillonais en Transition">
+      </picture>
     </div>
   </div>
   <a class="carousel-control-prev" href="#cet-carousel-1" role="button" data-slide="prev">
