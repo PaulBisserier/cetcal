@@ -1,11 +1,6 @@
 <?php
-// DTOs used here :
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
-// Prepare Session usage :
 $neant = '';
-$cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
-session_id($cetcal_session_id);
-session_start();
 $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprods.form.post'] : array();
 ?>
 <!-- singup produits html form -->
@@ -45,7 +40,7 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
 
       <label class="cet-formgroup-container-label"><small class="form-text">Quels produits vendez-vous ?</small></label>
       <div class="cet-formgroup-container">        
-        <label><small class="form-text">Quels <b>legumes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <label><small class="form-text">Quels <b>légumes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_legumes as $pv4Legumes): ?>
         <div class="form-check">
@@ -65,7 +60,7 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
             maxlength="45">
         </div>
         <br>
-        <label><small class="form-text">Quels <b>viandes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <label><small class="form-text">Quelles <b>viandes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_viandes as $pv4viande): ?>
         <div class="form-check">
@@ -165,7 +160,7 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
             maxlength="45">
         </div>
         <br>
-        <label><small class="form-text">Quels <b>boissons</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <label><small class="form-text">Quelles <b>boissons</b> vendez-vous ? (plusieurs options possibles) : </small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_boissons as $boisson): ?>
         <div class="form-check">
@@ -185,7 +180,7 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
             maxlength="45">
         </div>
         <br>
-        <label><small class="form-text">Quels <b>plantes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <label><small class="form-text">Quelles <b>plantes</b> vendez-vous ? (plusieurs options possibles) : </small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_plantes as $plante): ?>
         <div class="form-check">
@@ -248,7 +243,7 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
             maxlength="45">
         </div>
         <br>
-        <label><small class="form-text">Quels <b>céréales et dérivés/légumineuses</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <label><small class="form-text">Quelles <b>céréales et dérivés/légumineuses</b> vendez-vous ? (plusieurs options possibles) : </small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->produits_v4_cereales as $cereale): ?>
         <div class="form-check">
@@ -325,6 +320,26 @@ $currentForm = isset($_SESSION['signupprods.form.post']) ? $_SESSION['signupprod
           <input class="form-control" id="qstprod-produit-animal-autre" name="qstprod-produit-animal-autre" type="text" 
             placeholder="Dites-nous quel autre produit"
             value="<?= isset($currentForm['qstprod-produit-animal-autre']) ? $currentForm['qstprod-produit-animal-autre'] : $neant; ?>"
+            maxlength="45">
+        </div>
+        <br>
+        <label><small class="form-text">Quels <b>poissons ou coquillage</b> vendez-vous ? (plusieurs options possibles) : </small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->produits_v4_poissons as $poisson): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $poisson); ?>" id="qstprod-produit-poisson-<?= $counter; ?>" 
+            name="qstprod-produits-poissons[]"
+            <?= isset($currentForm['qstprod-produits-poisson']) && in_array(implode(';', $poisson), $currentForm['qstprod-produits-poisson']) ? 
+              'checked="checked"' : $neant; ?>>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-produit-poisson-<?= $counter; ?>"><?= $poisson[1]; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-produit-poisson-autre" name="qstprod-produit-poisson-autre" type="text" 
+            placeholder="Dites-nous quel autre produit"
+            value="<?= isset($currentForm['qstprod-produit-poisson-autre']) ? $currentForm['qstprod-produit-poisson-autre'] : $neant; ?>"
             maxlength="45">
         </div>
         <br>

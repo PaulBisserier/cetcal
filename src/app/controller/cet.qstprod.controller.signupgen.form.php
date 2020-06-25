@@ -90,15 +90,15 @@ try
 
   $_SESSION['signupgen.form.post'] = $_POST;
   session_write_close();
-  /* *****************************************************************************/
+  /* **************************************************************************** */
 
   // Apply navigation :
   header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id);
-  exit();
+  exit;
 }
 catch (Exception $e)
 {
   session_write_close();
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage());
-  exit();
+  exit;
 }

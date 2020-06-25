@@ -23,7 +23,7 @@ Class FileReaderUtils
     }
   }
 
-  public function readWithKV($fileName)
+  public function readWithKV($fileName, $pSortAlphabetique = false)
   {
     if (file_exists($this->doc_root.$this->PHP_FILES_PATH.$fileName))
     {
@@ -37,7 +37,7 @@ Class FileReaderUtils
         else array_push($this->temp, explode(";", $line));
       }
       fclose($file);
-      return $this->temp;
+      return $pSortAlphabetique ? $this->temp : $this->temp;
     }
   }
 

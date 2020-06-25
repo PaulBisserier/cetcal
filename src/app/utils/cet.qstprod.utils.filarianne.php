@@ -1,13 +1,13 @@
 <?php
 Class CetQstProdFilArianneHelper
 {
-  public static $prefix_fa = "<span class=\"cet-qstprod-label-text\">Fil d'Arianne :</span>";
+  public static $prefix_fa = "<span class=\"cet-qstprod-label-text\">Fil d'Ariane :</span>";
   private static $prefix = "";
   private static $values = array(
-    "signupgen.form" => "Fiche d'identité (et sondage)",
+    "signupgen.form" => "Fiche d'identité (Et enquête)",
     "signuplieuxdist.form" => "Distribution",
     "signupprods.form" => "Produits",
-    "signupconso.form" => "Vos consomateurs",
+    "signupconso.form" => "Vos consommateurs",
     "signupbesoins.form" => "Besoins, Solidarité et Résilience",
     "signuprecap.form" => "Récapitulatif du questionnaire",
     "signupeffectue.form" => "Confirmation d'inscription"

@@ -1,8 +1,5 @@
 <?php 
 $neant = '';
-$cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
-session_id($cetcal_session_id);
-session_start();
 $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupconso.form.post'] : array();
 ?>
 <!-- singup lieux de distribution informations html form -->

@@ -3,7 +3,7 @@
     <div class="card-header" id="cet-sondage-1-heading">
       <h5 class="mb-0">
         <a class="badge badge-success cet-accordion-badge" href="#" data-toggle="collapse" data-target="#cet-sondage-1" aria-expanded="true" aria-controls="cet-sondage-1">
-          Pour mieux vous connaître (ces informations sont confidentielles) - sondage.
+          Pour mieux vous connaître - Enquête. <b>Ces informations sont confidentielles</b>
         </a>
         <a class="align-middle" href="#" data-toggle="collapse" 
           data-target="#cet-sondage-1" aria-expanded="true" 

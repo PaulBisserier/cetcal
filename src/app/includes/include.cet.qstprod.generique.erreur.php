@@ -1,6 +1,5 @@
 <?php
 $err = isset($_GET['err']) ?  htmlentities(htmlspecialchars($_GET['err'])) : "Erreure technique rencontrée.";
-$cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
 ?>
 <!-- page de validation envoyé et traité avec succés -->
 <div class="cet-module row justify-content-lg-center" id="cet-qstprod_referece" style="margin-bottom: 60px;">

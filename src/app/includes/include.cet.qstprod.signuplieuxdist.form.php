@@ -1,7 +1,4 @@
 <?php
-$cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
-session_id($cetcal_session_id);
-session_start();
 $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signuplieuxdist.form.post'] : array();
 $neant = "";
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');

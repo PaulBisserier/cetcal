@@ -93,6 +93,19 @@ class QSTPRODProduitsModel extends CETCALModel
       array_push($pks_produits, $this->getCnxdb()->lastInsertId());
     }
 
+    if (isset($dtoproduits->poissonAutre) && strlen($dtoproduits->poissonAutre) > 0) array_push($dtoproduits->poissons, "/;".$dtoproduits->poissonAutre);
+    $cat = "poisson";
+    foreach ($dtoproduits->poissons as $poisson) 
+    {
+      $data = explode(";", $poisson);
+      $qLib = $this->getQuerylib();
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_PRODUIT);
+      $stmt->bindParam(":pNom", $data[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pCategorie", $cat, PDO::PARAM_STR);
+      $stmt->execute();
+      array_push($pks_produits, $this->getCnxdb()->lastInsertId());
+    }
+
     if (isset($dtoproduits->planteAutre) && strlen($dtoproduits->planteAutre) > 0) array_push($dtoproduits->plantes, "/;".$dtoproduits->planteAutre);
     $cat = "plante";
     foreach ($dtoproduits->plantes as $plante) 

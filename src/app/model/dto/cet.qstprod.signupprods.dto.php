@@ -36,6 +36,8 @@ Class QstProduitDTO
   public $autreProduitInconnu;
   public $boissons;
   public $boissonAutre;
+  public $poissons;
+  public $poissonAutre;
 
   function __construct($pSpecificite = "", $pSpecificiteAutre = "", 
     $pLegumes = "", $pLegumeAutre = "", $pViandes = "",
@@ -45,7 +47,8 @@ Class QstProduitDTO
     $pSemences = "", $pSemenceAutre = "", $pTransformes = "", $pTransformeAutre = "",
     $pCereales = "", $pCerealeAutre = "", $pHygienes = "", $pHygieneAutre = "",
     $pEntretiens = "", $pEntretienAutre = "", $pNourritureAnimaux = "", 
-    $pNourritureAnimauxAutre = "", $pAutreInconnu = "", $pBoissons = "", $pBoissonAutre = "")
+    $pNourritureAnimauxAutre = "", $pAutreInconnu = "", $pBoissons = "", $pBoissonAutre = "",
+    $pPoissons = "", $pPoissonAutre = "")
   {
     $this->specificite = $pSpecificite;
     $this->specificiteAutre = $pSpecificiteAutre;
@@ -78,6 +81,8 @@ Class QstProduitDTO
     $this->autreProduitInconnu = $pAutreInconnu;
     $this->boissons = $pBoissons;
     $this->boissonAutre = $pBoissonAutre;
+    $this->poissons = $pPoissons;
+    $this->poissonAutre = $pPoissonAutre;
   }
 
   function listAllProducts()
@@ -129,7 +134,7 @@ Class QstProduitDTO
     {
       foreach ($this->boissons as $v) array_push($listBoissons, explode(';', $v)[1]);
     }
-    if (isset($this->boissonAutre) && strlen($this->boissonAutre) > 0) array_push($listChampignons, $this->boissonAutre);
+    if (isset($this->boissonAutre) && strlen($this->boissonAutre) > 0) array_push($listBoissons, $this->boissonAutre);
 
     $listPlantes = array();
     if (isset($this->plantes) && is_array($this->plantes) && count($this->plantes) > 0)
@@ -180,6 +185,13 @@ Class QstProduitDTO
     }
     if (isset($this->nourritureAnimauxAutre) && strlen($this->nourritureAnimauxAutre) > 0) array_push($listAnimauxNourriture, $this->nourritureAnimauxAutre);
 
+    $listPoissons = array();
+    if (isset($this->poissons) && is_array($this->poissons) && count($this->poissons) > 0)
+    {
+      foreach ($this->poissons as $v) array_push($listPoissons, explode(';', $v)[1]);
+    }
+    if (isset($this->poissonAutre) && strlen($this->poissonAutre) > 0) array_push($listPoissons, $this->poissonAutre);    
+
     $listautres = array();
     if (isset($this->autreProduitInconnu) && strlen($this->autreProduitInconnu) > 0) array_push($listautres, $this->autreProduitInconnu);
 
@@ -191,6 +203,7 @@ Class QstProduitDTO
     $listingComplet['fruits'] = $listFruits;
     $listingComplet['champignons'] = $listChampignons;
     $listingComplet['boissons'] = $listBoissons;
+    $listingComplet['poissons'] = $listPoissons;
     $listingComplet['plantes'] = $listPlantes;
     $listingComplet['semences'] = $listSemences;
     $listingComplet['transformes'] = $listTransformes;

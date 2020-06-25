@@ -2,10 +2,10 @@
 Class CetQstprodConstTextes 
 {
   const bouchon = "BOUCHON";
-  const informatif_sondage = "Enquête auprès des producteurs : Ce questionnaire vise à prendre la mesure des freins et difficultés rencontrées par les producteurs. Vos réponses seront gérées de manière anonyme et ne seront pas divulguées dans la version consultable de l’annuaire.";
-  const login_intro_block_textinf_a = "Castillonnais en transition porte un projet de développement des Circuits alimentaires locaux de produits bio ou y tendant pour notre territoire. Il s'agit de mettre à disposition des consommateurs un annuaire en ligne apportant une information claire et à jour sur comment se procurer ces productions alimentaires du territoire. Le but de cet annuaire est de favoriser le rapprochement entre les consommateurs et les producteurs pour remettre l'alimentation et l'agriculture à leur juste place dans nos vies, dans le respect de notre environnement."; 
+  const informatif_sondage = "Enquête auprès des producteurs : Ce questionnaire vise à prendre la mesure des freins et difficultés rencontrés par les producteurs. Vos réponses seront gérées de manière anonyme et ne seront pas divulguées dans la version consultable de l’annuaire.";
+  const login_intro_block_textinf_a = "Castillonnais En Transition porte un projet de développement des Circuits Alimentaires Locaux de produits bio ou y tendant sur notre territoire. Il s'agit de mettre à disposition des consommateurs un annuaire en ligne apportant une information claire et à jour sur comment se procurer ces productions alimentaires. Le but de cet annuaire est de favoriser le rapprochement entre les consommateurs et les producteurs pour remettre l'alimentation et l'agriculture à leur juste place dans nos vies, dans le respect de notre environnement."; 
   const login_intro_block_textinf_b = "Notre projet a également l'ambition, dans un deuxième temps, de favoriser la solidarité et d'envisager la résilience alimentaire de notre territoire."; 
-  const login_intro_block_textinf_c = "Cet annuaire sera diffusée localement auprès de toutes les structures qui sont en lien avec le public : les mairies, les CDC , offices de tourisme, asso locales ..., avec un flyer papier.";  
+  const login_intro_block_textinf_c = "Cet annuaire sera diffusé localement auprès de toutes les structures qui sont en lien avec le public : les mairies, les Communautés De Communes, offices de tourisme, associations locales, marchés ..., en version papier.";  
   const login_intro_block_textinf_d = "Ce projet est financé par la Région Nouvelle-Aquitaine et l'Union Européenne.";
   const login_intro_block_textinf_e = "Si vous êtes producteur et vous souhaitez vous inscrire pour être référencé dans l'annuaire, <b>cliquez ci-dessous</b> :";
   const login_intro_block_textinf_f = "Le questionnaire du projet Circuits Alimentaires Locaux comporte 3 dimensions :<br><ul><li>1 l'annuaire</li><li>2 la solidarité pour développer un forum</li><li>3 la résilience  pour lancer des actions spécifiques</li></ul>";
@@ -18,12 +18,11 @@ Class CetQstprodConstTextes
   const nouveau_monde_p3 = "Afin d'avoir une vraie plus-value par rapport aux plateformes existantes, nous souhaitons via ce questionnaire vous référencer et connaître vos besoins et vos attentes par rapport à ce type d'outil. Cela dans un moment particulier de crise sanitaire et économique, mais aussi d'une profonde volonté collective de renforcement de la résilience et de l'autonomie de nos territoires via une relocalisation de la production, la transformation et la commercialisation de notre alimentation.";
 
   const notre_projet_titre = "Voici notre projet : Circuits Alimentaires Courts (ou CAL)";
-  const notre_projet_debut = "L'association Castillonnais en transition est composé de girondins et périgourdins engagés. Elle travaillent au développement de la bio locale. Nos priorités sont de :";
+  const notre_projet_debut = "L'association Castillonnais en transition est composée de girondins et périgourdins engagés. Elle travaille au développement de la bio locale. Nos priorités sont de :";
   const notre_projet_priorite_1 = "Remettre l'agriculture, l'alimentation, le vivant, à une place centrale.";
   const notre_projet_priorite_2 = "Renforcer la résilience alimentaire de nos territoires.";
-  const notre_projet_priorite_3 = "Créer du lien, de la solidarité et de l'entraide entre les producteurs, comme entre les producteurs et les consommateurs, les collectivités locales engagées, les associations, les chercheurs...";
-  const notre_projet_priorite_4 = "A partir de ces priorités nous travaillons sur un projet de plate forme numérique financé par le Conseil régional de Nouvelle Aquitaine et l'Europe. Elle a un double objectif :";
-  const notre_projet_priorite_4_a = "être exhaustive, en présentant gratuitement tout les producteurs bio qui le souhaitent, cela dans un rayon d'environ 40 km autour de Castillon la Bataille.";
-  const notre_projet_priorite_4_b = "être construite à partir de vos besoins et attentes. Le questionnaire ci-dessous va nous permettre de recueillir ces informations. Elles nous permettront de valoriser votre ferme, votre travail et de connaître vos attentes.";
-  const notre_projet_fin = "Cet annuaire électronique sera couplé avec un annuaire papier.";
+  const notre_projet_priorite_3 = "Créer du lien, de la solidarité et de l'entraide entre producteurs, entre producteurs et consommateurs, avec les collectivités locales engagées, les associations, les chercheurs...";
+  const notre_projet_priorite_4 = "A partir de ces priorités nous travaillons sur un projet de plate forme numérique financée par le Conseil régional de Nouvelle Aquitaine et l'Europe. Elle a un double objectif :";
+  const notre_projet_priorite_4_a = "être exhaustive, en présentant gratuitement tout les producteurs bio qui le souhaitent, dans un rayon de 40 km autour de Castillon la Bataille.";
+  const notre_projet_priorite_4_b = "être construite à partir de vos besoins et attentes. Le questionnaire ci-dessous va nous permettre de recueillir ces informations qui nous permettront de valoriser votre ferme, votre travail et de connaître vos attentes.";
 }

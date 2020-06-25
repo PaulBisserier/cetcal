@@ -1,7 +1,4 @@
 <?php 
-$cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
-session_id($cetcal_session_id);
-session_start();
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
@@ -197,7 +194,7 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
           <input class="form-check-input" type="checkbox" id="qstprod-declaration-valide" 
             name="qstprod-declaration-valide" value="oui"
             checked="false">
-          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui">Oui, j'ai déclare que les informations renseignées sont exactes et vérifiées.</label>
+          <label class="form-check-label" for="qstprod-question-reseaux-participation-oui">Oui, je déclare que les informations renseignées sont exactes et vérifiées.</label>
         </div>
       </div>
     </div>

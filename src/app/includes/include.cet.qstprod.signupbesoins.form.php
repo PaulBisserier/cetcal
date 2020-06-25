@@ -2,9 +2,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.textes.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupbesoins.dto.php');
 $neant = '';
-$cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
-session_id($cetcal_session_id);
-session_start();
 $currentForm = isset($_SESSION['signupbesoins.form.post']) ? $_SESSION['signupbesoins.form.post'] : array();
 ?>
 <!-- singup besoins html form -->

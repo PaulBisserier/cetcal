@@ -10,7 +10,7 @@
             class="cet-p" target="_blank">http://castillonnaisentransition.org/</a></li>
           <li class="list-group-item cet-footer-li">Contact : <email>contact@castillonnaisentransition.org</email></li>
           <li class="list-group-item cet-footer-li"><a href="https://www.facebook.com/castillonnaisentransition/" 
-            class="cet-p" target="_blank">Nous sommes actif sur Facebook !</a></li>
+            class="cet-p" target="_blank">Nous sommes actifs sur Facebook !</a></li>
         </ul>
       </div>
       <div class="col-sm">

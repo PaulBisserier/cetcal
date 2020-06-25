@@ -74,6 +74,9 @@ try
   $form_animaux = $dataProcessor->processHttpFormArrayData(
     isset($_POST['qstprod-produits-animaux']) ? $_POST['qstprod-produits-animaux'] : NULL);
   $form_animauxAutre = $dataProcessor->processHttpFormData($_POST['qstprod-produit-animal-autre']);
+  $form_poissons = $dataProcessor->processHttpFormArrayData(
+    isset($_POST['qstprod-produits-poissons']) ? $_POST['qstprod-produits-poissons'] : NULL);
+  $form_poissonAutre = $dataProcessor->processHttpFormData($_POST['qstprod-produit-poisson-autre']);
   $form_autreAutre = $dataProcessor->processHttpFormData($_POST['qstprod-produit-autre-autre']);
 
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupprods.dto.php');
@@ -84,7 +87,8 @@ try
     $form_semenceAutre, $form_transformes, $form_transformeAutre, 
     $form_cereales, $form_cerealeAutre, $form_hygienes, $form_hygieneAutre,
     $form_entretiens, $form_entretienAutre, $form_animaux, 
-    $form_animauxAutre, $form_autreAutre, $form_boissons, $form_boissonAutre);
+    $form_animauxAutre, $form_autreAutre, $form_boissons, $form_boissonAutre, 
+    $form_poissons, $form_poissonAutre);
   $_SESSION['signupprods.form'] = serialize($dtoProdProduits);
 
   $_SESSION['signupprods.form.post'] = $_POST;
