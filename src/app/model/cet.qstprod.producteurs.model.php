@@ -166,7 +166,7 @@ class QSTPRODProducteurModel extends CETCALModel
     {
       if (isset($row['siret']) && strcmp($row['siret'], $dtoGenerale->siret) === 0) return true;
     }
-    return $false;
+    return false;
   }
 
   private function identifiantExists($pIdCet) 
@@ -180,7 +180,7 @@ class QSTPRODProducteurModel extends CETCALModel
     {
       if (isset($row['identifiant_cet']) && strcmp($row['identifiant_cet'], $pIdCet) === 0) return true;
     }
-    return $false;
+    return false;
   }
 
 }

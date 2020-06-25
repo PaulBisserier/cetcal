@@ -34,7 +34,6 @@ class QSTPRODLieuxModel extends CETCALModel
 
     if (strlen($dtoLieux->pointsDeVenteAutre) > 0) 
     {
-      $nullClef = "0003";
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
       $stmt->bindParam(":pNom", $dtoLieux->pointsDeVenteAutre, PDO::PARAM_STR);
       $stmt->bindParam(":pAdrLit", $null, PDO::PARAM_STR);
@@ -47,33 +46,40 @@ class QSTPRODLieuxModel extends CETCALModel
     foreach ($dtoConso->receptions as $recep)
     {
       $crecep = explode(';', $recep);
-      if ($crecep[0] == 'cdr1')
-      {
-        $driveJours = "";
-        if (isset($dtoConso->drivejour) && is_array($dtoConso->drivejour))
-        {
-          foreach ($dtoConso->drivejour as $jour) $driveJours = $driveJours."[".explode(';', $jour)."]";
-        }
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
+      $stmt->bindParam(":pNom", $crecep[1], PDO::PARAM_STR);
+      $stmt->bindParam(":pAdrLit", $null, PDO::PARAM_STR);
+      $stmt->bindParam(":pJoursProducteur", $null, PDO::PARAM_STR);
+      $stmt->bindParam(":pJourCollecteConso", $null, PDO::PARAM_STR);
+      $stmt->execute();
+      array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
+    }
 
-        $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
-        $stmt->bindParam(":pNom", $crecep[0], PDO::PARAM_STR);
-        $stmt->bindParam(":pAdrLit", $dtoConso->driveadr, PDO::PARAM_STR);
-        $stmt->bindParam(":pJoursProducteur", $driveJours, PDO::PARAM_STR);
-        $stmt->bindParam(":pJourCollecteConso", $driveJours, PDO::PARAM_STR);
-        $stmt->execute();
-        array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
+    if (strlen($dtoConso->driveadr) > 0)
+    {
+      $nomRecep = "drv1";
+      $driveJours = "";
+      if (isset($dtoConso->drivejour) && is_array($dtoConso->drivejour))
+      {
+        foreach ($dtoConso->drivejour as $jour) $driveJours = $driveJours."[".explode(';', $jour)[1]."]";
       }
+
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
+      $stmt->bindParam(":pNom", $nomRecep, PDO::PARAM_STR);
+      $stmt->bindParam(":pAdrLit", $dtoConso->driveadr, PDO::PARAM_STR);
+      $stmt->bindParam(":pJoursProducteur", $driveJours, PDO::PARAM_STR);
+      $stmt->bindParam(":pJourCollecteConso", $driveJours, PDO::PARAM_STR);
+      $stmt->execute();
+      array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
     }
 
     if (strlen($dtoLieux->marcheAdr) > 0) 
     {
       $nomMarche = "mad1";
-      $nullClef = "0003";
-
       $marcheJours = "";
-      if (isset($dtoConso->marcheJours) && is_array($dtoConso->marcheJours))
+      if (isset($dtoLieux->marcheJours) && is_array($dtoLieux->marcheJours))
       {
-        foreach ($dtoConso->marcheJours as $jour) $marcheJours = $marcheJours."[".explode(';', $jour)."]";
+        foreach ($dtoLieux->marcheJours as $jour) $marcheJours = $marcheJours."[".explode(';', $jour)[1]."]";
       }
 
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);

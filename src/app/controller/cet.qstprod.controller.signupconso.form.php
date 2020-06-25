@@ -39,7 +39,7 @@ try
   $form_paimentsMoyenAutre = $dataProcessor->processHttpFormData($_POST['qstprod-paimentautre']);
   $form_driveadr = $dataProcessor->processHttpFormData($_POST['qstprod-adr-drive']);
   $form_drivejour = $dataProcessor->processHttpFormArrayData(
-    isset($_POST['qstprod-jour-liv']) ? $_POST['qstprod-jour-liv'] : NULL);
+    isset($_POST['qstprod-joursdrive']) ? $_POST['qstprod-joursdrive'] : NULL);
 
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupconso.dto.php');
   $consoDto = new QstConsomateursDTO($form_achats, $form_achatAutre,
