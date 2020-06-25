@@ -9,4 +9,3 @@ Class CetQstprodConstLibelles
   const form_retour = "Page précédente";
   const modal_compris = "J'ai compris";
 }
-?>

@@ -27,4 +27,3 @@ Class CetQstprodConstTextes
   const notre_projet_priorite_4_b = "être construite à partir de vos besoins et attentes. Le questionnaire ci-dessous va nous permettre de recueillir ces informations. Elles nous permettront de valoriser votre ferme, votre travail et de connaître vos attentes.";
   const notre_projet_fin = "Cet annuaire électronique sera couplé avec un annuaire papier.";
 }
-?>

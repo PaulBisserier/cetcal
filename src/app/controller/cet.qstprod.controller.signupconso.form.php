@@ -62,4 +62,3 @@ catch (Exception $e)
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage().'&sitkn='.$cetcal_session_id);
   exit();
 }
-?>

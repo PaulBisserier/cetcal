@@ -7,8 +7,7 @@ if (isset($_GET['sitkn']))
   $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
   session_id($cetcal_session_id);
   session_start();
-  $currentForm = (isset($_SESSION['signupgen.form']) && isset($_SESSION['signupgen.form.post'])) ? 
-    $_SESSION['signupgen.form.post'] : array();
+  $currentForm = (isset($_SESSION['signupgen.form']) && isset($_SESSION['signupgen.form.post'])) ? $_SESSION['signupgen.form.post'] : array();
 }
 ?>
 <!-- singup general informations html form -->

@@ -1,5 +1,5 @@
 <?php
-$cetcal_session_id = NULL;
+$cetcal_session_id = "";
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.globals.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
@@ -7,40 +7,40 @@ $logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
 $LOG_FILE = $logUtils->file;
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
-  $dataProcessor = new HTTPDataProcessor();
-try 
+$dataProcessor = new HTTPDataProcessor();
+
+try
 {
-  $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], 
-    $_POST['qstprod-nomferme'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
+  $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], $_POST['qstprod-nomferme'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
 
   // SESSION init, re-init & start for data storage.
   $s_email = $dataProcessor->processHttpFormData($_POST['qstprod-email']);
   $s_tfixe = $dataProcessor->processHttpFormData($_POST['qstprod-numbtel-fix']);
   $s_tport = $dataProcessor->processHttpFormData($_POST['qstprod-numbtel-port']);
-  
+
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.identifiantcet.php');
   $idHelper = new IdentifiantCETHelper();
-  $cetcal_session_id = isset($_POST['cetcal_session_id']) && !empty($_POST['cetcal_session_id']) && strlen($_POST['cetcal_session_id']) > 0 ? $dataProcessor->processHttpFormData($_POST['cetcal_session_id']) : hash('sha1', $idHelper->generateRandomString().$idHelper->generateRandomString().$idHelper->generateRandomString());
+  $cetcal_session_id = (isset($_POST['cetcal_session_id']) && !empty($_POST['cetcal_session_id']) && strlen($_POST['cetcal_session_id']) > 0) ? $dataProcessor->processHttpFormData($_POST['cetcal_session_id']) : hash('sha1', $idHelper->generateRandomString().$idHelper->generateRandomString().$idHelper->generateRandomString());
   session_id($cetcal_session_id);
   // 1 heure de Session côté serveur.
   ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
-   // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
+  // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
   session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
   session_start();
 
   // Prepare navigation :
   $nav = htmlspecialchars($_POST['qstprod-signupgen-nav']);
-  if ($nav != 'valider' && $nav != 'retour') 
-  { 
-    /*Error de navigation TODO.*/ 
-    $nav = 'retour'; 
+  if ($nav != 'valider' && $nav != 'retour')
+  {
+    /*Error de navigation TODO.*/
+    $nav = 'retour';
   }
   $statut = $nav == 'valider' ? 'signuplieuxdist.form' : '';
 
   /* *****************************************************************************/
   /* HTTP POST : var setup : *****************************************************/
   // POST form logic - dans l'ordre du formulaire HTML :
-  if ($nav == 'valider') 
+  if ($nav == 'valider')
   {
     $form_obl_nom = $dataProcessor->processHttpFormData($_POST['qstprod-nom']);
     $form_obl_prenom = $dataProcessor->processHttpFormData($_POST['qstprod-prenom']);
@@ -63,16 +63,13 @@ try
     $form_pagetwitter = $dataProcessor->processHttpFormData($_POST['qstprod-twitter']);
     $form_siteweb = $dataProcessor->processHttpFormData($_POST['qstprod-www']);
     $form_boutiquewww = $dataProcessor->processHttpFormData($_POST['qstprod-adrwebboutiqueenligne']);
-    $form_typeprod = $dataProcessor->processHttpFormArrayData(
-      isset($_POST['qstprod-besoins-activites']) ? $_POST['qstprod-besoins-activites'] : NULL);
+    $form_typeprod = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-besoins-activites']) ? $_POST['qstprod-besoins-activites'] : NULL);
     $form_surfacepc = $dataProcessor->processHttpFormData($_POST['qstprod-surfacepc']);
     $form_surfaceserre = $dataProcessor->processHttpFormData($_POST['qstprod-supserre']);
     $form_nbrtetes = $dataProcessor->processHttpFormData($_POST['qstprod-nbrtetes']);
     $form_hectolitresparan = $dataProcessor->processHttpFormData($_POST['qstprod-hectolitresparan']);
-    $form_sondage_difficultes = $dataProcessor->processHttpFormArrayData(
-      isset($_POST['qstprod-sondagedifficultes']) ? $_POST['qstprod-sondagedifficultes'] : NULL);
-    $form_sondage = $dataProcessor->processHttpFormArrayData(
-      isset($_POST['qstprod-sondage']) ? $_POST['qstprod-sondage'] : NULL);
+    $form_sondage_difficultes = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-sondagedifficultes']) ? $_POST['qstprod-sondagedifficultes'] : NULL);
+    $form_sondage = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-sondage']) ? $_POST['qstprod-sondage'] : NULL);
     $form_nombre_postes = $dataProcessor->processHttpFormData($_POST['qstprod-nbrpostes']);
     $form_nombre_saisonniers = $dataProcessor->processHttpFormData($_POST['qstprod-nbrsaisonniers']);
     $form_nombre_heuressemaine = $dataProcessor->processHttpFormData($_POST['qstprod-nbrheuressemaine']);
@@ -80,13 +77,13 @@ try
 
     // Construct new DTO object :
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
-    $dtoQstGeneralesProd = new QstProdGeneraleDTO($form_obl_nom, $form_obl_prenom, 
-      $form_obl_email, $form_obl_mdp_hash, 
-      $form_telfix, $form_telport, $form_obl_nomferme, $form_obl_siret, $form_adr_numvoie, $form_adr_rue, 
-      $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig, 
-      $form_pagetwitter, $form_siteweb, $form_boutiquewww, "" /* org certif bio deprecated */, 
+    $dtoQstGeneralesProd = new QstProdGeneraleDTO($form_obl_nom, $form_obl_prenom,
+      $form_obl_email, $form_obl_mdp_hash,
+      $form_telfix, $form_telport, $form_obl_nomferme, $form_obl_siret, $form_adr_numvoie, $form_adr_rue,
+      $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig,
+      $form_pagetwitter, $form_siteweb, $form_boutiquewww, "" /* org certif bio deprecated */,
       $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
-      $form_sondage_difficultes, $form_sondage, $form_cagette, "identifiantcet", 
+      $form_sondage_difficultes, $form_sondage, $form_cagette, "identifiantcet",
       $form_nombre_postes, $form_nombre_saisonniers, $form_nombre_heuressemaine);
     $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);
   }
@@ -99,7 +96,7 @@ try
   header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id);
   exit();
 }
-catch (Exception $e) 
+catch (Exception $e)
 {
   session_write_close();
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage());

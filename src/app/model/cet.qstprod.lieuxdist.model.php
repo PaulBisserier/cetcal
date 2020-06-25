@@ -65,6 +65,26 @@ class QSTPRODLieuxModel extends CETCALModel
       }
     }
 
+    if (strlen($dtoLieux->marcheAdr) > 0) 
+    {
+      $nomMarche = "mad1";
+      $nullClef = "0003";
+
+      $marcheJours = "";
+      if (isset($dtoConso->marcheJours) && is_array($dtoConso->marcheJours))
+      {
+        foreach ($dtoConso->marcheJours as $jour) $marcheJours = $marcheJours."[".explode(';', $jour)."]";
+      }
+
+      $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
+      $stmt->bindParam(":pNom", $nomMarche, PDO::PARAM_STR);
+      $stmt->bindParam(":pAdrLit", $dtoLieux->marcheAdr, PDO::PARAM_STR);
+      $stmt->bindParam(":pJoursProducteur", $marcheJours, PDO::PARAM_STR);
+      $stmt->bindParam(":pJourCollecteConso", $marcheJours, PDO::PARAM_STR);
+      $stmt->execute();
+      array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
+    }
+
     foreach ($pks_lieux as $pklieu)
     {
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_PRODUCTEUR_JOIN_LIEU);

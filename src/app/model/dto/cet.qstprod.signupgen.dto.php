@@ -81,4 +81,3 @@ Class QstProdGeneraleDTO
   }  
 
 }
-?>

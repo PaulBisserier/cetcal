@@ -1,4 +1,4 @@
- <?php
+<?php
 Class SessionHelper
 {
   private $PHP_FILES_PATH = "/res/data/";

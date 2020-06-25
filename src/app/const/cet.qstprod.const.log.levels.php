@@ -7,4 +7,3 @@ Class CET_LOG
    */ 
   const TAG = "[CETCAL log] {";
 }
-?>

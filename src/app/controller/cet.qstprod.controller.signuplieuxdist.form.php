@@ -1,11 +1,12 @@
 <?php
+$cetcal_session_id = NULL;
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.globals.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
 $logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
 $LOG_FILE = $logUtils->file;
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
-$cetcal_session_id = "";
+include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';
+
 try 
 {
   // SESSION start for data storage.
@@ -14,9 +15,9 @@ try
   $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_id']);
   session_id($cetcal_session_id);
   // 1 heure de Session côté serveur.
-  ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
+  //ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
    // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
-  session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
+  //session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
   session_start();
   
   // Prepare navigation :
@@ -31,9 +32,13 @@ try
   $form_points_vente = $dataProcessor->processHttpFormArrayData(
     isset($_POST['qstprod-pdv']) ? $_POST['qstprod-pdv'] : NULL);
   $form_point_vente_autre = $dataProcessor->processHttpFormData($_POST['qstprod-pdvautre']);
+  $form_marche_adr = $dataProcessor->processHttpFormData($_POST['qstprod-adr-marche']);
+  $form_marche_jours = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-joursmarche']) ? 
+    $_POST['qstprod-joursmarche'] : NULL);
 
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
-  $dtoLieuDist = new QstLieuxDistributionDTO($form_points_vente, $form_point_vente_autre);
+  $dtoLieuDist = new QstLieuxDistributionDTO($form_points_vente, $form_point_vente_autre,
+    $form_marche_adr, $form_marche_jours);
   $_SESSION['signuplieuxdist.form'] = serialize($dtoLieuDist);
 
   $_SESSION['signuplieuxdist.form.post'] = $_POST;

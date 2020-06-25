@@ -38,4 +38,3 @@ Class CetQstProdFilArianneHelper
     return  CetQstProdFilArianneHelper::$result;
   }
 }
-?>

@@ -9,15 +9,12 @@ Class CetQstprodConstListes
   public $besoins = NULL;
   public $type_culture = NULL;
   public $produits_boissons = NULL;
-
   public $points_vente_producteurs = NULL;
   public $solidaires_producteurs = NULL;
   public $solidaires_consomateurs = NULL;
   public $solidaires_actions = NULL;
   public $solidaires_groupe_resilience = NULL;
-
   public $sondage_divers = NULL;
-
   public $produits_v4_legumes = NULL;
   public $produits_v4_viandes = NULL;
   public $produits_v4_laitiers = NULL;
@@ -32,11 +29,11 @@ Class CetQstprodConstListes
   public $produits_v4_hygienes = NULL;
   public $produits_v4_entretiens = NULL;
   public $produits_v4_animaux = NULL;
-
   public $consomateurs_achats = NULL;
   public $consomateurs_receptions = NULL;
   public $consomateurs_paiements = NULL;
   public $consomateurs_drive_jours = NULL;
+  public $marches_jours = NULL;
 
   function __construct($fileReader, $logFile)
   {      
@@ -68,9 +65,9 @@ Class CetQstprodConstListes
     $this->consomateurs_receptions = $fileReader->readWithKV('cet.qstprod.liste.v4.consoreception');
     $this->consomateurs_paiements = $fileReader->readWithKV('cet.qstprod.liste.v4.consopaiements');
     $this->consomateurs_drive_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
+    $this->marches_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
 
     error_log("\nCetQstprodConstListes - files loaded today}", 3, $logFile);
   }
   
 }
-?>

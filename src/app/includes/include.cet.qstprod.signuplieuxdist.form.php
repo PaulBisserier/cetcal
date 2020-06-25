@@ -1,9 +1,9 @@
 <?php
 $cetcal_session_id = htmlentities(htmlspecialchars($_GET['sitkn']));
-session_id(session_id());
+session_id($cetcal_session_id);
 session_start();
 $currentForm = isset($_SESSION['signuplieuxdist.form.post']) ? $_SESSION['signuplieuxdist.form.post'] : array();
-$neant = '';
+$neant = "";
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplieuxdist.dto.php');
 ?>
 <!-- singup lieux de distribution informations html form -->
@@ -25,13 +25,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="<?= implode(';', $pdv); ?>" id="qstprod-pdv-<?= $counter; ?>" 
             name="qstprod-pdv[]"
-            <?= isset($currentForm['qstprod-pdv']) && in_array(implode(';', $pdv), $currentForm['qstprod-pdv']) ? 
-              'checked="checked"' : $neant; ?>>
+            <?= isset($currentForm['qstprod-pdv']) && in_array(implode(';', $pdv), $currentForm['qstprod-pdv']) ? 'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-pdv-<?= $counter; ?>"><?= $pdv[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
-
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
           <input class="form-control" id="qstprod-pdvautre" name="qstprod-pdvautre" type="text" 
@@ -39,6 +37,24 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
             value="<?= isset($currentForm['qstprod-pdvautre']) ? $currentForm['qstprod-pdvautre'] : $neant; ?>"
             maxlength="128">
         </div>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si marché, préciser l'adresse (ou simplement la commune) :</small></label>   
+          <input class="form-control" id="qstprod-adr-marche" name="qstprod-adr-marche" type="text" 
+            placeholder="Si marché, preciser"
+            value="<?= isset($currentForm['qstprod-adr-marche']) ? $currentForm['qstprod-adr-marche'] : $neant; ?>"
+            maxlength="256">
+        </div>
+        <label><small class="form-text">Si marché, quels jours de présence ?</small></label>
+        <?php $counter = 0; ?>
+        <?php foreach ($listes_arrays->marches_jours as $jour): ?>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $jour); ?>" id="qstprod-joursmarche-<?= $counter; ?>" 
+            name="qstprod-joursmarche[]"
+            <?= isset($currentForm['qstprod-joursmarche']) && in_array(implode(';', $jour), $currentForm['qstprod-joursmarche']) ? 'checked="checked"' : $neant; ?>>
+          <label class="form-check-label cet-qstprod-label-text" for="qstprod-joursmarche-<?= $counter; ?>"><?= $jour[1]; ?></label>
+        </div>
+        <?php ++$counter; ?>
+        <?php endforeach; ?>
       </div>
 
       <div class="row cet-qstprod-btnnav">

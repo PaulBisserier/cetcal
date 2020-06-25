@@ -1,4 +1,4 @@
- <?php
+<?php
 Class FileReaderUtils
 {
   private $PHP_FILES_PATH = "/res/data/";
@@ -67,4 +67,3 @@ Class FileReaderUtils
     }
   }
 }
-?> 

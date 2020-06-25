@@ -7,4 +7,3 @@ $cetcal_session_id = isset($_GET['sitkn']) ? htmlentities(htmlspecialchars($_GET
 // Apply navigation :
 header('Location: /?statut=generique.erreur&sitkn='.$cetcal_session_id.'&err='.$err);
 exit();
-?>

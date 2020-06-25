@@ -12,7 +12,7 @@ Class HTTPDataProcessor
 
   public function checkNonNullData($array_data)
   {
-    foreach ($array_data as $data) 
+    foreach ($array_data as $data)
     {
       if (!isset($data) || strlen($data) <= 0) throw new Exception("Des donnees obligatoires sont manquantes.");
     }
@@ -37,4 +37,3 @@ Class HTTPDataProcessor
   }
 
 }
-?>
