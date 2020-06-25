@@ -74,7 +74,7 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_drive_jours as $jour): ?>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= implode(';', $jour); ?>" id="qstprod-jour-<?= $counter; ?>" 
+          <input class="form-check-input" type="checkbox" value="<?= implode(';', $jour); ?>" id="qstprod-joursdrive-<?= $counter; ?>" 
             name="qstprod-joursdrive[]"
             <?= isset($currentForm['qstprod-joursdrive']) && in_array(implode(';', $jour), $currentForm['qstprod-joursdrive']) ? 
               'checked="checked"' : $neant; ?>>
