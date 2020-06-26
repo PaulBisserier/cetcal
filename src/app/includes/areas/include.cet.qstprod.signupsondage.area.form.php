@@ -1,9 +1,10 @@
 <div id="cet-sondage-1-accordion">
   <div class="card cet-accordion">
     <div class="card-header" id="cet-sondage-1-heading">
+      <label class="cet-formgroup-container-label"><small class="form-text">Pour mieux vous connaître - Enquête auprès des Producteur.e.s<br><b>Ces informations sont confidentielles</b></small></label>
       <h5 class="mb-0">
         <a class="badge badge-success cet-accordion-badge" href="#" data-toggle="collapse" data-target="#cet-sondage-1" aria-expanded="true" aria-controls="cet-sondage-1">
-          Pour mieux vous connaître - Enquête. <b>Ces informations sont confidentielles</b>
+          Répondre à l'enquête.
         </a>
         <a class="align-middle" href="#" data-toggle="collapse" 
           data-target="#cet-sondage-1" aria-expanded="true" 

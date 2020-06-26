@@ -11,59 +11,85 @@ Class CETQstprodMailUtils
 {
 
   private $err_list;
+  private $mail;
 
   public function __construct()
   {
     $this->err_list = array();
+    $this->mail = new PHPMailer(true); // True = activation des exception phpmailer.
   }
 
-  public function send($mailFileHTML, $mailFilePlain, $mailListFile, $mailSubjectFile, $fileReader)
+  public function init()
   {
-    $mailFilePrefix = 'mail/';
-    $htmlContent = $fileReader->readAsString($mailFilePrefix.$mailFileHTML);
-    $plainContent = $fileReader->readAsString($mailFilePrefix.$mailFilePlain);
-    $mailList = $fileReader->read($mailFilePrefix.$mailListFile);
-    $mailSubject = $fileReader->readAsString($mailFilePrefix.$mailSubjectFile);
-    $mail = new PHPMailer(true); // True = activation des exception phpmailer.
+    $this->mail->IsSMTP(); 
+    $this->mail->SMTPDebug = 1; 
+    $this->mail->SMTPAuth = true; 
+    $this->mail->SMTPSecure = 'ssl'; 
+    $this->mail->Host = 'mail.gandi.net';
+    $this->mail->Port = 465;
+    $this->mail->Username = "annuaire@castillonnaisentransition.org";
+    $this->mail->Password = "";
+    $this->mail->CharSet = 'UTF-8';
+    $this->mail->setFrom('annuaire@castillonnaisentransition.org', 'CETCAL - Annuaire des producteurs de notre région');
+  }
+
+  public function sendSignup($mailFileHTML, $mailFilePlain, $emailTo, $mailSubject, $fileReader, $dataFilePrefix)
+  {
+    $htmlContent = $fileReader->readAsString($dataFilePrefix.$mailFileHTML);
+    $plainContent = $fileReader->readAsString($dataFilePrefix.$mailFilePlain);
 
     try 
     {
-      $mail->IsSMTP(); 
-      $mail->SMTPDebug = 1; 
-      $mail->SMTPAuth = true; 
-      $mail->SMTPSecure = 'ssl'; 
-      $mail->Host = 'mail.gandi.net';
-      $mail->Port = 465;
-      $mail->Username = "annuaire@castillonnaisentransition.org";
-      $mail->Password = "";
-      $mail->CharSet = 'UTF-8';
-      $mail->setFrom('annuaire@castillonnaisentransition.org', 'CETCAL - Annuaire des producteurs de notre région');
+      $this->mail->addAddress($emailTo);
+      $this->mail->addReplyTo('annuaire@castillonnaisentransition.org', 'CETCAL contact');
+      $this->mail->isHTML(true);
+      $this->mail->Subject = $mailSubject;
+      $this->mail->Body = $htmlContent;
+      $this->mail->AltBody = $plainContent;
+      $this->mail->send();
+      $this->mail->ClearAllRecipients();
+      $this->mail->ClearCCs();
+      $this->mail->ClearBCCs();
+    }
+    catch (Exception $e) 
+    {
+      array_push($this->err_list, "Erreur envoi Email unitaire: {$this->mail->ErrorInfo}");
+    }
+  }
 
+  public function send($mailFileHTML, $mailFilePlain, $mailListFile, $mailSubjectFile, $fileReader, $dataFilePrefix)
+  {
+    $htmlContent = $fileReader->readAsString($dataFilePrefix.$mailFileHTML);
+    $plainContent = $fileReader->readAsString($dataFilePrefix.$mailFilePlain);
+    $mailList = $fileReader->read($dataFilePrefix.$mailListFile);
+    $mailSubject = $fileReader->readAsString($dataFilePrefix.$mailSubjectFile);
+
+    try 
+    {
       foreach ($mailList as $adrmail)
       {
         try 
         {
-          $mail->addAddress($adrmail);
-          $mail->addReplyTo('annuaire@castillonnaisentransition.org', 'CETCAL contact');
-          $mail->isHTML(true);
-          $mail->Subject = $mailSubject;
-          $mail->Body = $htmlContent;
-          $mail->AltBody = $plainContent;
-          $mail->send();
-          
-          $mail->ClearAllRecipients();
-          $mail->ClearCCs();
-          $mail->ClearBCCs();
+          $this->mail->addAddress($adrmail);
+          $this->mail->addReplyTo('annuaire@castillonnaisentransition.org', 'CETCAL contact');
+          $this->mail->isHTML(true);
+          $this->mail->Subject = $mailSubject;
+          $this->mail->Body = $htmlContent;
+          $this->mail->AltBody = $plainContent;
+          $this->mail->send();
+          $this->mail->ClearAllRecipients();
+          $this->mail->ClearCCs();
+          $this->mail->ClearBCCs();
         }
         catch (Exception $e) 
         {
-          array_push($this->err_list, "Erreur envoi Email unitaire: {$mail->ErrorInfo}");
+          array_push($this->err_list, "Erreur envoi Email groupé: {$this->mail->ErrorInfo}");
         }
       }
     } 
     catch (Exception $e) 
     {
-      array_push($this->err_list, "Erreur envoi Email generale: {$mail->ErrorInfo}");
+      array_push($this->err_list, "Erreur envoi Email generale: {$this->mail->ErrorInfo}");
     }
   }
 

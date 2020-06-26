@@ -16,7 +16,7 @@ class QSTPRODProducteurModel extends CETCALModel
      */
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.identifiantcet.php');
     $idHelper = new IdentifiantCETHelper();
-    $cetcal_web_id = $idHelper->generateRandomString(12);
+    $cetcal_web_id = $idHelper->generateRandomString();
     while ($this->identifiantExists($cetcal_web_id)) $cetcal_web_id = $idHelper->generateRandomString(12);
 
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
@@ -148,7 +148,7 @@ class QSTPRODProducteurModel extends CETCALModel
       $stmt->execute();
     }
 
-    return array("pk" => $pk, "ev" => $dtoGenerale->email);
+    return array("pk" => $pk, "ev" => $dtoGenerale->email, "idcetwww" => $cetcal_web_id);
   }
 
   public function exists($pProducteurDto) 

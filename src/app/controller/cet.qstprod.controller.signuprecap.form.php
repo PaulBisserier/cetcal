@@ -1,36 +1,33 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.globals.php';
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
-$logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
+$DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
+$PATH_MODEL_DTO = $DOC_ROOT.'/src/app/model/';
+include $DOC_ROOT.'/src/app/const/cet.qstprod.const.globals.php';
+include $DOC_ROOT.'/src/app/const/cet.qstprod.const.log.levels.php';
+include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.log.php';
+$logUtils = new CETLogUtils($DOC_ROOT);
 $LOG_FILE = $logUtils->file;
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
+include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
 try 
 {
-  require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
+  require_once($DOC_ROOT.'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
   $dataProcessor = new HTTPDataProcessor();
   $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signuprecap-nav']);
   $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_id']);
 
   if ($nav == 'valider')
   {
-    // Prepare to read Session.
     session_id($cetcal_session_id);
-    // 1 heure de Session côté serveur.
-    ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
-    // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
-    session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
     session_start();
 
     /** ***************************************************************************
      * Time to insert it all from SESSION to DB.
      */
-    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.producteurs.model.php');
-    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.lieuxdist.model.php');
-    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.produits.model.php');
-    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.questionnaire.sondage.producteur.model.php');
-    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.informations.model.php');
+    require_once($PATH_MODEL_DTO.'cet.qstprod.producteurs.model.php');
+    require_once($PATH_MODEL_DTO.'cet.qstprod.lieuxdist.model.php');
+    require_once($PATH_MODEL_DTO.'cet.qstprod.produits.model.php');
+    require_once($PATH_MODEL_DTO.'cet.qstprod.questionnaire.sondage.producteur.model.php');
+    require_once($PATH_MODEL_DTO.'cet.qstprod.informations.model.php');
 
     $model = new QSTPRODProducteurModel();
     $data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
@@ -46,7 +43,18 @@ try
     $model->createSondages($data['pk'], isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL);
     $model = new QSTPRODInformationsModel();
     $model->createInformations($data['pk'], isset($_SESSION['signupbesoins.form']) ? $_SESSION['signupbesoins.form'] : NULL);
-    /** ***************************************************************************/
+    
+    /** ***************************************************************************
+     ** Database inserts done with success, ***************************************
+     *  send email de confirmation inscription anuaire. ***************************/
+    require_once($DOC_ROOT.'/src/app/utils/cet.qstprod.utils.mail.php');
+    require_once($DOC_ROOT.'/src/app/utils/cet.qstprod.utils.filereader.php');
+    $mailUtils = new CETQstprodMailUtils();
+    $mailUtils->init();
+    $mailSubject = "CETCAL - Inscription enregistrée, bienvenue Producteur.e.s.";
+    $mailUtils->sendSignup('cet.qstprod.signup.html.mail.content.html', 
+      'cet.qstprod.signup.plain.mail.content', $data['ev'], $mailSubject, 
+      new FileReaderUtils($DOC_ROOT), 'singup/');
   }
 
   // Prepare navigation :
@@ -54,7 +62,7 @@ try
   $statut = $nav == 'valider' ? 'signupeffectue.form' : 'signupbesoins.form';
 
   // Apply navigation :
-  header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id.'&ev='.(isset($data['ev']) ? $data['ev'] : ""));
+  header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id.'&ev='.(isset($data['ev']) ? $data['ev'] : "").'&idfcet='.$data['idcetwww']);
   exit();
 }
 catch (Exception $e) 

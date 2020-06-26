@@ -1,7 +1,8 @@
 <?php
 Class FileReaderUtils
 {
-  private $PHP_FILES_PATH = "/res/data/";
+  private $PHP_FILES_PATH = "/res/data/datafiles/";
+  private $PHP_MAIL_FILES_PATH = "/res/data/mail/";
   private $doc_root = "";
   public $temp = NULL;
   private $commenttag = "#";
@@ -18,18 +19,6 @@ Class FileReaderUtils
       $this->temp = array();
       $file = fopen($this->doc_root.$this->PHP_FILES_PATH.$fileName, "r");
       while(!feof($file)) array_push($this->temp, trim(fgets($file)));
-      fclose($file);
-      return $this->temp;
-    }
-  }
-
-  public function readAsString($fileName)
-  {
-    if (file_exists($this->doc_root.$this->PHP_FILES_PATH.$fileName))
-    {
-      $this->temp = "";
-      $file = fopen($this->doc_root.$this->PHP_FILES_PATH.$fileName, "r");
-      while(!feof($file)) $this->temp = $this->temp.trim(fgets($file));
       fclose($file);
       return $this->temp;
     }
@@ -78,4 +67,20 @@ Class FileReaderUtils
       return $this->temp;
     }
   }
+
+  /**
+   * Pour mailsspécifiquement.
+   */
+  public function readAsString($fileName)
+  {
+    if (file_exists($this->doc_root.$this->PHP_MAIL_FILES_PATH.$fileName))
+    {
+      $this->temp = "";
+      $file = fopen($this->doc_root.$this->PHP_MAIL_FILES_PATH.$fileName, "r");
+      while(!feof($file)) $this->temp = $this->temp.trim(fgets($file));
+      fclose($file);
+      return $this->temp;
+    }
+  }
+
 }

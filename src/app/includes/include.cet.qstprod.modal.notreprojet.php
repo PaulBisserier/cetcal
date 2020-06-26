@@ -21,8 +21,7 @@
           </li>
         </ul>
         <?php include $PHP_INCLUDES_PATH.'include.cet.qstprod.carousel.modal.notreprojet.php'; ?>
-        <br><br>
-        <p class="cet-qstprod-label-text"><?= CetQstprodConstTextes::notre_projet_fin; ?></p>
+        <br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success btn-sm" data-dismiss="modal"><?= CetQstprodConstLibelles::modal_compris; ?></button>

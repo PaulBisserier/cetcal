@@ -8,12 +8,12 @@ $LOG_FILE = $logUtils->file;
 include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
 $dataProcessor = new HTTPDataProcessor();
+$nav = $dataProcessor->processHttpFormData($_POST['qstprod-signupgen-nav']);
 
 try
 {
-  $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], $_POST['qstprod-nomferme'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
+  if ($nav == 'valider') $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], $_POST['qstprod-nomferme'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
 
-  // SESSION init, re-init & start for data storage.
   $s_email = $dataProcessor->processHttpFormData($_POST['qstprod-email']);
   $s_tfixe = $dataProcessor->processHttpFormData($_POST['qstprod-numbtel-fix']);
   $s_tport = $dataProcessor->processHttpFormData($_POST['qstprod-numbtel-port']);
@@ -22,14 +22,9 @@ try
   $idHelper = new IdentifiantCETHelper();
   $cetcal_session_id = (isset($_POST['cetcal_session_id']) && !empty($_POST['cetcal_session_id']) && strlen($_POST['cetcal_session_id']) > 0) ? $dataProcessor->processHttpFormData($_POST['cetcal_session_id']) : hash('sha1', $idHelper->generateRandomString().$idHelper->generateRandomString().$idHelper->generateRandomString());
   session_id($cetcal_session_id);
-  // 1 heure de Session côté serveur.
-  ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
-  // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
-  session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
   session_start();
 
   // Prepare navigation :
-  $nav = htmlspecialchars($_POST['qstprod-signupgen-nav']);
   if ($nav != 'valider' && $nav != 'retour')
   {
     /*Error de navigation TODO.*/

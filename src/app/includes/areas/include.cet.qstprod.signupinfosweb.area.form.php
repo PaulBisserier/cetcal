@@ -1,9 +1,10 @@
 <div id="cet-infosweb-accordion">
   <div class="card cet-accordion">
     <div class="card-header" id="cet-infosweb-accordion-heading">
+      <label class="cet-formgroup-container-label"><small class="form-text">Vos informations <b>Réseaux Sociaux, Web et Cagette</b> : </small></label>
       <h5 class="mb-0">
         <a class="badge badge-success cet-accordion-badge" href="#" data-toggle="collapse" data-target="#cet-infosweb" aria-expanded="true" aria-controls="cet-infosweb">
-          Vos informations Réseaux Sociaux et Web
+          Réseaux Sociaux et Web
         </a>
         <a class="align-middle" href="#" data-toggle="collapse" 
           data-target="#cet-infosweb" aria-expanded="true" 

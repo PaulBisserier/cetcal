@@ -8,15 +8,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.p
 $cetcal_session_id = "";
 try 
 {
-  // SESSION start for data storage.
   require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
   $dataProcessor = new HTTPDataProcessor();
   $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_id']);
   session_id($cetcal_session_id);
-  // 1 heure de Session côté serveur.
-  ini_set('session.gc_maxlifetime', CetQstprodConstGlobals::session_life_span);
-   // Les clients devront se souvenir de leurs Session ID durant le même lapse de temps :
-  session_set_cookie_params(CetQstprodConstGlobals::session_life_span);
   session_start();
 
   // Prepare navigation :
