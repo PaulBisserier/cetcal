@@ -23,6 +23,18 @@ Class FileReaderUtils
     }
   }
 
+  public function readAsString($fileName)
+  {
+    if (file_exists($this->doc_root.$this->PHP_FILES_PATH.$fileName))
+    {
+      $this->temp = "";
+      $file = fopen($this->doc_root.$this->PHP_FILES_PATH.$fileName, "r");
+      while(!feof($file)) $this->temp = $this->temp.trim(fgets($file));
+      fclose($file);
+      return $this->temp;
+    }
+  }
+
   public function readWithKV($fileName, $pSortAlphabetique = false)
   {
     if (file_exists($this->doc_root.$this->PHP_FILES_PATH.$fileName))
