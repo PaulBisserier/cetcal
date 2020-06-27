@@ -41,20 +41,20 @@
         <br>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Combien d’heures / semaine travaillez vous en moyenne (Hors pics de travail saisonniers) ?</small></label>
-          <input class="form-control" id="qstprod-nbrheuressemaine" name="qstprod-nbrheuressemaine" type="number" min="1"
+          <input class="form-control" id="qstprod-nbrheuressemaine" name="qstprod-nbrheuressemaine" type="number" min="0"
             step="1" placeholder="Nombre d’heures / semaine"
             value="<?= isset($currentForm['qstprod-nbrheuressemaine']) ? $currentForm['qstprod-nbrheuressemaine'] : $neant; ?>">
         </div>
         <label class="cet-input-label"><small class="cet-qstprod-label-text"><b>Votre activité nécessite :</b></small></label>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Nombre de poste de travail :</small></label>
-          <input class="form-control" id="qstprod-nbrpostes" name="qstprod-nbrpostes" type="number" min="1"
+          <input class="form-control" id="qstprod-nbrpostes" name="qstprod-nbrpostes" type="number" min="0"
             step="1" placeholder="Nombre de poste de travail"
             value="<?= isset($currentForm['qstprod-nbrpostes']) ? $currentForm['qstprod-nbrpostes'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Des emplois saisonniers :</small></label>
-          <input class="form-control" id="qstprod-nbrsaisonniers" name="qstprod-nbrsaisonniers" type="number" min="1"
+          <input class="form-control" id="qstprod-nbrsaisonniers" name="qstprod-nbrsaisonniers" type="number" min="0"
             step="1" placeholder="Nombre d'emplois saisonniers"
             value="<?= isset($currentForm['qstprod-nbrsaisonniers']) ? $currentForm['qstprod-nbrsaisonniers'] : $neant; ?>">
         </div>

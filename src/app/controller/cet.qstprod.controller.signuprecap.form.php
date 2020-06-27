@@ -51,10 +51,10 @@ try
     require_once($DOC_ROOT.'/src/app/utils/cet.qstprod.utils.filereader.php');
     $mailUtils = new CETQstprodMailUtils();
     $mailUtils->init();
-    $mailSubject = "CETCAL - Inscription enregistrée, bienvenue Producteur.e.s.";
+    $mailSubject = "Inscription Annuaire enregistrée, bienvenue Producteur.e.s.";
     $mailUtils->sendSignup('cet.qstprod.signup.html.mail.content.html', 
       'cet.qstprod.signup.plain.mail.content', $data['ev'], $mailSubject, 
-      new FileReaderUtils($DOC_ROOT), 'singup/');
+      new FileReaderUtils($DOC_ROOT), 'signup/', $data['idcetwww']);
   }
 
   // Prepare navigation :

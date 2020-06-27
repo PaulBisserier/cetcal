@@ -144,25 +144,25 @@ $currentForm = (isset($_SESSION['signupgen.form']) && isset($_SESSION['signupgen
         <br>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie cultivée <b>plein champ</b> en <b>hectares</b> :</small></label>
-          <input class="form-control" id="qstprod-surfacepc" name="qstprod-surfacepc" type="number" min="0.10"
+          <input class="form-control" id="qstprod-surfacepc" name="qstprod-surfacepc" type="number" min="0"
             step="0.10" placeholder="Superficie cultivée plein champ en hectares"
             value="<?= isset($currentForm['qstprod-surfacepc']) ? $currentForm['qstprod-surfacepc'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie de culture <b>serre</b> en <b>ares</b> :</small></label>
-          <input class="form-control" id="qstprod-supserre" name="qstprod-supserre" type="number" min="0.10"
+          <input class="form-control" id="qstprod-supserre" name="qstprod-supserre" type="number" min="0"
             step="0.10" placeholder="Superficie de culture serre en ares"
             value="<?= isset($currentForm['qstprod-supserre']) ? $currentForm['qstprod-supserre'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si bétail, le nombres de têtes :</small></label>
-          <input class="form-control" id="qstprod-nbrtetes" name="qstprod-nbrtetes" type="number" min="1"
+          <input class="form-control" id="qstprod-nbrtetes" name="qstprod-nbrtetes" type="number" min="0"
             step="1" placeholder="Nombres de têtes"
             value="<?= isset($currentForm['qstprod-nbrtetes']) ? $currentForm['qstprod-nbrtetes'] : $neant; ?>">
         </div>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Pour bière, lait ou vins, hectolitres / an :</small></label>
-          <input class="form-control" id="qstprod-hectolitresparan" name="qstprod-hectolitresparan" type="number" min="0.1"
+          <input class="form-control" id="qstprod-hectolitresparan" name="qstprod-hectolitresparan" type="number" min="0"
             step="0.1" placeholder="Hectolitres / an"
             value="<?= isset($currentForm['qstprod-hectolitresparan']) ? $currentForm['qstprod-hectolitresparan'] : $neant; ?>">
         </div>

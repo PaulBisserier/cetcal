@@ -26,9 +26,8 @@ $idcetwww = (isset($_GET['idfcet']) && !empty($_GET['idfcet'])) ?
         </div>
       </div>
       <br>
-      <p>Un email vous a été envoyé à l'adresse <b><?= $insrp_validee_email; ?></b>. Votre <b>identifiant de connection</b> y est signalé - garder cet identifiant. <b>S'il vient à être perdu, contactez nous.</b></p>Vous pourrez administrer votre fiche producteur prochainement en cliquant sur <b><i>"Votre page producteur"</i></b> depuis notre page d'accueil. Si vous n'avez pas souhaité nous communiqué votre adresse email, nous vous appelerons dans les plus bref délais pour activer votre compte par téléphone.</p>
+      <p>Un email vous a été envoyé à l'adresse <b><?= $insrp_validee_email; ?></b>. Votre <b>identifiant de connection</b> y est signalé - garder cet identifiant. <b>S'il vient à être perdu, contactez nous.</b></p><p>Vous pourrez administrer votre fiche producteur prochainement en cliquant sur <b><i>"Votre page producteur"</i></b> depuis notre page d'accueil. Si vous n'avez pas souhaité nous communiqué votre adresse email, nous vous appelerons dans les plus bref délais pour activer votre compte par téléphone.</p>
       <p>Vous pouvez dès maintenant <a href="/">retourner à l'acceuil.</a></p>
-      <p>
     </div>
   </div>
 </div>

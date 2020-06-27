@@ -68,16 +68,28 @@ Class FileReaderUtils
     }
   }
 
-  /**
-   * Pour mailsspécifiquement.
+  /** **********************************************************************************
+   * Pour mails spécifiquement.
    */
-  public function readAsString($fileName)
+  public function readAsStringForMails($fileName)
   {
     if (file_exists($this->doc_root.$this->PHP_MAIL_FILES_PATH.$fileName))
     {
       $this->temp = "";
       $file = fopen($this->doc_root.$this->PHP_MAIL_FILES_PATH.$fileName, "r");
       while(!feof($file)) $this->temp = $this->temp.trim(fgets($file));
+      fclose($file);
+      return $this->temp;
+    }
+  }
+
+  public function readForMails($fileName)
+  {
+    if (file_exists($this->doc_root.$this->PHP_MAIL_FILES_PATH.$fileName))
+    {
+      $this->temp = array();
+      $file = fopen($this->doc_root.$this->PHP_MAIL_FILES_PATH.$fileName, "r");
+      while(!feof($file)) array_push($this->temp, trim(fgets($file)));
       fclose($file);
       return $this->temp;
     }

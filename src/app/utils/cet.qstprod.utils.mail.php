@@ -21,8 +21,7 @@ Class CETQstprodMailUtils
 
   public function init()
   {
-    $this->mail->IsSMTP(); 
-    $this->mail->SMTPDebug = 1; 
+    $this->mail->IsSMTP();
     $this->mail->SMTPAuth = true; 
     $this->mail->SMTPSecure = 'ssl'; 
     $this->mail->Host = 'mail.gandi.net';
@@ -33,10 +32,13 @@ Class CETQstprodMailUtils
     $this->mail->setFrom('annuaire@castillonnaisentransition.org', 'CETCAL - Annuaire des producteurs de notre région');
   }
 
-  public function sendSignup($mailFileHTML, $mailFilePlain, $emailTo, $mailSubject, $fileReader, $dataFilePrefix)
+  public function sendSignup($mailFileHTML, $mailFilePlain, $emailTo, $mailSubject, $fileReader, 
+    $dataFilePrefix, $idcetwww)
   {
-    $htmlContent = $fileReader->readAsString($dataFilePrefix.$mailFileHTML);
-    $plainContent = $fileReader->readAsString($dataFilePrefix.$mailFilePlain);
+    $htmlContent = $fileReader->readAsStringForMails($dataFilePrefix.$mailFileHTML);
+    $htmlContent = str_replace('[idcetwww]', $idcetwww, $htmlContent);
+    $plainContent = $fileReader->readAsStringForMails($dataFilePrefix.$mailFilePlain);
+    $plainContent = str_replace('[idcetwww]', $idcetwww, $plainContent);
 
     try 
     {
@@ -55,14 +57,16 @@ Class CETQstprodMailUtils
     {
       array_push($this->err_list, "Erreur envoi Email unitaire: {$this->mail->ErrorInfo}");
     }
+
+    return;
   }
 
   public function send($mailFileHTML, $mailFilePlain, $mailListFile, $mailSubjectFile, $fileReader, $dataFilePrefix)
   {
-    $htmlContent = $fileReader->readAsString($dataFilePrefix.$mailFileHTML);
-    $plainContent = $fileReader->readAsString($dataFilePrefix.$mailFilePlain);
-    $mailList = $fileReader->read($dataFilePrefix.$mailListFile);
-    $mailSubject = $fileReader->readAsString($dataFilePrefix.$mailSubjectFile);
+    $htmlContent = $fileReader->readAsStringForMails($dataFilePrefix.$mailFileHTML);
+    $plainContent = $fileReader->readAsStringForMails($dataFilePrefix.$mailFilePlain);
+    $mailList = $fileReader->readForMails($dataFilePrefix.$mailListFile);
+    $mailSubject = $fileReader->readAsStringForMails($dataFilePrefix.$mailSubjectFile);
 
     try 
     {
