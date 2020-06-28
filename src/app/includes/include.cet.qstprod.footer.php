@@ -11,6 +11,11 @@
           <li class="list-group-item cet-footer-li">Contact : <small><email>contact@castillonnaisentransition.org</email></small></li>
           <li class="list-group-item cet-footer-li"><a href="https://www.facebook.com/castillonnaisentransition/" 
             class="cet-p" target="_blank">Nous sommes actifs sur Facebook !</a></li>
+          <li class="list-group-item cet-footer-li cet-p">
+            Nos partenaires :
+            <br><br><img src="/res/content/Logo-UE-FEDER-web.jpg" height="60" alt="">
+            <img src="/res/content/logo_region-aquitaine.jpg" height="60" alt="">
+          </li>
         </ul>
       </div>
       <div class="col-sm"> <!-- d-none d-lg-block -->
