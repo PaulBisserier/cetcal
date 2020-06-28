@@ -26,8 +26,10 @@ include $PHP_UTILS_PATH.'cet.qstprod.utils.log.php';
 include $PHP_UTILS_PATH.'cet.qstprod.utils.filereader.php';
 $logUtils = new CETLogUtils($DOC_ROOT);
 $LOG_FILE = $logUtils->file;
-
-$listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT), $LOG_FILE);
+$listes_arrays = new CetQstprodConstListes();
+if (isset($_SESSION['cetcal.data.lists'])) $listes_arrays = unserialize($_SESSION['cetcal.data.lists']);
+else $listes_arrays->load(new FileReaderUtils($DOC_ROOT), $LOG_FILE);
+if (!isset($_SESSION['cetcal.data.lists'])) $_SESSION['cetcal.data.lists'] = $listes_arrays;
 
 include $PHP_CONST_PATH.'cet.qstprod.const.textes.php';
 include $PHP_CONST_PATH.'cet.qstprod.const.libelles.php';

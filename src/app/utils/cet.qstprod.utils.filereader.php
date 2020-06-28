@@ -35,10 +35,10 @@ Class FileReaderUtils
       {
         $line = trim(fgets($file));
         if (substr($line, 0, 1) == $this->commenttag) continue;
-        else array_push($this->temp, explode(";", $line));
+        else array_push($this->temp, explode(";", strtolower($line)));
       }
       fclose($file);
-      return $pSortAlphabetique ? $this->temp : $this->temp;
+      return $pSortAlphabetique ? $this->alphaSort($this->temp) : $this->temp;
     }
   }
 
@@ -93,6 +93,30 @@ Class FileReaderUtils
       fclose($file);
       return $this->temp;
     }
+  }
+
+  /** **********************************************************************************
+   * Sort functions.
+   */
+
+  private function alphaSort($arrayKV)
+  {
+    $clef = ""; 
+    $tmpArray = array();
+    $autre = false;
+    foreach ($arrayKV as $value) 
+    {
+      $clef = $value[0];
+      if (strcasecmp($value[1], 'autre') == 0) $autre = true;
+      else array_push($tmpArray, $value[1]);
+    }
+
+    $resArray = array();
+    sort($tmpArray);
+    foreach ($tmpArray as $sval) array_push($resArray, array($clef, $sval));
+    if ($autre) array_push($resArray, array($clef, 'autre'));
+
+    return $resArray;
   }
 
 }

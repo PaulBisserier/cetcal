@@ -36,7 +36,9 @@ Class CetQstprodConstListes
   public $consomateurs_drive_jours = NULL;
   public $marches_jours = NULL;
 
-  function __construct($fileReader, $logFile)
+  function __construct() {}
+
+  public function load($fileReader, $logFile)
   {      
     $this->activites = $fileReader->readWithKV('cet.qstprod.liste.activites');
     $this->besoins = $fileReader->read('cet.qstprod.liste.besoins');
