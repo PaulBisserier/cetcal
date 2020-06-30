@@ -8,7 +8,7 @@
           <li class="list-group-item cet-footer-li">À Castillon une épicerie bio coopérative, un café associatif, un espace de création et de travail partagé.</li>
           <li class="list-group-item cet-footer-li">Page de l'association : <a href="http://castillonnaisentransition.org/" 
             class="cet-p" target="_blank">http://castillonnaisentransition.org/</a></li>
-          <li class="list-group-item cet-footer-li">Contact : <small><email>contact@castillonnaisentransition.org</email></small></li>
+          <li class="list-group-item cet-footer-li">Contact : <small class="cet-email-tag"><email>contact@castillonnaisentransition.org</email></small></li>
           <li class="list-group-item cet-footer-li"><a href="https://www.facebook.com/castillonnaisentransition/" 
             class="cet-p" target="_blank">Nous sommes actifs sur Facebook !</a></li>
           <li class="list-group-item cet-footer-li cet-p">
