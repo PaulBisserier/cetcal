@@ -62,6 +62,7 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->execute();
     $pk = $this->getCnxdb()->lastInsertId();
 
+    if (isset($dtoGenerale->typeDeProductionAutre) && strlen($dtoGenerale->typeDeProductionAutre) > 0) array_push($dtoGenerale->typeDeProduction, "0001;".$dtoGenerale->typeDeProductionAutre);
     foreach ($dtoGenerale->typeDeProduction as $type) 
     {
       $typeprod = explode(';', $type);
@@ -140,7 +141,7 @@ class QSTPRODProducteurModel extends CETCALModel
     }
     if (strlen($dtoConsomation->receptionAutre) > 0) 
     {
-      $nullClef = "c003";
+      $nullClef = "c002";
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_MODE_CONSO);
       $stmt->bindParam(":pClef", $nullClef, PDO::PARAM_STR);
       $stmt->bindParam(":pVal", $dtoConsomation->receptionAutre, PDO::PARAM_STR);

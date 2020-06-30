@@ -18,11 +18,11 @@ class QSTPRODLieuxModel extends CETCALModel
     $dtoConso = unserialize($pConsoDto);
     $null = "";
     $pks_lieux = array();
+    $qLib = $this->getQuerylib();
 
     foreach ($dtoLieux->pointsDeVente as $point) 
     {
       $pointvente = explode(';', $point);
-      $qLib = $this->getQuerylib();
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
       $stmt->bindParam(":pNom", $pointvente[1], PDO::PARAM_STR);
       $stmt->bindParam(":pAdrLit", $null, PDO::PARAM_STR);
@@ -73,10 +73,10 @@ class QSTPRODLieuxModel extends CETCALModel
       array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
     }
 
+    $nomMarche = "mad1";
+    $marcheJours = "";
     if (strlen($dtoLieux->marcheAdr) > 0) 
     {
-      $nomMarche = "mad1";
-      $marcheJours = "";
       if (isset($dtoLieux->marcheJours) && is_array($dtoLieux->marcheJours))
       {
         foreach ($dtoLieux->marcheJours as $jour) $marcheJours = $marcheJours."[".explode(';', $jour)[1]."]";
@@ -89,6 +89,21 @@ class QSTPRODLieuxModel extends CETCALModel
       $stmt->bindParam(":pJourCollecteConso", $marcheJours, PDO::PARAM_STR);
       $stmt->execute();
       array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
+    }
+
+    if (isset($dtoLieux->joursMarchesSaisies) && is_array($dtoLieux->joursMarchesSaisies)) 
+    {
+      foreach ($dtoLieux->joursMarchesSaisies as $marcheSaisie)
+      {
+        $marche = explode(';', $marcheSaisie);
+        $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
+        $stmt->bindParam(":pNom", $marche[0], PDO::PARAM_STR);
+        $stmt->bindParam(":pAdrLit", $marche[1], PDO::PARAM_STR);
+        $stmt->bindParam(":pJoursProducteur", $null, PDO::PARAM_STR);
+        $stmt->bindParam(":pJourCollecteConso", $null, PDO::PARAM_STR);
+        $stmt->execute();
+        array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
+      }
     }
 
     foreach ($pks_lieux as $pklieu)

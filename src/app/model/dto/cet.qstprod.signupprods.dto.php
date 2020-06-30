@@ -65,7 +65,7 @@ Class QstProduitDTO
     $this->champignons = $pChampignons;
     $this->champignonAutre = $pChampignonAutre;
     $this->plantes = $pPlantes;
-    $this->pPlanteAutre = $pPlanteAutre;
+    $this->planteAutre = $pPlanteAutre;
     $this->semences = $pSemences;
     $this->semenceAutre = $pSemenceAutre;
     $this->transformes = $pTransformes;

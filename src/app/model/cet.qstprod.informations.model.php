@@ -14,7 +14,7 @@ class QSTPRODInformationsModel extends CETCALModel
     $dtoBesoins = new QstBesoinsDTO();
     $dtoBesoins = unserialize($pBesoinsDto);
     
-    if (isset($dtoBesoins->reseauxSolidariteAutre) && strlen($dtoBesoins->reseauxSolidariteAutre) > 0) array_push($dtoBesoins->reseauxSolidarite, "/;".$dtoBesoins->reseauxSolidariteAutre);
+    if (isset($dtoBesoins->reseauxSolidariteAutre) && strlen($dtoBesoins->reseauxSolidariteAutre) > 0) array_push($dtoBesoins->reseauxSolidarite, "sl01;".$dtoBesoins->reseauxSolidariteAutre);
     foreach ($dtoBesoins->reseauxSolidarite as $ressol) 
     {
       $qrinformation = explode(";", $ressol);
@@ -26,7 +26,7 @@ class QSTPRODInformationsModel extends CETCALModel
       $stmt->execute();
     }
 
-    if (isset($dtoBesoins->actionBesoinAutre) && strlen($dtoBesoins->actionBesoinAutre) > 0) array_push($dtoBesoins->actionsBesoins, "/;".$dtoBesoins->actionBesoinAutre);
+    if (isset($dtoBesoins->actionBesoinAutre) && strlen($dtoBesoins->actionBesoinAutre) > 0) array_push($dtoBesoins->actionsBesoins, "sl02;".$dtoBesoins->actionBesoinAutre);
     foreach ($dtoBesoins->actionsBesoins as $actbesoin) 
     {
       $qrinformation = explode(";", $actbesoin);
@@ -38,8 +38,8 @@ class QSTPRODInformationsModel extends CETCALModel
       $stmt->execute();
     }
 
-    $clefGroupeReflexion = "";
-    if (isset($dtoBesoins->groupeReflexionAutre) && strlen($dtoBesoins->groupeReflexionAutre) > 0) array_push($dtoBesoins->groupesReflexion, "/;".$dtoBesoins->groupeReflexionAutre);
+    $clefGroupeReflexion = "sr01";
+    if (isset($dtoBesoins->groupeReflexionAutre) && strlen($dtoBesoins->groupeReflexionAutre) > 0) array_push($dtoBesoins->groupesReflexion, "sr01;".$dtoBesoins->groupeReflexionAutre);
     foreach ($dtoBesoins->groupesReflexion as $grpreflx) 
     {
       $qrinformation = explode(";", $grpreflx);
@@ -54,10 +54,11 @@ class QSTPRODInformationsModel extends CETCALModel
 
     if (isset($dtoBesoins->souhaiteParticiper) && strlen($dtoBesoins->souhaiteParticiper) > 0) 
     {
+      $clefQuestionAction = "srq1";
       $qLib = $this->getQuerylib();
       $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_INFORMATION);
       $stmt->bindParam(":pPkProducteur", $pPK, PDO::PARAM_INT);
-      $stmt->bindParam(":pClefInformation", $clefGroupeReflexion, PDO::PARAM_STR);
+      $stmt->bindParam(":pClefInformation", $clefQuestionAction, PDO::PARAM_STR);
       $stmt->bindParam(":pInformation", $dtoBesoins->souhaiteParticiper, PDO::PARAM_STR);
       $stmt->execute();
     }

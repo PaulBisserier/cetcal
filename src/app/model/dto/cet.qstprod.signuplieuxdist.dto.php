@@ -9,14 +9,16 @@ Class QstLieuxDistributionDTO
   public $pointsDeVenteAutre;
   public $marcheAdr;
   public $marcheJours;
+  public $joursMarchesSaisies;
 
   function __construct($pPointDeVente = "", $pPointsDeVenteAutre = "", $pMarcheAdr = "",
-    $pMarcheJours = "")
+    $pMarcheJours = "", $pJoursMarchesSaisies = "")
   {
     $this->pointsDeVente = $pPointDeVente;
     $this->pointsDeVenteAutre = $pPointsDeVenteAutre;
     $this->marcheAdr = $pMarcheAdr;
     $this->marcheJours = $pMarcheJours;
+    $this->joursMarchesSaisies = $pJoursMarchesSaisies;
   }
 
 }

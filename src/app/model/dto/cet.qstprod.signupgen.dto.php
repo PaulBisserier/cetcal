@@ -26,6 +26,7 @@ Class QstProdGeneraleDTO
   public $boutiqueEnLigneUrl;
   public $organismeCertificateurBIO;
   public $typeDeProduction;
+  public $typeDeProductionAutre;
   public $surfaceHectTerres;
   public $surfaceHectSousSerre;
   public $nbrTetesBetail;
@@ -42,6 +43,7 @@ Class QstProdGeneraleDTO
     $pTelPort = "", $pNomFerme = "", $pSiret = "", $pAdrNumvoie = "", $pAdrRue = "", $pAdrLieudit = "", 
     $pAdrCommune = "", $pAdrCodePostal = "", $pAdrComplementAdr = "", $pPageFB = "", $pPageIG = "", 
     $pPageTwitter = "", $pPUrlWeb = "", $pUrlBoutiqueWww = "", $pOrgCertifBIO = "", $pTypeProd = "", 
+    $pTypeProductionAutre = "",
     $pSurfaceHTerres = 0, $pSurfaceHSerre = 0, $pNbrTetesBetail = 0, $pHectolitresParAn = 0,
     $pSondageDifficultes = "", $pSondage = "", $pGroupeCagette = "", $pIdentifiant_cet= "",
     $pSondageNbrPostes = "", $pSondageNbrSaisonniers = "", $pSondageNbrHeuresSemaine = "")
@@ -67,6 +69,7 @@ Class QstProdGeneraleDTO
       $this->boutiqueEnLigneUrl = $pUrlBoutiqueWww;
       $this->organismeCertificateurBIO = $pOrgCertifBIO;
       $this->typeDeProduction = $pTypeProd;
+      $this->typeDeProductionAutre = $pTypeProductionAutre;
       $this->surfaceHectTerres = $pSurfaceHTerres;
       $this->surfaceHectSousSerre = $pSurfaceHSerre;
       $this->nbrTetesBetail = $pNbrTetesBetail;

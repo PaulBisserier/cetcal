@@ -34,24 +34,47 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
             value="<?= isset($currentForm['qstprod-pdvautre']) ? $currentForm['qstprod-pdvautre'] : $neant; ?>"
             maxlength="128">
         </div>
+      </div>
+
+      <!-- -------------------------------------- -->
+      <!-- ZONE de récap produits.                -->
+      <!-- -------------------------------------- -->
+      <div class="alert alert-success" role="alert">
+        <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos marchés :</small></label>
+        <div id="listing-lieux-marches">
+          <label><small class="form-text">Vos marchés : </small></label><br>
+        </div>
+      </div>
+
+      <label class="cet-formgroup-container-label"><small class="form-text">Sur quels marchés êtes vous présent ?</small></label>
+      <div class="cet-formgroup-container">
+        <label><small class="form-text">Renseigner vos informations marchés : </small></label>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Si marché, préciser l'adresse (ou simplement la commune) :</small></label>   
           <input class="form-control" id="qstprod-adr-marche" name="qstprod-adr-marche" type="text" 
             placeholder="Si marché, preciser"
             value="<?= isset($currentForm['qstprod-adr-marche']) ? $currentForm['qstprod-adr-marche'] : $neant; ?>"
-            maxlength="256">
+            maxlength="200">
         </div>
         <label><small class="form-text">Si marché, quels jours de présence ?</small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->marches_jours as $jour): ?>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="<?= implode(';', $jour); ?>" id="qstprod-joursmarche-<?= $counter; ?>" 
+        <div class="form-check" id="checkboxes-lieux-jours-marche">
+          <input class="form-check-input qstprod-lieux-jour-marche-checkbox" type="checkbox" 
+            value="<?= implode(';', $jour); ?>" id="qstprod-joursmarche-<?= $counter; ?>" 
             name="qstprod-joursmarche[]"
             <?= isset($currentForm['qstprod-joursmarche']) && in_array(implode(';', $jour), $currentForm['qstprod-joursmarche']) ? 'checked="checked"' : $neant; ?>>
           <label class="form-check-label cet-qstprod-label-text" for="qstprod-joursmarche-<?= $counter; ?>"><?= $jour[1]; ?></label>
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-success btn-sm" type="button" style="float: right;" 
+              onmousedown="ajouterMarche('qstprod-adr-marche', 'qstprod-joursmarche');" 
+              id="btn-signuplieuxdist-ajouter-marché">Ajouter ce marché</button>
+          </div>
+        </div>
       </div>
 
       <div class="row cet-qstprod-btnnav">
@@ -70,3 +93,4 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signuplie
     </form>
   </div>
 </div>
+<script src="/src/scripts/js/cetcal/cetcal.min.signuplieuxdist.js"></script>

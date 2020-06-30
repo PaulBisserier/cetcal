@@ -16,6 +16,10 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     <link rel="stylesheet" href="/src/scripts/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/src/scripts/css/cet/cet.qstprod.css">
+    <!-- start : charte-g Fanny -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Signika:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Signika:wght@400;700&display=swap">
+    <!-- end -->
     <script src="/src/scripts/js/jquery/jquery-3.4.1.min.js"></script>
     <script src="/src/scripts/js/bootstrap.min.js"></script>
     <script src="/src/scripts/js/cetcal/cetcal.min.js"></script>

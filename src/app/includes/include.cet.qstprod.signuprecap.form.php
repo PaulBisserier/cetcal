@@ -27,7 +27,7 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
         <a href="#" class="cet-conditions-donnees-numerique"><?= CetQstprodConstLibelles::lib_general_entete_donnees; ?></a>
       </small>
     </label>
-    <div id="qstprod-table-generale" class="cet-formgroup-container">
+    <div class="cet-formgroup-container">
       <div class="d-flex justify-content-center">
         <table class="table table-borderless">
           <tbody>
@@ -125,7 +125,7 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos points de vente / distribution :</small></label>
-    <div id="qstprod-table-generale" class="cet-formgroup-container">
+    <div class="cet-formgroup-container">
       <div class="d-flex justify-content-center">
         <table class="table table-borderless">
           <tbody>
@@ -156,7 +156,7 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
 <div class="row justify-content-lg-center">
   <div class="col-lg-6">
     <label class="cet-formgroup-container-label"><small class="form-text">Récapitulatif de vos produits :</small></label>
-    <div id="qstprod-table-generale" class="cet-formgroup-container">
+    <div class="cet-formgroup-container">
       <div class="d-flex justify-content-center">
         <table class="table table-borderless">
           <tbody>

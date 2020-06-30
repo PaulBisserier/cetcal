@@ -50,7 +50,7 @@
         <div class="form-group mb-3">   
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Page Instagram de la ferme :</small></label>
           <input class="form-control" id="qstprod-ig" name="qstprod-ig" type="text" 
-          placeholder="Nom de compte Istagram (si existant)"
+          placeholder="Nom de compte Instagram (si existant)"
           value="<?= isset($currentForm['qstprod-ig']) ? $currentForm['qstprod-ig'] : $neant; ?>"
           maxlength="60">
         </div>

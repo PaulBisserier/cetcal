@@ -28,7 +28,7 @@ class QSTPRODProduitsModel extends CETCALModel
       array_push($pks_produits, $this->getCnxdb()->lastInsertId());
     }
 
-    if (isset($dtoproduits->vianndeAutre) && strlen($dtoproduits->viandeAutre) > 0) array_push($dtoproduits->viandes, "/;".$dtoproduits->viandeAutre);
+    if (isset($dtoproduits->viandeAutre) && strlen($dtoproduits->viandeAutre) > 0) array_push($dtoproduits->viandes, "/;".$dtoproduits->viandeAutre);
     $cat = "viande";
     foreach ($dtoproduits->viandes as $viande) 
     {

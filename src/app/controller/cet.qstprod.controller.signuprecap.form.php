@@ -8,6 +8,7 @@ $logUtils = new CETLogUtils($DOC_ROOT);
 $LOG_FILE = $logUtils->file;
 include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
+$data = array();
 try 
 {
   require_once($DOC_ROOT.'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
@@ -62,7 +63,7 @@ try
   $statut = $nav == 'valider' ? 'signupeffectue.form' : 'signupbesoins.form';
 
   // Apply navigation :
-  header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id.'&ev='.(isset($data['ev']) ? $data['ev'] : "").'&idfcet='.$data['idcetwww']);
+  header('Location: /?statut='.$statut.'&sitkn='.$cetcal_session_id.'&ev='.(isset($data['ev']) ? $data['ev'] : "").'&idfcet='.(isset($data['idcetwww']) ? $data['idcetwww'] : ""));
   exit();
 }
 catch (Exception $e) 

@@ -1,3 +1,14 @@
+/*********************************/
+/** style charte graphique Fanny */ 
+.navbar { margin-bottom: 20px; }
+.navbar a.cet-p, a.dropdown-item { font-family: 'Courgette', cursive; color: #DD4215 !important; }
+.navbar a.cet-p:hover { color: #DD4215 !important; }
+.cet-bienvenue-producteurs { 
+  background-color: #CAE3EE !important; color: #6C3012 !important; 
+  font-family: 'Signika', sans-serif;
+} 
+/*********************************/
+/** CSS toutes pages. */
 div.row { margin-left: 0px !important; margin-right: 0px !important; }
 .btn-info { margin-top: 4px !important; }
 .cet-formgroup-container { background-color: rgb(250, 250, 250); border: 1px solid lightgrey; border-radius: 4px; padding: 16px; margin-bottom: 20px; }

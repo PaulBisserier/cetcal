@@ -38,7 +38,8 @@ Class FileReaderUtils
         else array_push($this->temp, explode(";", strtolower($line)));
       }
       fclose($file);
-      return $pSortAlphabetique ? $this->alphaSort($this->temp) : $this->temp;
+
+      return $this->temp;
     }
   }
 

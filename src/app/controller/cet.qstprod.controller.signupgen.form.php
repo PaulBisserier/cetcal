@@ -12,7 +12,7 @@ $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signupgen-nav']);
 
 try
 {
-  if ($nav == 'valider') $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], $_POST['qstprod-nomferme'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
+  if ($nav == 'valider') $dataProcessor->checkNonNullData(array($_POST['qstprod-mdp'], $_POST['qstprod-mdpconf'], $_POST['qstprod-commune'], $_POST['qstprod-cp']));
 
   $s_email = $dataProcessor->processHttpFormData($_POST['qstprod-email']);
   $s_tfixe = $dataProcessor->processHttpFormData($_POST['qstprod-numbtel-fix']);
@@ -59,6 +59,7 @@ try
     $form_siteweb = $dataProcessor->processHttpFormData($_POST['qstprod-www']);
     $form_boutiquewww = $dataProcessor->processHttpFormData($_POST['qstprod-adrwebboutiqueenligne']);
     $form_typeprod = $dataProcessor->processHttpFormArrayData(isset($_POST['qstprod-besoins-activites']) ? $_POST['qstprod-besoins-activites'] : NULL);
+    $form_typeprod_autre = $dataProcessor->processHttpFormData($_POST['qstprod-activite-production-autre']);
     $form_surfacepc = $dataProcessor->processHttpFormData($_POST['qstprod-surfacepc']);
     $form_surfaceserre = $dataProcessor->processHttpFormData($_POST['qstprod-supserre']);
     $form_nbrtetes = $dataProcessor->processHttpFormData($_POST['qstprod-nbrtetes']);
@@ -77,7 +78,7 @@ try
       $form_telfix, $form_telport, $form_obl_nomferme, $form_obl_siret, $form_adr_numvoie, $form_adr_rue,
       $form_adr_lieudit, $form_adr_commune, $form_adr_cp, $form_adr_cmpladr, $form_pagefb, $form_pageig,
       $form_pagetwitter, $form_siteweb, $form_boutiquewww, "" /* org certif bio deprecated */,
-      $form_typeprod, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
+      $form_typeprod, $form_typeprod_autre, $form_surfacepc, $form_surfaceserre, $form_nbrtetes, $form_hectolitresparan,
       $form_sondage_difficultes, $form_sondage, $form_cagette, "identifiantcet",
       $form_nombre_postes, $form_nombre_saisonniers, $form_nombre_heuressemaine);
     $_SESSION['signupgen.form'] = serialize($dtoQstGeneralesProd);

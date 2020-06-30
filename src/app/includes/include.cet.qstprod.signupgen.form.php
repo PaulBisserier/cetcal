@@ -1,6 +1,5 @@
 <?php
 $neant = '';
-$currentForm = [];
 $currentForm = (isset($_SESSION['signupgen.form']) && isset($_SESSION['signupgen.form.post'])) ? $_SESSION['signupgen.form.post'] : array();
 ?>
 <!-- singup general informations html form -->
@@ -72,7 +71,7 @@ $currentForm = (isset($_SESSION['signupgen.form']) && isset($_SESSION['signupgen
       <div class="cet-formgroup-container">
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Nom de la ferme :</small></label>
-          <input class="form-control is-invalid" id="qstprod-nomferme" name="qstprod-nomferme" type="text" 
+          <input class="form-control" id="qstprod-nomferme" name="qstprod-nomferme" type="text" 
             placeholder="Nom de la ferme" onblur="checkFormInput(60, this.id);"
             value="<?= isset($currentForm['qstprod-nomferme']) ? $currentForm['qstprod-nomferme'] : $neant; ?>"
             maxlength="60">
@@ -141,6 +140,13 @@ $currentForm = (isset($_SESSION['signupgen.form']) && isset($_SESSION['signupgen
         </div>
         <?php ++$counter; ?>
         <?php endforeach; ?>
+        <div class="form-group mb-3">
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si autre, merci de préciser :</small></label>   
+          <input class="form-control" id="qstprod-activite-production-autre" name="qstprod-activite-production-autre" type="text" 
+            placeholder="Quelle autre activité de production ?"
+            value="<?= isset($currentForm['qstprod-activite-production-autre']) ? $currentForm['qstprod-activite-production-autre'] : $neant; ?>"
+            maxlength="45">
+        </div>
         <br>
         <div class="form-group mb-3">
           <label class="cet-input-label"><small class="cet-qstprod-label-text">Superficie cultivée <b>plein champ</b> en <b>hectares</b> :</small></label>

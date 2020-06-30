@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style="margin-bottom: 20px;">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/?statut=">
     <img src="/res/content/logo-annuaire_text-only.png" height="80" alt="">
     <?= $tag_mep; ?>
@@ -11,16 +11,17 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle cet-p" href="#" 
           id="navbar-qui-nous-sommes-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Qui sommes nous ? </a>
-          <div class="dropdown-menu" aria-labelledby="navbar-qui-nous-sommes-dropdown">
-            <a class="dropdown-item" href="#" 
-              onmousedown="scrollTowards('cet-annuaire-footer');">L'association Castillonnais en Transition</a>
-            <a class="dropdown-item align-middle" href="https://github.com/j-fish/cetcal" target="_blank">
+        <div class="dropdown-menu" aria-labelledby="navbar-qui-nous-sommes-dropdown">
+          <a class="dropdown-item" href="#" 
+            onmousedown="scrollTowards('cet-annuaire-footer');">L'association Castillonnais en Transition
+          </a>
+          <a class="dropdown-item align-middle" href="https://github.com/j-fish/cetcal" target="_blank">
               Notre projet sur GitHub <img src="/res/content/github-logo.png" height="40" alt="" style="float: right !important;">
-            </a>
-          </div>
+          </a>
+        </div>
       </li>
       <li class="nav-item">
-        <a id="cet-notre-projet" class="nav-link cet-p" href="#">Notre projet, <i>Circuits Alimentaires Courts</i></a>
+        <a id="cet-notre-projet" class="nav-link cet-p" href="#">Notre projet, <i>Circuits Alimentaires Locaux</i></a>
       </li>
       <?php //if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
         <!--<li class="nav-item">

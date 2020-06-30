@@ -1,10 +1,10 @@
 <!-- login html form -->
 <div class="cet-module row justify-content-lg-center" id="cet-qstprod_intro" style="margin-bottom: 60px;">
   <div class="col-lg-6">
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success cet-bienvenue-producteurs" role="alert">
       <h5 class="alert-heading">Bienvenue Producteur.e.s !</h5>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_e; ?></p>
-      <p><a class="btn btn-success btn-block" href="/src/app/controller/cet.qstprod.controller.login.form.php" style="margin-top: 8px;">S'inscrire sur l'annuaire</a></p>
+      <p><a class="btn btn-success btn-block" href="/src/app/controller/cet.qstprod.controller.login.form.php" style="margin-top: 8px; background-color: #DD4215 !important; border: 1px solid #DD4215 !important;">S'inscrire sur l'annuaire</a></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_d; ?></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_a; ?></p>
       <p><?= CetQstprodConstTextes::login_intro_block_textinf_b; ?></p>
