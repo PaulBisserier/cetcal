@@ -131,16 +131,23 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
           <tbody>
             <tr>
               <td><span class="text-muted">Vos lieux de Distribution / Vente : </span>
-              <?php if (isset($lieuxdist->pointsDeVente) && is_array($lieuxdist->pointsDeVente) && count($lieuxdist->pointsDeVente) > 0): ?>
-              <?php $counter = 0; ?>
-              <?php foreach ($lieuxdist->pointsDeVente as $lieuxVenteDist): ?>
-                <?php echo explode(';', $lieuxVenteDist)[1].($counter + 1 === count($lieuxdist->pointsDeVente) ? '' : ', '); ?>
-              <?php ++$counter; ?>
-              <?php endforeach; ?>
-              <?php endif; ?>
-              <?php if (isset($lieuxdist->pointsDeVenteAutre) && strlen($lieuxdist->pointsDeVenteAutre) > 0): ?>
-                <?php echo ', '.$lieuxdist->pointsDeVenteAutre; ?>
-              <?php endif; ?>
+                <?php if (isset($lieuxdist->pointsDeVente) && is_array($lieuxdist->pointsDeVente) && count($lieuxdist->pointsDeVente) > 0): ?>
+                <?php $counter = 0; ?>
+                <?php foreach ($lieuxdist->pointsDeVente as $lieuxVenteDist): ?>
+                  <?php echo explode(';', $lieuxVenteDist)[1].($counter + 1 === count($lieuxdist->pointsDeVente) ? '' : ', '); ?>
+                <?php ++$counter; ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if (isset($lieuxdist->pointsDeVenteAutre) && strlen($lieuxdist->pointsDeVenteAutre) > 0): ?>
+                  <?php echo ', '.$lieuxdist->pointsDeVenteAutre; ?>
+                <?php endif; ?>
+                <?php if (isset($lieuxdist->joursMarchesSaisies) && is_array($lieuxdist->joursMarchesSaisies) && count($lieuxdist->joursMarchesSaisies) > 0): ?>
+                <?php $counter = 0; ?>
+                <?php foreach ($lieuxdist->joursMarchesSaisies as $lieuxVenteDist): ?>
+                  <?php echo explode(';', $lieuxVenteDist)[1].($counter + 1 === count($lieuxdist->joursMarchesSaisies) ? '' : ', '); ?>
+                <?php ++$counter; ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
               </td>
             </tr>
           </tbody>
@@ -185,6 +192,12 @@ $besoins = $sessionshelper->getDto('signupbesoins.form', new QstBesoinsDTO());
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+      </div>
+      <div class="form-group mb-3">
+        <label class="cet-input-label"><small class="cet-qstprod-label-text">Vos idées, remarques :</small></label>   
+        <textarea class="form-control" id="qstprod-opinions-producteur" name="qstprod-opinions-producteur"
+          placeholder="votre avis nous intéresse..." form="signuprecap.form.declaratif" value=""
+          maxlength="512"></textarea>
       </div>
       <label>
         <small class="form-text cet-qstprod-label-text">Souhaitez-vous valider votre inscription et envoyer votre questionnaire ? Si oui, merci de déclarer vos informations :</small>

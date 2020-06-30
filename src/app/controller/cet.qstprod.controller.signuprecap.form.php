@@ -15,6 +15,7 @@ try
   $dataProcessor = new HTTPDataProcessor();
   $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signuprecap-nav']);
   $cetcal_session_id = $dataProcessor->processHttpFormData($_POST['cetcal_session_id']);
+  $form_opinions = $dataProcessor->processHttpFormData($_POST['qstprod-opinions-producteur']);
 
   if ($nav == 'valider')
   {
@@ -33,7 +34,8 @@ try
     $model = new QSTPRODProducteurModel();
     $data = $model->createProducteur(isset($_SESSION['signupgen.form']) ? $_SESSION['signupgen.form'] : NULL,
       isset($_SESSION['signupprods.form']) ? $_SESSION['signupprods.form'] : NULL,
-      isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL);
+      isset($_SESSION['signupconso.form']) ? $_SESSION['signupconso.form'] : NULL,
+      $form_opinions);
     $model = new QSTPRODLieuxModel();
     $model->createLieu($data['pk'], 
       isset($_SESSION['signuplieuxdist.form']) ? $_SESSION['signuplieuxdist.form'] : NULL,

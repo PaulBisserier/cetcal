@@ -8,7 +8,7 @@ require_once('cet.qstprod.querylibrary.php');
 class QSTPRODProducteurModel extends CETCALModel 
 {
   
-  public function createProducteur($pProducteurDto, $pProduitsDto, $pConsoDto) 
+  public function createProducteur($pProducteurDto, $pProduitsDto, $pConsoDto, $pOpinionsProducteurs) 
   {
     /**
      * Générer un identifiant de connexion et cela dans tous les 
@@ -59,6 +59,7 @@ class QSTPRODProducteurModel extends CETCALModel
     $stmt->bindParam(":pHLParAn", $dtoGenerale->hectolitresParAn, PDO::PARAM_STR);
     $stmt->bindParam(":pGroupeCagette", $dtoGenerale->groupeCagette, PDO::PARAM_STR);
     $stmt->bindParam(":pIndentifiantCet", $cetcal_web_id, PDO::PARAM_STR);
+    $stmt->bindParam(":pOpinions", $pOpinionsProducteurs, PDO::PARAM_STR);
     $stmt->execute();
     $pk = $this->getCnxdb()->lastInsertId();
 
