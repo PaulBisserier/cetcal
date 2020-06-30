@@ -8,10 +8,8 @@ function ajouterMarche(idAdrMarche, idJoursMarche) {
 		jours += selected[i].checked ? valeur + ', ' : '';
 	}
 
-	// Here, '[' & ']' characters must be forbiden.
-
 	jours = jours.length > 2 ? jours.substring(0, jours.length - 2) : jours;
-	var resultText = $('#' + idAdrMarche).val() + (jours.length > 0 ? ' [jours de présence : ' + jours + ']' : '');
+	var resultText = $('#' + idAdrMarche).val() + (jours.length > 0 ? ' (Jours de présence : ' + jours + ')' : '');
 	var inputMarche = '<div class="form-check"><input class="form-check-input" type="checkbox" value="mad1;' + 
 		resultText + 
 		'" name="qstprod-joursmarche-sasies[]" id="qstprod-joursmarche-sasies-' + i + '" checked="checked">' + 
@@ -21,3 +19,13 @@ function ajouterMarche(idAdrMarche, idJoursMarche) {
 	for (var i = 0; i < selected.length; i++) selected[i].checked = false;
 	$('#' + idAdrMarche).val('');
 }
+
+$('#qstprod-adr-marche').on('keydown', function(evt) {
+    
+	var e = event || window.event;  // get event object
+    var key = e.keyCode || e.which; // get key cross-browser
+    if (key == 53 || key == 169) { 
+        if (e.preventDefault) e.preventDefault();
+        e.returnValue = false;
+    }
+});

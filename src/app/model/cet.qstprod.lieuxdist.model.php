@@ -96,11 +96,15 @@ class QSTPRODLieuxModel extends CETCALModel
       foreach ($dtoLieux->joursMarchesSaisies as $marcheSaisie)
       {
         $marche = explode(';', $marcheSaisie);
+        $jours = substr($marche[1], strrpos($marche[1], '('), strlen($marche[1]));
+        $jours = str_replace("(", "[", $jours);
+        $jours = str_replace(")", "]", $jours);
+        $jours = str_replace(" ,", "][", $jours);
         $stmt = $this->getCnxdb()->prepare($qLib::INSERT_CETCAL_LIEU);
         $stmt->bindParam(":pNom", $marche[0], PDO::PARAM_STR);
         $stmt->bindParam(":pAdrLit", $marche[1], PDO::PARAM_STR);
-        $stmt->bindParam(":pJoursProducteur", $null, PDO::PARAM_STR);
-        $stmt->bindParam(":pJourCollecteConso", $null, PDO::PARAM_STR);
+        $stmt->bindParam(":pJoursProducteur", $jours, PDO::PARAM_STR);
+        $stmt->bindParam(":pJourCollecteConso", $jours, PDO::PARAM_STR);
         $stmt->execute();
         array_push($pks_lieux, $this->getCnxdb()->lastInsertId());
       }
