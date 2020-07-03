@@ -61,13 +61,13 @@ $currentForm = isset($_SESSION['signupconso.form.post']) ? $_SESSION['signupcons
             maxlength="128">
         </div>
         <div class="form-group mb-3">
-          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si drive avec point de collect, preciser l'adresse :</small></label>   
+          <label class="cet-input-label"><small class="cet-qstprod-label-text">Si drive avec point de collecte, preciser l'adresse :</small></label>   
           <input class="form-control" id="qstprod-adr-drive" name="qstprod-adr-drive" type="text" 
-            placeholder="Si drive avec point de collect, preciser"
+            placeholder="Si drive avec point de collecte, preciser"
             value="<?= isset($currentForm['qstprod-adr-drive']) ? $currentForm['qstprod-adr-drive'] : $neant; ?>"
             maxlength="256">
         </div>
-        <label><small class="form-text">Si drive, quels jours de collect ?</small></label>
+        <label><small class="form-text">Si drive, quels jours de collecte ?</small></label>
         <?php $counter = 0; ?>
         <?php foreach ($listes_arrays->consomateurs_drive_jours as $jour): ?>
         <div class="form-check">

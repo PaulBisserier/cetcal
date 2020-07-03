@@ -19,8 +19,9 @@ Class CETQstprodMailUtils
     $this->mail = new PHPMailer(true); // True = activation des exception phpmailer.
   }
 
-  public function init()
+  public function init($debug = false)
   {
+    if ($debug) $this->mail->SMTPDebug = 2;
     $this->mail->IsSMTP();
     $this->mail->SMTPAuth = true; 
     $this->mail->SMTPSecure = 'ssl'; 

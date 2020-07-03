@@ -2,8 +2,14 @@
 /**
  * LIEN pour MAIL test = http://127.0.0.4/src/app/admin/cet.qstprod.admin.mail.php?mhtmlfl=cet.qstprod.inscription.html.mail.content.html&mplainfl=cet.qstprod.inscription.plain.mail.content&mlstfl=cet.qstprod.maillist.equipe.cet&msbj=cet.qstprod.inscription.mail.subject&prfx=inscription
  *
- * LIEN pour MAIL production = http://127.0.0.4/src/app/admin/cet.qstprod.admin.mail.php?mhtmlfl=cet.qstprod.inscription.html.mail.content.html&mplainfl=cet.qstprod.inscription.plain.mail.content&mlstfl=cet.qstprod.maillist.producteurs.cet&msbj=cet.qstprod.inscription.mail.subject&prfx=inscriptionproducteurs
+ * LIEN pour MAIL production = http://127.0.0.4
+/src/app/admin/cet.qstprod.admin.mail.php?mhtmlfl=cet.qstprod.inscription.html.mail.content.html&mplainfl=cet.qstprod.inscription.plain.mail.content&mlstfl=maillist.tmp&msbj=cet.qstprod.inscription.mail.subject&prfx=inscription
  */
+
+// annuaire-cet@outlook.fr
+// prénom : annuaire
+// nom : cet
+// 01/01/2000
 
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
 $errparamsget = (isset($_GET['mhtmlfl']) && isset($_GET['mplainfl']) && 
@@ -20,7 +26,7 @@ try
   $mailList = $_GET['mlstfl'];
   $mailSubject = $_GET['msbj'];
   $prefix = $_GET['prfx'];
-  $mailUtils->init();
+  $mailUtils->init(true);
   $mailUtils->send($mailHtmlFile, $mailPlainFile, $mailList, 
     $mailSubject, new FileReaderUtils($DOC_ROOT), $prefix."/");
 }
