@@ -10,7 +10,7 @@
 .cet-footer a.cet-p, small.cet-email-tag { font-family: 'Courgette', cursive; color: #DD4215 !important; }
 /** END style Fanny ********************/
 /***************************************/
-
+#mapid { height: 180px; }
 /*********************************/
 /** CSS toutes pages. ************/
 div.row { margin-left: 0px !important; margin-right: 0px !important; }
