@@ -3,7 +3,7 @@ require_once('cet.qstprod.model.php');
 require_once('cet.qstprod.querylibrary.php');
 
 /**
- * Abstract MODEL class.
+ * MODEL class.
  */
 class QSTPRODProducteurModel extends CETCALModel 
 {
@@ -183,6 +183,31 @@ class QSTPRODProducteurModel extends CETCALModel
       if (isset($row['identifiant_cet']) && strcmp($row['identifiant_cet'], $pIdCet) === 0) return true;
     }
     return false;
+  }
+
+  public function fetchAllDataToDTOArray()
+  {
+    require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/dto/cet.qstprod.signupgen.dto.php');
+    $dataCarto = array();
+    $qLib = $this->getQuerylib();
+    $stmt = $this->getCnxdb()->prepare($qLib::SELECT_ALL_CET_PRODUCTEUR);
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+
+    foreach ($data as $row) 
+    {
+      $dtoGenerale = new QstProdGeneraleDTO();
+      $dtoGenerale->initFrontEndDTO($row['nom'], $row['prenom'], $row['email'], 
+        $row['telfixe'], $row['telport'], $row['nom_ferme'], 
+        $row['adrferme_numvoie'], $row['adrferme_rue'], $row['adrferme_lieudit'], 
+        $row['adrferme_commune'], $row['adrferme_cp'], $row['adrferme_compladr'], 
+        $row['pageurl_fb'], $row['pageurl_ig'], $row['pageurl_twitter'], 
+        $row['url_web'], $row['url_boutique'], $row['groupe_cagette']);
+      $dtoGenerale->setPk($row['pk_producteur']);
+      array_push($dataCarto, $dtoGenerale);
+    }
+
+    return $dataCarto;
   }
 
 }

@@ -16,6 +16,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
     <link rel="stylesheet" href="/src/scripts/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/src/scripts/css/cet/cet.qstprod.css">
+    <link rel="stylesheet" href="/src/scripts/css/cet/cet.qstprod.cartographie.css">
     <!-- start : charte-g Fanny -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Signika:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Signika:wght@400;700&display=swap">
@@ -37,7 +38,7 @@ $statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $
   <body id="cet-annuaire-body">
     <?php
       include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php';
-      include $PHP_INCLUDES_PATH.'include.cet.qstprod.carto.php';
+      include $PHP_INCLUDES_PATH.'cartographie/include.cet.qstprod.cartographie.php';
       if (in_array($statut, CetQstProdFilArianneHelper::$statesFilAriane)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php'; 
       $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
       include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 

@@ -3,7 +3,7 @@ require_once('cet.qstprod.model.php');
 require_once('cet.qstprod.querylibrary.php');
 
 /**
- * Abstract MODEL class.
+ * MODEL class.
  */
 class QSTPRODProduitsModel extends CETCALModel 
 {
