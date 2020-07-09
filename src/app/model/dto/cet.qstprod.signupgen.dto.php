@@ -127,7 +127,12 @@ Class QstProdGeneraleDTO
   public function setLatLng($pLat = NULL, $pLng = NULL)
   {
     $this->lat = $pLat;
-    $this->lng = $pLong;
+    $this->lng = $pLng;
+  }
+
+  public function getLatLng()
+  {
+    return $this->lat.'/'.$this->lng;
   }
 
   public function setPk($pPk) 

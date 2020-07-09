@@ -36,7 +36,7 @@ Class CetQstprodConstListes
   public $consomateurs_drive_jours = NULL;
   public $marches_jours = NULL;
 
-  function __construct($fileReader, $logFile) 
+  function __construct($fileReader) 
   {
     $this->activites = $fileReader->readWithKV('cet.qstprod.liste.activites');
     $this->besoins = $fileReader->read('cet.qstprod.liste.besoins');
@@ -68,44 +68,6 @@ Class CetQstprodConstListes
     $this->consomateurs_drive_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
     $this->marches_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
     $this->produits_v4_poissons = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.poissons', true);
-
-    //error_log("\nCetQstprodConstListes - files loaded today}", 3, $logFile);
-  }
-
-  public function load($fileReader, $logFile)
-  {      
-    /*$this->activites = $fileReader->readWithKV('cet.qstprod.liste.activites');
-    $this->besoins = $fileReader->read('cet.qstprod.liste.besoins');
-    $this->produits_boissons = $fileReader->readWithKV('cet.qstprod.liste.produits.boissons');
-    $this->type_culture = $fileReader->readWithKV('cet.qstprod.liste.typeculture');
-    $this->solidaires_producteurs = $fileReader->readWithKV('cet.qstprod.liste.solidarite.producteurs');
-    $this->solidaires_consomateurs = $fileReader->readWithKV('cet.qstprod.liste.solidarite.consomateurs');
-    $this->solidaires_actions = $fileReader->readWithKV('cet.qstprod.liste.solidarite.actions');
-    $this->solidaires_groupe_resilience = $fileReader->readWithKV('cet.qstprod.liste.groupe.resilience');
-    $this->points_vente_producteurs = $fileReader->readWithKV('cet.qstprod.liste.pointdevente');
-    $this->sondage_divers = $fileReader->readQAFile('cet.qstprod.liste.sondage.divers', true);
-    $this->produits_v4_legumes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.legumes', true);
-    $this->produits_v4_viandes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.viandes', true);
-    $this->produits_v4_laitiers = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.laitiers', true);
-    $this->produits_v4_mielruche = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.mielruche', true);
-    $this->produits_v4_fruits = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.fruits', true);
-    $this->produits_v4_champignons = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.champignons', true);
-    $this->produits_v4_boissons = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.boissons', true);
-    $this->produits_v4_plantes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.plantes', true);
-    $this->produits_v4_semences = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.semences', true);
-    $this->produits_v4_transformes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.transformes', true);
-    $this->produits_v4_cereales = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.cereales', true);
-    $this->produits_v4_hygienes = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.hygiene', true);
-    $this->produits_v4_entretiens = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.entretien', true);
-    $this->produits_v4_animaux = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.animaux', true);
-    $this->consomateurs_achats = $fileReader->readWithKV('cet.qstprod.liste.v4.consoachats');
-    $this->consomateurs_receptions = $fileReader->readWithKV('cet.qstprod.liste.v4.consoreception');
-    $this->consomateurs_paiements = $fileReader->readWithKV('cet.qstprod.liste.v4.consopaiements');
-    $this->consomateurs_drive_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
-    $this->marches_jours = $fileReader->readWithKV('cet.qstprod.liste.jourssemaine');
-    $this->produits_v4_poissons = $fileReader->readWithKV('cet.qstprod.liste.produits.v4.poissons', true);
-
-    error_log("\nCetQstprodConstListes - files loaded today}", 3, $logFile);*/
   }
   
 }

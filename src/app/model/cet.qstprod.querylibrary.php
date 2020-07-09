@@ -24,4 +24,8 @@ class CETCALQueryLibrary
   const INSERT_SONDAGE = "INSERT INTO cetcal.cetcal_sondage (fk_producteur_sondage, clef_question, reponse) VALUES (:pPkProducteur, :pClefQuestion, :pReponse);";
   const INSERT_SONDAGE_NBRS = "INSERT INTO cetcal.cetcal_sondage (fk_producteur_sondage, clef_question, val_question, reponse) VALUES (:pPkProducteur, :pClefQuestion, :pValQuestion, :pReponse);";
   const INSERT_CETCAL_INFORMATION = "INSERT INTO cetcal.cetcal_information_producteur (fk_producteur_information_producteur, clef_information, information) VALUES (:pPkProducteur, :pClefInformation, :pInformation);";
+
+  const SELECT_COUNT_CRT_WHERE_PKFK = "SELECT count(fk_producteur) FROM cetcal.cetcal_cartographie WHERE fk_producteur=:pFkProducteur;";
+  const INSERT_CETCAL_CARTOGRAPHIE = "INSERT INTO cetcal.cetcal_cartographie (cetcal_prd_lat, cetcal_prd_lng, fk_producteur) VALUES (:pLat, :pLng, :pFkProducteur);";
+  const SELECT_CETCAL_CARTOGRAPHIE_WHERE_PKFK = "SELECT * FROM cetcal.cetcal_cartographie WHERE fk_producteur=:pFkProducteur;";
 }

@@ -14,11 +14,3 @@
     </div>
   </div>
 </div>
-<!--<div class="row h-100 justify-content-center align-items-center" style="margin-bottom: 8px;">
-  <div class="col-6">
-    <button class="btn btn-info btn-sm" type="button" onmousedown="$('#btn-<?= str_replace(".", "-", $statut); ?>-retour').click();"
-      style="float: left;"><< Page précédente</button>
-    <button class="btn btn-info btn-sm" type="button" onmousedown="$('#btn-<?= str_replace(".", "-", $statut); ?>-valider').click();"
-      style="float: right;">Page suivante >></button>
-  </div>
-</div>-->

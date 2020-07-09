@@ -1,12 +1,6 @@
 <?php
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
 $PATH_MODEL_DTO = $DOC_ROOT.'/src/app/model/';
-include $DOC_ROOT.'/src/app/const/cet.qstprod.const.globals.php';
-include $DOC_ROOT.'/src/app/const/cet.qstprod.const.log.levels.php';
-include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.log.php';
-$logUtils = new CETLogUtils($DOC_ROOT);
-$LOG_FILE = $logUtils->file;
-include $DOC_ROOT.'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
 $data = array();
 try 

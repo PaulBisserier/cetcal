@@ -1,10 +1,4 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.globals.php';
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
-$logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
-$LOG_FILE = $logUtils->file;
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';  
 $cetcal_session_id = "";
 try 
 {
@@ -46,7 +40,6 @@ try
 catch (Exception $e) 
 {
   session_write_close();
-  //error_log(CET_LOG::TAG.$e->getMessage()."}[stacktrace=".$e->getTraceAsString()."]", 3, $LOG_FILE);
   header('Location: /src/app/controller/cet.qstprod.controller.generique.erreure.php/?err='.$e->getMessage().'&sitkn='.$cetcal_session_id);
   exit();
 }

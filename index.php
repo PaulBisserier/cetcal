@@ -1,7 +1,8 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/cet.qstprod.startup.php';
 include $PHP_CONTROLLER_PATH.'cet.qstprod.controller.index.php';
-$statut = htmlspecialchars(isset($_GET['statut']) && !empty($_GET['statut']) ? $_GET['statut'] : 'login.form');
+$statut = (isset($_GET['statut']) && !empty($_GET['statut'])) ? 
+  $dataProcessor->processHttpFormData($_GET['statut']) : 'login.form';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

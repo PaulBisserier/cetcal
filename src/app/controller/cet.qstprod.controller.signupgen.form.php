@@ -1,11 +1,5 @@
 <?php
 $cetcal_session_id = "";
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.globals.php';
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/const/cet.qstprod.const.log.levels.php';
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.log.php';
-$logUtils = new CETLogUtils($_SERVER['DOCUMENT_ROOT']);
-$LOG_FILE = $logUtils->file;
-include $_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.exceptions.php';
 require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
 $dataProcessor = new HTTPDataProcessor();
 $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signupgen-nav']);

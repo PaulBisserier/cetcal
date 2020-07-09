@@ -13,8 +13,6 @@ if (isset($_GET['sitkn']))
 }
 
 $reboot = isset($_GET['reboot']) && $_GET['reboot'] == "true";
-$dynamic_cet_crt = false;
-
 $tag_mep = "";
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
 $PHP_INCLUDES_PATH = $DOC_ROOT.'/src/app/includes/';
@@ -23,11 +21,10 @@ $PHP_CONTROLLER_PATH = $DOC_ROOT.'/src/app/controller/';
 $PHP_UTILS_PATH = $DOC_ROOT.'/src/app/utils/';
 
 include $PHP_CONST_PATH.'cet.qstprod.const.listes.php';
-include $PHP_UTILS_PATH.'cet.qstprod.utils.log.php';
+require_once($PHP_UTILS_PATH.'cet.qstprod.utils.httpdataprocessor.php');
+$dataProcessor = new HTTPDataProcessor();
 include $PHP_UTILS_PATH.'cet.qstprod.utils.filereader.php';
-$logUtils = new CETLogUtils($DOC_ROOT);
-$LOG_FILE = $logUtils->file;
-$listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT), $LOG_FILE);
+$listes_arrays = new CetQstprodConstListes(new FileReaderUtils($DOC_ROOT));
 
 include $PHP_CONST_PATH.'cet.qstprod.const.textes.php';
 include $PHP_CONST_PATH.'cet.qstprod.const.libelles.php';
