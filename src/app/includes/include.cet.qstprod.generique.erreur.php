@@ -1,5 +1,7 @@
 <?php
-$err = isset($_GET['err']) ?  htmlentities(htmlspecialchars($_GET['err'])) : "Erreure technique rencontrée.";
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
+$dataProcessor = new HTTPDataProcessor();
+$err = isset($_GET['err']) ? $dataProcessor->processHttpFormData($_GET['err']) : "Erreure technique rencontrée.";
 ?>
 <!-- page de validation envoyé et traité avec succés -->
 <div class="cet-module row justify-content-lg-center" id="cet-qstprod_referece" style="margin-bottom: 60px;">

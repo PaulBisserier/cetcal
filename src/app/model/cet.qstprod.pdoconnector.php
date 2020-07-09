@@ -16,10 +16,10 @@ class CETCALPDOConnector {
 
   function __construct() 
   {
-    $this->DNS = 'mysql:host=127.0.0.1;dbname=cetcal;charset=utf8';
+    $this->DNS = 'mysql:host=127.0.0.1;dbname=;charset=utf8';
     $this->LOG = 'root';
     $this->PWD = 'root';
-    $this->DNS_prod = 'mysql:host=localhost;port=3306;dbname=cetcal;charset=utf8';
+    $this->DNS_prod = 'mysql:host=;port=;dbname=;charset=utf8';
     $this->LOG_prod = '';
     $this->PWD_prod = '';
   }

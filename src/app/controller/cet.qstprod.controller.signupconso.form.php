@@ -15,7 +15,7 @@ try
   session_start();
   
   // Prepare navigation :
-  $nav = htmlspecialchars($_POST['qstprod-signupconso-nav']);
+  $nav = $dataProcessor->processHttpFormData($_POST['qstprod-signupconso-nav']);
   if ($nav != 'valider' && $nav != 'retour') { /*Error de navigation TODO.*/ $nav = 'retour'; }
   $statut = $nav == 'valider' ? 'signupbesoins.form' : 'signupprods.form';
 

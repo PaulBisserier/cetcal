@@ -1,5 +1,7 @@
 <?php
-$status = htmlspecialchars(isset($_GET['status']) ? $_GET['status'] : '');
+require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/utils/cet.qstprod.utils.httpdataprocessor.php');
+$dataProcessor = new HTTPDataProcessor();
+$status = isset($_GET['status']) ? $dataProcessor->processHttpFormData($_GET['status']) : '';
 $status = $status === '' ? 'login' : $status;
 $ticketUtlr = null;
-$refutlrCdc = htmlspecialchars(isset($_GET['refutlr']) ? $_GET['refutlr'] : '');
+$refutlrCdc = isset($_GET['refutlr']) ? $dataProcessor->processHttpFormData($_GET['refutlr']) : '';
