@@ -28,4 +28,6 @@ class CETCALQueryLibrary
   const SELECT_COUNT_CRT_WHERE_PKFK = "SELECT count(fk_producteur) FROM cetcal.cetcal_cartographie WHERE fk_producteur=:pFkProducteur;";
   const INSERT_CETCAL_CARTOGRAPHIE = "INSERT INTO cetcal.cetcal_cartographie (cetcal_prd_lat, cetcal_prd_lng, fk_producteur) VALUES (:pLat, :pLng, :pFkProducteur);";
   const SELECT_CETCAL_CARTOGRAPHIE_WHERE_PKFK = "SELECT * FROM cetcal.cetcal_cartographie WHERE fk_producteur=:pFkProducteur;";
+
+  const INSERT_INTO_CETCAL_ENTITES = "INSERT INTO cetcal.cetcal_entite (denomination, territoire, activite, adresse, tels, personne, email, urlwww, infoscmd, jourhoraire, specificites) VALUES (:pDenomination, :pTerritoire, :pActivite, :pAdrliterale, :pTels, :pContactPersonne, :pEmail, :pUrlwww, :pInfoCommande, :pJourHoraire, :pSpecificite);";
 }

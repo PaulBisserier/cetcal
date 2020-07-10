@@ -1,5 +1,5 @@
-<!-- login html form -->
-<div class="cet-module row justify-content-lg-center" id="cet-qstprod_intro" style="margin-bottom: 60px;">
+<!-- login & signup html forms -->
+<div class="cet-module row justify-content-lg-center" id="cet-qstprod_intro" style="margin-bottom: 20px;">
   <div class="col-lg-6">
     <div class="alert alert-success cet-bienvenue-producteurs" role="alert">
       <h5 class="alert-heading">Bienvenue Producteur.e.s !</h5>

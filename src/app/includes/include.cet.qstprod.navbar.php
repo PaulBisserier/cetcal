@@ -1,13 +1,25 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/?statut=">
-    <img src="/res/content/logo-annuaire_text-only.png" height="80" alt="">
-    <?= $tag_mep; ?>
-  </a>
+  <?php if (in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+    <a class="navbar-brand" href="/?statut=">
+      <img src="/res/content/logo-annuaire_text-only.png" height="80" alt="">
+      <?= $tag_mep; ?>
+    </a>
+  <?php endif; ?>
+  <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+    <?php include $PHP_INCLUDES_PATH.'navbar-entities/include.cet.qstprod.nav.leftpanel.php'; ?>
+  <?php endif; ?>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-cet-qstprod" aria-controls="navbar-cet-qstprod" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbar-cet-qstprod">
     <ul class="navbar-nav mr-auto">
+      <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+        <li class="nav-item">
+          <a id="cet-inscription-producteur" class="btn btn-info btn-sm cet-navbar-btn-small" 
+            href="#">Je suis Producteur.e.s</a>
+        </li>
+      <?php endif; ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle cet-p" href="#" 
           id="navbar-qui-nous-sommes-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Qui sommes nous ? </a>
@@ -23,22 +35,18 @@
       <li class="nav-item">
         <a id="cet-notre-projet" class="nav-link cet-p" href="#">Notre projet, <i>Circuits Alimentaires Locaux</i></a>
       </li>
-      <?php //if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
-        <!--<li class="nav-item">
-          <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_intro').fadeIn(function(){ scrollTowards('cet-annuaire-body'); $('#' + 'cet-qstprod_seconnecter').hide('slow'); });">Je suis Producteur</a>
-        </li>-->
-      <?php //endif; ?>
     </ul>
-    <?php //if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
-      <!--<span class="navbar-text">
-        <a class="nav-link cet-p" href="#" onmousedown="$('#cet-qstprod_seconnecter').fadeIn(function(){ scrollTowards('cet-annuaire-body'); $('#cet-qstprod_intro').hide('slow'); });">Votre page producteur</a>
-      </span>-->
-    <?php //endif; ?>
-    <span class="navbar-text">
-      <a id="cet-notre-projet-union-eu" class="nav-link" href="#"><img src="/res/content/Logo-UE-FEDER-web.jpg" height="60" alt=""></a>
-    </span>
-    <span class="navbar-text">
-      <a id="cet-notre-projet-region" class="nav-link" href="#"><img src="/res/content/logo_region-aquitaine.jpg" height="60" alt=""></a>
-    </span>
+    <?php if (!in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+      <span class="navbar-text">
+        <a id="cet-annuaire-crt-recherche-btn" class="btn btn-success cet-navbar-btn" href="#">Rechercher</a>
+      </span>
+    <?php elseif (in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
+      <span class="navbar-text">
+        <a id="cet-notre-projet-union-eu" class="nav-link" href="#"><img src="/res/content/Logo-UE-FEDER-web.jpg" height="60" alt=""></a>
+      </span>
+      <span class="navbar-text">
+        <a id="cet-notre-projet-region" class="nav-link" href="#"><img src="/res/content/logo_region-aquitaine.jpg" height="60" alt=""></a>
+      </span>
+    <?php endif; ?>
   </div>
 </nav>

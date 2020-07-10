@@ -20,7 +20,7 @@
             </ul>
           </li>
         </ul>
-        <?php include $PHP_INCLUDES_PATH.'include.cet.qstprod.carousel.modal.notreprojet.php'; ?>
+        <?php include $PHP_INCLUDES_PATH.'modals/include.cet.qstprod.carousel.modal.notreprojet.php'; ?>
         <br>
       </div>
       <div class="modal-footer">
