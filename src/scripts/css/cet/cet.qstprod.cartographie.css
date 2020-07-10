@@ -3,6 +3,21 @@
 	font-family: 'Signika', sans-serif;
 	padding-right: 16px !important;
 }
+.cet-ann-crt-popuptext, .cet-ann-crt-head-text { 
+	font-family: 'Signika', sans-serif;
+	color: #DD4215 !important; 
+	font-size: 16px;
+	font-weight: bold;
+}
+#cet-annuaire-crt-mini-fiche-producteur-container {
+	border-radius: 4px;
+	background-color: white !important; 
+  	color: #6C3012 !important; 
+  	font-family: 'Signika', sans-serif;
+}
+#cet-annuaire-crt-mini-fiche-producteur-libelle {
+	margin-top: 8px;
+}
 .cet-an-crt-btn { 
 	/* bouton de carton popup. Btn vers page producteur */
 	color: white !important;

@@ -4,10 +4,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.qstprod.producteurs.m
 $controller = new CETCALCartographieController();
 $data = $controller->fetchDataCartographie();
 ?>
+
 <div id="cet-annuaire-crt-main-anchor"></div>
-<div class="cet-module row justify-content-lg-center" style="margin-bottom: 60px;">
-  <div class="col-lg-12"> 
+<div id="cet-annuaire-crt-main-container" class="cet-module row justify-content-lg-center" 
+  style="margin-bottom: 60px;">
+  <div class="col-lg-6"> 
     <div id="cet-annuaire-crt-main"></div>
+  </div>
+  <div id="cet-annuaire-crt-mini-fiche-producteur-container" class="col-lg-3" 
+    style="display: none;">
+    <div id="cet-annuaire-crt-mini-fiche-producteur"></div>
   </div>
 </div>
 <div id="cetcal.producteur.xml" hidden="hidden">

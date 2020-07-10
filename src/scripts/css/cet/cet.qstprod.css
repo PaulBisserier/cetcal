@@ -4,7 +4,8 @@
 .navbar a.cet-p, a.dropdown-item { font-family: 'Courgette', cursive; color: #DD4215 !important; }
 .navbar a.cet-p:hover, .cet-footer a.cet-p:hover { color: #DD4215 !important; }
 .cet-bienvenue-producteurs { 
-  background-color: #CAE3EE !important; color: #6C3012 !important; 
+  background-color: #CAE3EE !important; 
+  color: #6C3012 !important; 
   font-family: 'Signika', sans-serif;
 } 
 .navbar a.cet-navbar-btn { font-family: 'Courgette', cursive; color: white !important; font-size: 18px; }
