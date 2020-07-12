@@ -39,10 +39,10 @@ $statut = (isset($_GET['statut']) && !empty($_GET['statut'])) ?
   <body id="cet-annuaire-body">
     <?php
       include $PHP_INCLUDES_PATH.'include.cet.qstprod.navbar.php';
+      if (!in_array($statut, CetQstProdFilArianneHelper::$statesFilAriane)) include $PHP_INCLUDES_PATH.'cartographie/include.cet.qstprod.cartographie.php';
       if (in_array($statut, CetQstProdFilArianneHelper::$statesFilAriane)) include $PHP_INCLUDES_PATH.'include.cet.qstprod.filarianne.php';
       $module = $PHP_INCLUDES_PATH.'include.cet.qstprod.'.$statut.'.php';
-      include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php'; 
-      if (!in_array($statut, CetQstProdFilArianneHelper::$statesFilAriane)) include $PHP_INCLUDES_PATH.'cartographie/include.cet.qstprod.cartographie.php';
+      include file_exists($module) ? $module : $PHP_INCLUDES_PATH.'include.cet.qstprod.login.form.php';
       include $PHP_INCLUDES_PATH.'include.cet.qstprod.footer.php';
       include $PHP_INCLUDES_PATH.'modals/include.cet.qstprod.modal1.php';
       include $PHP_INCLUDES_PATH.'modals/include.cet.qstprod.modal.notreprojet.php';

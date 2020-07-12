@@ -7,8 +7,8 @@ $data = $controller->fetchDataCartographie();
 
 <div id="cet-annuaire-crt-main-anchor"></div>
 <div id="cet-annuaire-crt-main-container" class="cet-module row justify-content-lg-center" 
-  style="margin-bottom: 60px;">
-  <div class="col-lg-6"> 
+  style="margin-bottom: 20px;">
+  <div id="cet-annuaire-crt-bootstrap-wrapper" class="col-lg-6"> 
     <div id="cet-annuaire-crt-main"></div>
   </div>
   <div id="cet-annuaire-crt-mini-fiche-producteur-container" class="col-lg-3" 

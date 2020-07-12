@@ -1,3 +1,4 @@
+#cet-annuaire-crt-main { border-radius: 4px; }
 .leaflet-popup-tip, .leaflet-popup-content-wrapper { 
 	background-color: #ffff8d !important; 
 	font-family: 'Signika', sans-serif;
@@ -9,6 +10,7 @@
 	font-size: 16px;
 	font-weight: bold;
 }
+.cet-ann-crt-head-text { margin-top: 8px !important; }
 #cet-annuaire-crt-mini-fiche-producteur-container {
 	border-radius: 4px;
 	background-color: white !important; 
@@ -17,6 +19,18 @@
 }
 #cet-annuaire-crt-mini-fiche-producteur-libelle {
 	margin-top: 8px;
+}
+#cet-ann-crt-ctrl-a-id {
+	display: block;
+	background-color: white !important;
+	border: 1px solid rgb(160, 160, 160);
+	border-radius: 3px;
+	padding: 4px;
+	height: 40px !important;
+	width: 40px !important;
+	/*-webkit-box-shadow: 6px 6px 11px -4px rgba(92,92,92,1);
+	-moz-box-shadow: 6px 6px 11px -4px rgba(92,92,92,1);
+	box-shadow: 6px 6px 11px -4px rgba(92,92,92,1);*/
 }
 .cet-an-crt-btn { 
 	/* bouton de carton popup. Btn vers page producteur */
