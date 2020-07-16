@@ -30,4 +30,5 @@ class CETCALQueryLibrary
   const SELECT_CETCAL_CARTOGRAPHIE_WHERE_PKFK = "SELECT * FROM cetcal.cetcal_cartographie WHERE fk_producteur=:pFkProducteur;";
 
   const INSERT_INTO_CETCAL_ENTITES = "INSERT INTO cetcal.cetcal_entite (denomination, territoire, activite, adresse, tels, personne, email, urlwww, infoscmd, jourhoraire, specificites) VALUES (:pDenomination, :pTerritoire, :pActivite, :pAdrliterale, :pTels, :pContactPersonne, :pEmail, :pUrlwww, :pInfoCommande, :pJourHoraire, :pSpecificite);";
+  const SELECT_ALL_CETCAL_ENTITE = "SELECT * from cetcal.cetcal_entite;";
 }

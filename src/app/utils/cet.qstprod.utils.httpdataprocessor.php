@@ -18,12 +18,13 @@ Class HTTPDataProcessor
   {
     if (!isset($data)) array_push($this->errors, 
       "CETCAL.HTTPDataProcessor : Le champ /// est obligatoire et n'est pas renseigné.");
-    else return htmlentities(
-      htmlspecialchars(
+    else return htmlspecialchars(filter_var(
+          $data, FILTER_SANITIZE_STRING));
+      /*htmlentities(htmlspecialchars(
         filter_var(
           $data, FILTER_SANITIZE_STRING), 
         ENT_QUOTES), 
-      ENT_QUOTES);
+      ENT_QUOTES);*/
   }
 
   /**

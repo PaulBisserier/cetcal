@@ -3,7 +3,7 @@
  */
   $(function(){
     $('#btn-signupgen-form-valider').on('mousedown', function(e) {
-      if (document.querySelector('.is-invalid') !== null || !checkDataForIdGeneration()) {
+      if (document.querySelector('.is-invalid') !== null) {
         	e.preventDefault();
         	var text = 'Des informations obligatoires sont manquantes au formulaire.'
         	text += ' Pour traiter votre inscription et créer votre compte, nous avons besoin des éléments suivant :'
@@ -17,15 +17,6 @@
   		}
     });
  });
-
-function checkDataForIdGeneration() {
-  if ($('#qstprod-email').val().lenght === 0 && $('#qstprod-siret').val().lenght === 0 && 
-    $('#qstprod-numbtel-fix').val().lenght === 0 && $('#qstprod-numbtel-port').val().lenght === 0) {
-    return false;
-  } else {
-    return true;
-  }
-}
 
 $(document).ready(function() {
     checkFormInput(60, 'qstprod-commune');

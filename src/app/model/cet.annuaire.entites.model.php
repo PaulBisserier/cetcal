@@ -10,6 +10,8 @@ class CETCALEntitesModel extends CETCALModel
 
   public function insert($csvlines)
   {
+    try 
+    {
       /**
        * CSV splitter = ¤.
        * CSV definition : 
@@ -38,8 +40,6 @@ class CETCALEntitesModel extends CETCALModel
         $jourh = $data[9];
         $specificite = $data[10];
 
-        /**
-         * uncoment for use.
         $qLib = $this->getQuerylib();
         $stmt = $this->getCnxdb()->prepare($qLib::INSERT_INTO_CETCAL_ENTITES);
         $stmt->bindParam(":pDenomination", $denomination, PDO::PARAM_STR);
@@ -53,9 +53,24 @@ class CETCALEntitesModel extends CETCALModel
         $stmt->bindParam(":pInfoCommande", $infoscmd, PDO::PARAM_STR);
         $stmt->bindParam(":pJourHoraire", $jourh, PDO::PARAM_STR);
         $stmt->bindParam(":pSpecificite", $specificite, PDO::PARAM_STR);
-        $stmt->execute();
-        */
+        $stmt->execute();     
       }
+    }
+    catch (Exception $e)
+    {
+      var_dump($e);
+    }
+
+  }
+
+  public function selectAll()
+  {
+    $qLib = $this->getQuerylib();
+    $stmt = $this->getCnxdb()->prepare($qLib::SELECT_ALL_CETCAL_ENTITE);
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+
+    return $data;
   }
 
 }

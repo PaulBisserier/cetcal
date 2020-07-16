@@ -13,6 +13,8 @@ if (isset($_GET['sitkn']))
 }
 
 $reboot = isset($_GET['reboot']) && $_GET['reboot'] == "true";
+$anr = isset($_GET['anr']) && $_GET['anr'] == "true";
+$scope = $anr ? 'annuaire' : 'qstprod';
 $tag_mep = "";
 $DOC_ROOT = $_SERVER['DOCUMENT_ROOT'];
 $PHP_INCLUDES_PATH = $DOC_ROOT.'/src/app/includes/';
