@@ -1,3 +1,4 @@
+a:active:hover, button:active:hover { background-color: rgb(250, 250, 250) !important; }
 /***************************************/
 /** START style charte graphique Fanny */ 
 .navbar { margin-bottom: 20px; }
@@ -15,8 +16,16 @@
 /***************************************/
 /*********************************/
 /** CSS toutes pages. ************/
+#cet-annuaire-main-dropdown { 
+  /*border: 1px solid yellow;*/
+  -webkit-box-shadow: 0px 0px 0px 4px rgba(247,255,0,1);
+  -moz-box-shadow: 0px 0px 0px 4px rgba(247,255,0,1);
+  box-shadow: 0px 0px 0px 4px rgba(247,255,0,1);
+  margin-right: 16px; margin-bottom: 8px;
+}
 .cet-carte-info a, p { font-family: 'Signika', sans-serif; }
-.cet-carte-info .card-header { font-family: 'Courgette', cursive; font-weight: bold; }
+.cet-carte-info .card-header { font-family: 'Courgette', cursive; font-weight: bold; color: #DD4215 !important; }
+span.cet-r-q { background-color: yellow !important; font-style: italic; }
 div.row { margin-left: 0px !important; margin-right: 0px !important; }
 .btn-info { margin-top: 4px !important; }
 .cet-formgroup-container { background-color: rgb(250, 250, 250); border: 1px solid lightgrey; border-radius: 4px; padding: 16px; margin-bottom: 20px; }

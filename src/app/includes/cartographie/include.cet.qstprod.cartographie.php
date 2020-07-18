@@ -44,5 +44,4 @@ $data = $controller->fetchDataCartographie();
     <?php endforeach; ?>
   </producteurs>
 </div>
-
 <script src="/src/scripts/js/cetcal/cetcal.cartographie.min.js"></script>

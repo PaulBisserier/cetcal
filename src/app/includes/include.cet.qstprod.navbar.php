@@ -38,13 +38,6 @@
       <span class="navbar-text">
         <a id="cet-annuaire-crt-recherche-btn" class="btn btn-success cet-navbar-btn" href="#">Rechercher  <i class="fa fa-search" aria-hidden="true"></i></a>
       </span>
-    <?php elseif (in_array($statut, CetQstProdFilArianneHelper::$states)): ?>
-      <span class="navbar-text">
-        <a id="cet-notre-projet-union-eu" class="nav-link" href="#"><img src="/res/content/Logo-UE-FEDER-web.jpg" height="60" alt=""></a>
-      </span>
-      <span class="navbar-text">
-        <a id="cet-notre-projet-region" class="nav-link" href="#"><img src="/res/content/logo_region-aquitaine.jpg" height="60" alt=""></a>
-      </span>
     <?php endif; ?>
   </div>
 </nav>

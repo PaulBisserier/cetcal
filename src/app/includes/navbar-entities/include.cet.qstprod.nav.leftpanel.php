@@ -3,4 +3,5 @@
 </a>
 <div class="dropdown-menu" aria-labelledby="cet-annuaire-main-dropdown">
   <a class="dropdown-item" href="/?statut=asso.vente&anr=true"><i class="fa fa-book" aria-hidden="true"></i> Annuaire des Associations et Distributeurs</a>
+  <a class="dropdown-item" href="/?statut=asso.vente&anr=true"><i class="fa fa-thumb-tack" aria-hidden="true"></i> Tous les Marchés de votre Région</a>
 </div>

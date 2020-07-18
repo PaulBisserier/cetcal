@@ -40,20 +40,27 @@ class CETCALEntitesModel extends CETCALModel
         $jourh = $data[9];
         $specificite = $data[10];
 
-        $qLib = $this->getQuerylib();
-        $stmt = $this->getCnxdb()->prepare($qLib::INSERT_INTO_CETCAL_ENTITES);
-        $stmt->bindParam(":pDenomination", $denomination, PDO::PARAM_STR);
-        $stmt->bindParam(":pTerritoire", $territoire, PDO::PARAM_STR);
-        $stmt->bindParam(":pActivite", $activite, PDO::PARAM_STR);
-        $stmt->bindParam(":pAdrliterale", $adr, PDO::PARAM_STR);
-        $stmt->bindParam(":pTels", $tels, PDO::PARAM_STR);
-        $stmt->bindParam(":pContactPersonne", $personne, PDO::PARAM_STR);
-        $stmt->bindParam(":pEmail", $email, PDO::PARAM_STR);
-        $stmt->bindParam(":pUrlwww", $urlwww, PDO::PARAM_STR);
-        $stmt->bindParam(":pInfoCommande", $infoscmd, PDO::PARAM_STR);
-        $stmt->bindParam(":pJourHoraire", $jourh, PDO::PARAM_STR);
-        $stmt->bindParam(":pSpecificite", $specificite, PDO::PARAM_STR);
-        $stmt->execute();     
+        if ($this->exists($denomination)) 
+        {
+          continue;
+        }
+        else
+        {
+          $qLib = $this->getQuerylib();
+          $stmt = $this->getCnxdb()->prepare($qLib::INSERT_INTO_CETCAL_ENTITES);
+          $stmt->bindParam(":pDenomination", $denomination, PDO::PARAM_STR);
+          $stmt->bindParam(":pTerritoire", $territoire, PDO::PARAM_STR);
+          $stmt->bindParam(":pActivite", $activite, PDO::PARAM_STR);
+          $stmt->bindParam(":pAdrliterale", $adr, PDO::PARAM_STR);
+          $stmt->bindParam(":pTels", $tels, PDO::PARAM_STR);
+          $stmt->bindParam(":pContactPersonne", $personne, PDO::PARAM_STR);
+          $stmt->bindParam(":pEmail", $email, PDO::PARAM_STR);
+          $stmt->bindParam(":pUrlwww", $urlwww, PDO::PARAM_STR);
+          $stmt->bindParam(":pInfoCommande", $infoscmd, PDO::PARAM_STR);
+          $stmt->bindParam(":pJourHoraire", $jourh, PDO::PARAM_STR);
+          $stmt->bindParam(":pSpecificite", $specificite, PDO::PARAM_STR);
+          $stmt->execute();    
+        } 
       }
     }
     catch (Exception $e)
@@ -61,6 +68,21 @@ class CETCALEntitesModel extends CETCALModel
       var_dump($e);
     }
 
+  }
+
+  private function exists($denomination)
+  {
+    $qLib = $this->getQuerylib();
+    $stmt = $this->getCnxdb()->prepare($qLib::SELECT_PK_CETCAL_ENTITE_BY_DENOMINATION);
+    $stmt->execute(['pDenomination' => $denomination]);
+    $data = $stmt->fetchAll();
+
+    foreach ($data as $row) 
+    {
+      if (isset($row['denomination']) && 
+        strcmp($row['denomination'], $denomination) === 0) return true;
+    }
+    return false;
   }
 
   public function selectAll()
