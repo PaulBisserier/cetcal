@@ -4,7 +4,7 @@ require_once('cet.annuaire.annuaire.controller.php');
 /**
  * 
  */
-class AssoDistributeursController extends AnnuaireController
+class MarchesCastillonnaisController extends AnnuaireController
 {
 
   function __construct() { }
@@ -13,8 +13,8 @@ class AssoDistributeursController extends AnnuaireController
   {
     require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/model/cet.annuaire.entites.model.php');
     $model = new CETCALEntitesModel();
-    $data = $model->selectAllNotMarche();
+    $data = $model->selectAllIsMarche();
     return $data;
   }
-
+  
 }

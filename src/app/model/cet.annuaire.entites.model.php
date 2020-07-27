@@ -67,7 +67,54 @@ class CETCALEntitesModel extends CETCALModel
     {
       var_dump($e);
     }
+  }
 
+  public function insertMarches($csvlines) 
+  {
+    /**
+      CSV example : 
+      Marché de Pujols;33350-pujols/890;Ce marché a lieu toute l'année le samedi de 8h à 13h;Centre ville
+      Soit : denomination, adresse, jourhoraire, infoscmd, activite='marche du castillonnais'
+    */
+    foreach ($csvlines as $csvline)
+    {
+      try 
+      {
+        $data = explode(";", $csvline);
+
+        $denomination = $data[0];
+        $adr = explode("$", explode("/", $data[1])[0]);
+        $adrlit = $adr[0].' '.ucfirst($adr[1]);
+        $jourh = str_replace("Ce marché a lieu toute l'année ", '', $data[2]);
+        $jourh = str_replace("les jours suivants : ", '', $jourh);
+        $activite = "marche du castillonnais";
+        $infoscmd = "";
+        $specificite = "";
+
+        //echo '<p>'.$denomination.', '.$adrlit.', '.$jourh.'</p>';
+
+        if ($this->exists($denomination)) 
+        {
+          continue;
+        }
+        else
+        {
+          $qLib = $this->getQuerylib();
+          $stmt = $this->getCnxdb()->prepare($qLib::INSERT_INTO_CETCAL_ENTITES_MARCHE);
+          $stmt->bindParam(":pDenomination", $denomination, PDO::PARAM_STR);
+          $stmt->bindParam(":pActivite", $activite, PDO::PARAM_STR);
+          $stmt->bindParam(":pAdrliterale", $adrlit, PDO::PARAM_STR);
+          $stmt->bindParam(":pInfoCommande", $infoscmd, PDO::PARAM_STR);
+          $stmt->bindParam(":pJourHoraire", $jourh, PDO::PARAM_STR);
+          $stmt->bindParam(":pSpecificite", $specificite, PDO::PARAM_STR);
+          $stmt->execute();    
+        }
+      }
+      catch (Exception $e)
+      {
+        var_dump($e);
+      }  
+    }  
   }
 
   private function exists($denomination)
@@ -83,6 +130,26 @@ class CETCALEntitesModel extends CETCALModel
         strcmp($row['denomination'], $denomination) === 0) return true;
     }
     return false;
+  }
+
+  public function selectAllIsMarche()
+  {
+    $qLib = $this->getQuerylib();
+    $stmt = $this->getCnxdb()->prepare($qLib::SELECT_ALL_CETCAL_ENTITE_IS_MARCHE);
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+
+    return $data;
+  }
+
+  public function selectAllNotMarche()
+  {
+    $qLib = $this->getQuerylib();
+    $stmt = $this->getCnxdb()->prepare($qLib::SELECT_ALL_CETCAL_ENTITE_NOT_MARCHE);
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+
+    return $data;
   }
 
   public function selectAll()

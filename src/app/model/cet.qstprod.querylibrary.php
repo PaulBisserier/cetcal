@@ -30,6 +30,9 @@ class CETCALQueryLibrary
   const SELECT_CETCAL_CARTOGRAPHIE_WHERE_PKFK = "SELECT * FROM cetcal.cetcal_cartographie WHERE fk_producteur=:pFkProducteur;";
 
   const INSERT_INTO_CETCAL_ENTITES = "INSERT INTO cetcal.cetcal_entite (denomination, territoire, activite, adresse, tels, personne, email, urlwww, infoscmd, jourhoraire, specificites) VALUES (:pDenomination, :pTerritoire, :pActivite, :pAdrliterale, :pTels, :pContactPersonne, :pEmail, :pUrlwww, :pInfoCommande, :pJourHoraire, :pSpecificite);";
+  const INSERT_INTO_CETCAL_ENTITES_MARCHE = "INSERT INTO cetcal.cetcal_entite (denomination, activite, adresse, infoscmd, jourhoraire, specificites) VALUES (:pDenomination, :pActivite, :pAdrliterale, :pInfoCommande, :pJourHoraire, :pSpecificite);";
   const SELECT_ALL_CETCAL_ENTITE = "SELECT * from cetcal.cetcal_entite;";
+  const SELECT_ALL_CETCAL_ENTITE_NOT_MARCHE = "SELECT * from cetcal.cetcal_entite WHERE activite != 'marche du castillonnais';";
+  const SELECT_ALL_CETCAL_ENTITE_IS_MARCHE = "SELECT * from cetcal.cetcal_entite WHERE activite='marche du castillonnais';";
   const SELECT_PK_CETCAL_ENTITE_BY_DENOMINATION = "SELECT * FROM cetcal.cetcal_entite WHERE denomination=:pDenomination;";
 }

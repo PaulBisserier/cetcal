@@ -6,7 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/src/app/controller/cet.annuaire.control
 $ctrl = new AssoDistributeursController();
 $data = !$filtre ? $ctrl->init() : $ctrl->loadQuery($filtre);
 $resultNull = is_array($data) && count($data) === 0;
-$counter = 0; $newRow = false;
+$counter = 0;
 ?>
 
 <div class="row justify-content-lg-center" style="margin-bottom: 8px;">
