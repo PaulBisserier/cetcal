@@ -15,17 +15,17 @@ class AnnuaireController
     $data = $this->init();
     $motCle = isset($filtre) ? $dataProcessor->processHttpFormData($filtre) : false;
 
-    foreach ($data as $row) 
+    foreach ($data as $row)
     {
       foreach ($row as $key => $value) 
       {
         if (!isset($value)) continue; 
         $index = stripos($value, $motCle);
-        if ($index != false && $index >= 0) 
+        if ($index !== false && $index >= 0) 
         {
-          array_push($res, str_ireplace($filtre, 
-            '<span class="cet-r-q">'.$filtre.'</span>',
-            $row));
+          array_push($res, 
+            str_ireplace($filtre, '<span class="cet-r-q">'.$filtre.'</span>', 
+              $row));
           break;
         }
       }

@@ -13,9 +13,9 @@ $counter = 0;
   <div class="col-md-6">
     <p class="form-text text-muted">Les structures de type <i>Associations</i> ou <i>Distributeurs</i> connues de CETCAL.<br>Filtrer/Rechercher par mot clé :</p>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Rechercher par mot clé, commune, activité, marché..." aria-label="Recherche par mot clé" id="cet-annuaire-asso-vente-filtre" name="cet-annuaire-asso-vente-filtre">
+      <input type="text" class="form-control" placeholder="Rechercher par mot clé, commune, activité, marché..." aria-label="Recherche par mot clé" id="cet-annuaire-recherche-filtre" name="cet-annuaire-recherche-filtre">
       <div class="input-group-append">
-        <a class="btn btn-success" id="cet-annuaire-asso-vente-filtrer" style="color: white;"
+        <a class="btn btn-outline-success" id="cet-annuaire-recherche-filtrer"
           href="/?statut=asso.vente&anr=true&q=">
           Rechercher  <i class="fa fa-search" aria-hidden="true"></i>
         </a>
@@ -102,4 +102,4 @@ $counter = 0;
     </div>
   <?php endif; ?>
 </div>
-<script src="/src/scripts/js/cetcal/cetcal.asso.vente.min.js"></script>
+<script src="/src/scripts/js/cetcal/cetcal.recherche.min.js"></script>

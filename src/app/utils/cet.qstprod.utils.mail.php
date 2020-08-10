@@ -27,10 +27,10 @@ Class CETQstprodMailUtils
     $this->mail->SMTPSecure = 'ssl'; 
     $this->mail->Host = 'mail.gandi.net';
     $this->mail->Port = 465;
-    $this->mail->Username = ".org";
+    $this->mail->Username = "annuaire@castillonnaisentransition.org";
     $this->mail->Password = "";
     $this->mail->CharSet = 'UTF-8';
-    $this->mail->setFrom('.org', 'CETCAL - Annuaire des producteurs de notre région');
+    $this->mail->setFrom('annuaire@castillonnaisentransition.org', 'CETCAL - Annuaire des producteurs de notre région');
   }
 
   public function sendSignup($mailFileHTML, $mailFilePlain, $emailTo, $mailSubject, $fileReader, 
